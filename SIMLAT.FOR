@@ -85,10 +85,6 @@ C**** MAIN LOOP - CYCLE THROUGH INCREMENTING 'SYSTEM CLOCK' BY 'NDELT'
 C                 EACH CYCLE UNTIL 'NTIME' IS EQUAL TO 'MAXTIM'.        
 C                                                                       
   200 NTIME = NTIME + NDELT                                             
-C**** UPDATE ON-SCREEN DISPLAY OF SIMULATION TIME EVERY 10 SECONDS
-C**** OF SIMULATION. 
-      IF (MOD(NTIME,1000) .LT. NDELT) CALL UPDSTATUS(3)
-C
 C                                                                       
 C**** RESISTOR GRID CALCULATIONS ***************************************
 C                                                                       

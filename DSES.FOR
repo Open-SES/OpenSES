@@ -45,7 +45,7 @@ C
       MONTHS(12) = 'DECEMBER '
 C
 C**** SET SES VERSION
-      SESVER='4.10 '
+      SESVER='4.10GF'
 C**** PROGRAM EQUIVALENT OF INFINITY - REAL VARIABLES
       ZAP=1.0E20
 C**** PROGRAM EQUIVALENT OF INFINITY - INTEGER VARIABLES
@@ -53,8 +53,6 @@ C**** IZAP = (2**31)-1
       IZAP=2147483647
 C**** SET NEW
       NEW=0
-C**** DISPLAY ON-SCREEN STATUS WINDOW
-      CALL SETSTATUS  
 C**** OBTAIN THE NAME OF THE INPUT FILE FROM COMMAND LINE
       CALL GETARGU
 C**** GET THE DATE AND TIME OF THE SIMULATION FROM SYSTEM CLOCK
@@ -122,8 +120,6 @@ C*****                         PR**0.6 EQUALS ABOUT 0.82166
 C                                                                       
 C*****SES INPUT VERIFICATION                                            
 C                                                                       
-C**** UPDATE STATUS DISPLAY
-      CALL UPDSTATUS(1)
       CALL INPUT                                                     
 C**** END OF INPUT VERIFICATION - IF FATAL ERROR HAS OCCURRED (NEW = 1)     
 C**** TERMINATE SIMULATION                                              
@@ -143,8 +139,6 @@ C----
 C****
 C---- SES SIMULATION                                                    
 C                                                                       
-C**** UPDATE ON-SCREEN STATUS WINDOW  
-      CALL UPDSTATUS (2)
   375 CALL SIMLAT( ISIMOP )                                          
       ISIMOP = 2                                                        
 C                                                                       
@@ -168,8 +162,7 @@ C---- ENVIRONMENTAL CONTROL LOAD ESTIMATE
 C                                                                       
 C---- ENVIRONMENTAL LOAD EVALUATION                                     
 C                                                                       
-  410 CALL UPDSTATUS(5)
-      CALL DTHTS2                                                    
+  410 CALL DTHTS2                                                    
 C**** THE SIMULATION HAS BEEN COMPLETED THROUGH AN ERROR CONDITION FROM 
 C**** MEMBER 'DTHTS2'.  SET EXITCODE=17.
   460 IF (NEW .EQ. 1)THEN
@@ -186,7 +179,6 @@ C---- WRITE INITIALIZATION DATA IN RESTART FILE
 C                                                                       
   515 IF (RSTWOPT .EQ. 0)  GO TO 517
       EXITCODE=100                                     
-     	CALL UPDSTATUS(6)
       WRITE (OUT,1) CHAR(12)
       CALL RSTWRITE                                                    
       WRITE (OUT,10)  RSTWOPT
@@ -194,10 +186,5 @@ C
   517 CONTINUE
       CLOSE (IN)
 	CLOSE (OUT)
-C**** GENERATE THE FORMATED SES OUTPUT FILE (FILENAME.PRN)
-     	CALL UPDSTATUS(7)
-      CALL PRNTCONV
-	CALL UPDSTATUS(8)
-      CALL CLEARSCR
       CALL EXIT (EXITCODE)                                                              
       END                                                               

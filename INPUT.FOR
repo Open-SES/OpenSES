@@ -48,7 +48,7 @@ C     MAXTIT: MAXIMUM NUMBER OF TITLE LINES
 90    FORMAT (36X,'DESIGN TIME 0',I3,' HRS',3X,A9,I6)            
 100   FORMAT (T94,'DEVELOPED BY -',/,T96,'PARSONS, BRINCKERHOFF,',/,T96, 
      1'QUADE AND DOUGLAS, INC.',/,T96,'NEW YORK CITY, NEW YORK',/,T96, 
-     2'VERSION ',A5)                                     
+     2'VERSION ',A8)                                     
 110   FORMAT (/ T44,'INPUT VERIFICATION OF GENERAL DATA')             
 120   FORMAT (/ T112,'FORM 1C'/T29,'TRAIN PERFORMANCE OPTION',T79,I5,T89
      1,'BYPASS')                                                      
@@ -436,7 +436,7 @@ C**** INITIALIZE HEADER AND FOOTER
       TITLE=ADJUSTL(TITLINES(1))
 	NUMY1=LEN_TRIM(TITLE)
 	NUMY2=(80-NUMY1)/2.0
-      HEADER(8:20)='SES VER '//SESVER
+      HEADER(2:24)='SES VER '//SESVER
       HEADER((26+NUMY2):(25+NUMY2+NUMY1))=TITLE(1:NUMY1)
 	HEADER(112:116)='PAGE:'
 	NUMY1=LEN_TRIM(INPFILE)
@@ -2322,7 +2322,6 @@ C
 C---- READ INITIALIZATION DATA FILE                                     
 C                                                                       
       IF (RSTROPT .EQ. 0 )  GO TO 5545                                   
-     	CALL UPDSTATUS(4)
       WRITE (OUT,10) CHAR(12)
 C---- CHECK WHETHER THE INPUT FILE CONTAINS JUST THE NAME OF THE 
 C---- RESTART FILE OR THE ENTIRE RESTART FILE HAS BEEN ATTACHED TO
