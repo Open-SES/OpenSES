@@ -1,0 +1,41 @@
+C                                                                       
+C     INCLUDE DSHRHS                           ( DATE: 15 AUGUST 1997 ) 
+C     
+C***************************  INTEGER VARIABLES  ********************** 
+C                                                                       
+C THERMODYNAMIC NODE VARIABLES  (LMTHND)                                
+      INTEGER   TABL42(LMTHND)                                             
+C SUBSEGMENT VARIABLES  (LINE AND VENT SHAFT SUBSEGMENT)  (LMSS)        
+      INTEGER   TABL40(LMSS)                                            
+C DYNAMIC THERMAL RESPONSE MATRIX VARIABLES  (LMEQRM)                   
+      INTEGER   TABL41(LMEQRM)                                            
+C                                                                       
+C***************************  REAL VARIABLES  ************************* 
+C                                                                       
+C DYNAMIC THERMAL RESPONSE MATRIX  (LMEQRM * LMEQRM )                   
+      REAL     DTRM2(LMEQRM*LMEQRM)                                         
+C                                                                       
+C********************   BLOCK COMMON HSSHAR   *************************
+C                                                                       
+C THERMODYNAMIC NODE VARIABLE  (LMTHND)                                 
+      COMMON   /HSSHAR/  TABL42                                         
+C LINE SEGMENT VARIABLES  (LMLSEG)                                      
+      COMMON   /HSSHAR/  TAALS(LMLSEG)                                     
+C VENTILATION SHAFT VARIABLES  (LMVSEG)                                 
+      COMMON   /HSSHAR/  TSFV(LMVSEG)                                      
+C SUBSEGMENT VARIABLES  (LINE AND VENT SHAFT SUBSEGMENT)  (LMSS)        
+      COMMON   /HSSHAR/  HCNLSS(LMSS), TABL40, TMALSS(LMSS)             
+C SUBSEGMENT PLUS THERMODYNAMIC NODE VARIABLES  (LMSS + LMTHND)         
+      COMMON   /HSSHAR/  HUMESS(LMSS+LMTHND), HUMMSS(LMSS+LMTHND),      
+     1      TSFALS(LMSS+LMTHND),TSFMLS(LMSS+LMTHND),
+     1      TSMAX(LMSS+LMTHND),TSMEAN(LMSS+LMTHND),
+     1      TSMN2(LMSS+LMTHND),TSMX2(LMSS+LMTHND)
+C DYNAMIC THERMAL (AND HUMIDITY) RESPONSE MATRIX  (LMEQRM)              
+C                                              OR (LMEQRM , LMEQRM)     
+      COMMON   /HSSHAR/  DTRM(LMEQRM,LMEQRM), FORCE2(LMEQRM),
+     1      FORCE3(LMEQRM), HTSKFM(LMEQRM), TABL41                                        
+C                                                                       
+      EQUIVALENCE (DTRM(1,1),DTRM2(1))                                  
+C                                                                       
+C*****DSHRHS  END****************************************************** 
+C                                                                       
