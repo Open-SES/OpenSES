@@ -25,7 +25,7 @@ clean:
 	del *.obj
 
 SES41_GF: $(objects)
-	$(FCOMPL77) -o  SES41_GF $(objects)
+	$(FCOMPL77) -o  SES41_GF $(objects) -static
 	
 
 # *** Object Dependencies ***
