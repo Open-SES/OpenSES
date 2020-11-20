@@ -219,7 +219,7 @@ C*****TRAIN NUMBER
 C*****TRAIN TYPE                                                        
       ITYP=ITYPV(NUMV)                                                  
 C*****REGION AREA                                                       
-      ANETRG=ANETRG-AV(ITYP)                                            
+      ANETRG=ANETRG-AV(ITYP)
 C*****TOTAL PERIMETER OF REGION EXPOSED TO AIR FLOW                     
       PNETRG=PNETRG+PERMV(ITYP)                                         
 C*****TOTAL TRAIN VOLUME FLOWRATE FOR REGION                            

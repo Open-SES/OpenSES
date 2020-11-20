@@ -453,7 +453,12 @@ C---- LOOP OVER ALL TRAINS IN SEGMENT
       SUMQ = SUMQ - IDIR * UV(NUMV) * AV(ITYP)                          
       SUMP = SUMP + PERMV(ITYP)                                         
       SUMA = SUMA - AV(ITYP)                                            
-      IROUTE = IROTEV(NUMV)                                             
+C*****VERSION 4.1 UPGRADE        
+C     THE SUM OF FRONTAL AREA OF TRAINS INSIDE A SEGMENT SHOULD BE  
+C     LESS THAN THE SEGMENT CROSS-SECTIONAL AREA
+	IF (SUMA .LE. 0.0) CALL EERROR (263)
+C	
+	IROUTE = IROTEV(NUMV)                                             
       ITNLSS(ISS,IROUTE) = TNUMV(NUMV)                                  
       VOLSS(ISS) = VOLSS(ISS) - AV(ITYP) * RL                           
       QTRNA = QAXSV(NUMV) * RL                                          

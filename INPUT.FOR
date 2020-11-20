@@ -637,7 +637,15 @@ C --  ENVIRONMENTAL CONTROL ZONES
 2130  NZONE =DUMY3                                                      
       WRITE (OUT,410) NZONE                                             
       CALL CHECKI (NZONE ,0,LMCLST,100)                                 
-      FSCFT=DUMY4                                                       
+C**** VERSION 4.1 UPGRADES
+C     THE NUMBER OF ENVIRONMENT CONTROL ZONES SHOULD NOT BE ZERO
+C     WHEN FORM 1C ENVIRONMENTAL CONTROL LOAD EVALUATION OPTION IS EQUAL TO ONE OR TWO.
+      IF (HCOPT .GT. 0.0) GOTO 1031
+      GOTO 1032
+1031  IF (NZONE .EQ. 0.0) CALL EERROR (264)
+C
+C**** FAN STOPPING/WINDMILLING OPTION
+1032  FSCFT=DUMY4                                                       
       IF (FSCFT .EQ. 1)THEN
 C**** SIMULATION TERMINATION        
         WRITE (OUT,430)FSCFT

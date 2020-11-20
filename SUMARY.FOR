@@ -672,6 +672,13 @@ C---- DESIGN TEMPERATURE TABULATION
       ISSL = TABL3(ILS)                                                 
       ISSH = TABL4(ILS)                                                 
       ICLUST = TABL44(ISSL)                                             
+C*****VERSION 4.1 UPGRADES
+C     ICLUST MUST NOT BE ZERO.  
+      IF (ICLUST .EQ. 0.0) CALL EERROR (264)  
+C     IF ICLUST EQUAL TO ZERO, THE DATA SET DOES NOT INCLUDE ENVIRONMENT CONTROL ZONES.
+C     THE FOLLOWING EQUATION CREATES A PROBLEM WITH DOING ENVIRONMENTAL CONTROL
+C     LOAD EVALUATION (RUSH AND OFF HOURS). 
+C*****
       IF( TYPCL(ICLUST) - 1 ) 1250,1183,1250                            
  1183 IF( DESPER - 1 ) 1185,1185,1241                                   
 C                                                                       

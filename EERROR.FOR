@@ -566,8 +566,11 @@ C---- MAXIMUM SHOULD BE 'LMEXPD' -1
      1ATURE EVALUATION IS LESS THAN ZERO.')                             
 762   FORMAT(    15X,'THE EFFECTIVE EMISSIVITY OF THE COMBUSTION PRODUCT
      1S IS LESS THAN ZERO OR GREATER THAN 1.0.')                        
-763   FORMAT ()                                                      
-764   FORMAT ()                                                      
+763   FORMAT(    15X,'THE SUM OF FRONTAL AREA OF TRAINS INSIDE A SEGMENT 
+     1 IS HIGHER THAN THE SEGMENT CROSS-SECTIONAL AREA.')                                                          
+764   FORMAT(    15X,'THE NUMBER OF ENVIRONMENTAL CONTROL ZONES SHOULD N
+     1OT BE ZERO WHEN THE ENVIROMENTAL CONTROL LOAD EVALUATION OPTION'/,
+     215X,'IS EQUAL TO ONE OR TWO.')                                                          
 765   FORMAT ()                                                      
 766   FORMAT ()                                                      
 767   FORMAT ()                                                      
@@ -1150,10 +1153,10 @@ C
       GO TO 499                                                         
   262 WRITE (OUT,762)                                                   
       GO TO 500                                                         
-  263 WRITE (OUT,763)
-      GO TO 500                                                         
+  263 WRITE (OUT,763) 
+      GO TO 499                                                         
   264 WRITE (OUT,764)                                                   
-      GO TO 500                                                         
+      GO TO 499                                                         
   265 WRITE (OUT,765)                                                   
       GO TO 500                                                         
   266 WRITE (OUT,766)                                                   

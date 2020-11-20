@@ -41,7 +41,7 @@ C                                              ( DATE: 15 AUGUST 1997 )
 C     
 	INTEGER(4) FUNCTION INITIALSETTINGS
 C**** SET FRAME WINDOW SIZE AND MENU
-	USE MSFLIB
+	USE DFLIB
 	TYPE (qwinfo) qwi
 C**** SET X AND Y COORDINATE OF UPPER LEFT CORNER OF DISPLAY WINDOW      
       qwi.x=0
@@ -146,7 +146,7 @@ C****	SUBROUTINE OPENPRNT
 C**** THIS SUBROUTINE DETERMINES THE LOCATION OF THE PRINTER CONTROL
 C**** FILE AND OPENS THE TEMPORARY AND FORMATTED OUTPUT FILES
 C****
-      USE MSFWIN
+      USE DFWIN
       INCLUDE 'DSHARE'
       CHARACTER*254 TEMPO
 C**** DETERMINE THE LOCATION OF THE PRINTER CONTROL FILE
@@ -182,7 +182,7 @@ C**** INITIALSETTINGS ( VARIABLE QWI.W )
 	call SubclassInit()
 
 C****  Set for exit without prompting
-	I  = SETEXITQQ( QWIN$EXITPERSIST )
+	I  = SETEXITQQ( QWIN$EXITNOPERSIST )
 C**** INITIALIZE FONTS
       I1 = INITIALIZEFONTS()
 C**** SET BACKGROUND COLOR AND CLEAR DISPLAY WINDOW
@@ -258,7 +258,7 @@ C**** CALCULATE X-COORDINATE ON THE DISPLAY WINDOW AND DISPLAY MESSAGE
 C****	SUBROUTINE UPDSTATUS (IOPTION)
       SUBROUTINE UPDSTATUS (IOPTION)
 C**** THIS SUBROUTINE UPDATES THE STATUS DISPLAY
-	USE MSFWIN
+	USE DFWIN
 	INCLUDE 'DSHARE'
       TYPE (XYCOORD) XYS
 	INTEGER*2 I1
@@ -398,8 +398,8 @@ C**** SET CURRENT FONT COLOR
 
 C*****************************************************
 	subroutine SubclassInit()
-	use msflib
-	use msfwin
+	use dflib
+	use dfwin
 	integer i, j
 	logical l
 C		Set up the Frame Window
@@ -408,11 +408,11 @@ C		Set up the Frame Window
 	j = iand( j, not(WS_MAXIMIZEBOX) )
 	i = SetWindowLong( GetHWndQQ(QWIN$FRAMEWINDOW), GWL_STYLE, j )	    
 	l = SetWindowText( GetHwndQQ(QWIN$FRAMEWINDOW), 
-	*			"SES Simulation"C )
+	1			"SES Simulation"C )
 C		Set up the child window
 	j = GetWindowLong( GetHWndQQ(0), GWL_STYLE )
 	j = ior( iand( j, not(WS_CAPTION.or.WS_THICKFRAME.or.WS_SYSMENU) 
-	*   ), WS_BORDER )
+	1    ), WS_BORDER )
 	i = SetWindowLong( GetHWndQQ(0), GWL_STYLE, j )	    
 	l = MoveWindow( GetHWndQQ(0), -1, -1, 400, 300, .TRUE. )
 

@@ -1,6 +1,6 @@
 C**** THE FOLLOWING LINE SHOULD BE COMMENTED OUT IF THE MICROSOFT
 C**** FORTRAN COMPILER IS NOT USED
-      USE MSFLIB
+      USE DFLIB
 
 C                                                                       
 C     INCLUDE DSHARE                           ( DATE: 15 AUGUST 1997 ) 
