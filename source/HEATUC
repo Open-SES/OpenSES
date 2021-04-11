@@ -1,0 +1,15 @@
+C                                                                       
+C     INCLUDE HEATUC                           ( DATE: 15 AUGUST 1997 ) 
+C     
+C***************************  BLOCK COMMON  ****************************
+C                                                                       
+C  SPECIAL LINE SUBSEGMENT VARIABLES (LMLSS)                            
+      COMMON /HEATUC/ ICRITL(LMSS), QMAX(LMCRPT,LMSS)
+      COMMON /HEATUC/ QOLD(LMCRPT+1,LMSS), QRTOLD(LMSS), SIGNS(LMSS)   
+      COMMON /HEATUC/ S(LMSS), THERM(LMCRPT+1,LMSS),TZERO(LMSS)
+C                                                                       
+C  MISCELLANEOUS VARIABLES                                              
+      COMMON /HEATUC/ PROPTY                                            
+C                                                                       
+C************************  END OF BLOCK COMMON  ************************
+C                                                                       
