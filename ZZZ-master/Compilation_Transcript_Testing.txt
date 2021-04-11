@@ -1,0 +1,194 @@
+login as: tuck
+Authenticating with public key "rsa-key-20201119"
+Linux raspberrypi 4.19.66-v7+ #1253 SMP Thu Aug 15 11:49:46 BST 2019 armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Thu Nov 19 17:06:38 2020 from 192.168.1.217
+tuck@raspberrypi:~ $ ls
+Desktop    Downloads  Pictures  SES41GF    Videos
+Documents  Music      Public    Templates
+tuck@raspberrypi:~ $ cd SES41GF/
+tuck@raspberrypi:~/SES41GF $ ls
+ACEST2.FOR   FCTORL.FOR        JULIEC           OMEGA4.FOR  RSTREAD.FOR
+AIR.FOR      FILESUBS.FOR      JULIE.FOR        OMEGA5.FOR  RSTWRITE.FOR
+ALCHAR.FOR   FINS.FOR          KEI.FOR          OMGJ1.FOR   SIMERR.FOR
+AMPERE.FOR   FLOWAY.FOR        KER.FOR          OMGJ2.FOR   SIMLAT.FOR
+BEI.FOR      FLYWHL.FOR        LATENT.FOR       OMGJ3.FOR   SIMQ1.FOR
+BER.FOR      FORCE1.FOR        LOCATE.FOR       OMGJ4.FOR   SIMQ2.FOR
+BESSEL.FOR   FORCEL.FOR        LSINS.FOR        OMGJ5.FOR   SUMARY.FOR
+CHECKI.FOR   GARAGE.FOR        makefile         OMGJ6.FOR   THDERV.FOR
+CHECKR.FOR   GRID.FOR          MAXMIN.FOR       PINPNT.FOR  THNODE.FOR
+CREAT2.FOR   HEAT.FOR          MMAX.FOR         PRINT.FOR   TORQUE.FOR
+CREAT3.FOR   HEATUC            MMIN.FOR         PSI.FOR     TRAIN.FOR
+desktop.ini  HEATUP.FOR        normal-41GF.OUT  QDERIV.FOR  TRANST.FOR
+DSES.FOR     HOOKUP.FOR        normal-41GF.RST  QSQLP.FOR   TRIDG3.FOR
+DSHARE       inferno-41GF.OUT  normal-41.PRN    QUARRK.FOR  TRINS.FOR
+DSHRHS       inferno-41.PRN    normal-41.RST    RATES.FOR   TRSLOP.FOR
+DTHTS2.FOR   inferno.inp       normal.inp       RECORD.TXT  VSINS.FOR
+EERROR.FOR   INPUT.FOR         OMEGA1.FOR       RELHUM.FOR  WETBLB.FOR
+EQUAT.FOR    INTEXT.FOR        OMEGA2.FOR       RESIST.FOR  WLLTM2.FOR
+EXTINT.FOR   JINS.FOR          OMEGA3.FOR       RKTHRM.FOR
+tuck@raspberrypi:~/SES41GF $ make SES41_GF
+gfortran -falign-commons -Wno-align-commons -c ACEST2.FOR
+gfortran -falign-commons -Wno-align-commons -c DTHTS2.FOR
+gfortran -falign-commons -Wno-align-commons -c FLYWHL.FOR
+gfortran -falign-commons -Wno-align-commons -c INPUT.FOR
+gfortran -falign-commons -Wno-align-commons -c LSINS.FOR
+gfortran -falign-commons -Wno-align-commons -c OMEGA5.FOR
+gfortran -falign-commons -Wno-align-commons -c PINPNT.FOR
+gfortran -falign-commons -Wno-align-commons -c RELHUM.FOR
+gfortran -falign-commons -Wno-align-commons -c SIMQ2.FOR
+gfortran -falign-commons -Wno-align-commons -c TRINS.FOR
+gfortran -falign-commons -Wno-align-commons -c AIR.FOR
+gfortran -falign-commons -Wno-align-commons -c EERROR.FOR
+gfortran -falign-commons -Wno-align-commons -c FORCE1.FOR
+gfortran -falign-commons -Wno-align-commons -c INTEXT.FOR
+gfortran -falign-commons -Wno-align-commons -c MAXMIN.FOR
+gfortran -falign-commons -Wno-align-commons -c OMGJ1.FOR
+gfortran -falign-commons -Wno-align-commons -c PRINT.FOR
+gfortran -falign-commons -Wno-align-commons -c RESIST.FOR
+gfortran -falign-commons -Wno-align-commons -c SUMARY.FOR
+gfortran -falign-commons -Wno-align-commons -c TRSLOP.FOR
+gfortran -falign-commons -Wno-align-commons -c ALCHAR.FOR
+gfortran -falign-commons -Wno-align-commons -c EQUAT.FOR
+gfortran -falign-commons -Wno-align-commons -c FORCEL.FOR
+gfortran -falign-commons -Wno-align-commons -c JINS.FOR
+gfortran -falign-commons -Wno-align-commons -c MMAX.FOR
+gfortran -falign-commons -Wno-align-commons -c OMGJ2.FOR
+gfortran -falign-commons -Wno-align-commons -c RKTHRM.FOR
+gfortran -falign-commons -Wno-align-commons -c THDERV.FOR
+gfortran -falign-commons -Wno-align-commons -c VSINS.FOR
+gfortran -falign-commons -Wno-align-commons -c WETBLB.FOR
+gfortran -falign-commons -Wno-align-commons -c AMPERE.FOR
+gfortran -falign-commons -Wno-align-commons -c CHECKI.FOR
+gfortran -falign-commons -Wno-align-commons -c EXTINT.FOR
+gfortran -falign-commons -Wno-align-commons -c GARAGE.FOR
+gfortran -falign-commons -Wno-align-commons -c JULIE.FOR
+gfortran -falign-commons -Wno-align-commons -c MMIN.FOR
+gfortran -falign-commons -Wno-align-commons -c OMGJ3.FOR
+gfortran -falign-commons -Wno-align-commons -c PSI.FOR
+gfortran -falign-commons -Wno-align-commons -c RSTREAD.FOR
+gfortran -falign-commons -Wno-align-commons -c THNODE.FOR
+gfortran -falign-commons -Wno-align-commons -c BEI.FOR
+gfortran -falign-commons -Wno-align-commons -c CHECKR.FOR
+gfortran -falign-commons -Wno-align-commons -c FCTORL.FOR
+gfortran -falign-commons -Wno-align-commons -c GRID.FOR
+gfortran -falign-commons -Wno-align-commons -c KEI.FOR
+gfortran -falign-commons -Wno-align-commons -c OMEGA1.FOR
+gfortran -falign-commons -Wno-align-commons -c OMGJ4.FOR
+gfortran -falign-commons -Wno-align-commons -c QDERIV.FOR
+gfortran -falign-commons -Wno-align-commons -c RSTWRITE.FOR
+gfortran -falign-commons -Wno-align-commons -c TORQUE.FOR
+gfortran -falign-commons -Wno-align-commons -c BER.FOR
+gfortran -falign-commons -Wno-align-commons -c CREAT2.FOR
+gfortran -falign-commons -Wno-align-commons -c HEAT.FOR
+gfortran -falign-commons -Wno-align-commons -c KER.FOR
+gfortran -falign-commons -Wno-align-commons -c OMEGA2.FOR
+gfortran -falign-commons -Wno-align-commons -c OMGJ5.FOR
+gfortran -falign-commons -Wno-align-commons -c QSQLP.FOR
+gfortran -falign-commons -Wno-align-commons -c SIMERR.FOR
+gfortran -falign-commons -Wno-align-commons -c TRAIN.FOR
+gfortran -falign-commons -Wno-align-commons -c WLLTM2.FOR
+gfortran -falign-commons -Wno-align-commons -c BESSEL.FOR
+gfortran -falign-commons -Wno-align-commons -c CREAT3.FOR
+gfortran -falign-commons -Wno-align-commons -c FINS.FOR
+gfortran -falign-commons -Wno-align-commons -c HEATUP.FOR
+gfortran -falign-commons -Wno-align-commons -c LATENT.FOR
+gfortran -falign-commons -Wno-align-commons -c OMEGA3.FOR
+gfortran -falign-commons -Wno-align-commons -c OMGJ6.FOR
+gfortran -falign-commons -Wno-align-commons -c QUARRK.FOR
+gfortran -falign-commons -Wno-align-commons -c SIMLAT.FOR
+gfortran -falign-commons -Wno-align-commons -c TRANST.FOR
+gfortran -falign-commons -Wno-align-commons -c DSES.FOR
+gfortran -falign-commons -Wno-align-commons -c FLOWAY.FOR
+gfortran -falign-commons -Wno-align-commons -c HOOKUP.FOR
+gfortran -falign-commons -Wno-align-commons -c LOCATE.FOR
+gfortran -falign-commons -Wno-align-commons -c OMEGA4.FOR
+gfortran -falign-commons -Wno-align-commons -c RATES.FOR
+gfortran -falign-commons -Wno-align-commons -c SIMQ1.FOR
+gfortran -falign-commons -Wno-align-commons -c TRIDG3.FOR
+gfortran -falign-commons -Wno-align-commons -c FILESUBS.FOR
+gfortran -o  SES41_GF ACEST2.o  DTHTS2.o  FLYWHL.o   INPUT.o  LSINS.o  OMEGA5.o                                                        PINPNT.o   RELHUM.o   SIMQ2.o    TRINS.o AIR.o     EERROR.o  FORCE1.o   INTEXT.o                                                        MAXMIN.o OMGJ1.o  PRINT.o    RESIST.o   SUMARY.o   TRSLOP.o ALCHAR.o  EQUAT.o                                                          FORCEL.o   JINS.o   MMAX.o   OMGJ2.o  RKTHRM.o   THDERV.o   VSINS.o    WETBLB.o                                                        AMPERE.o  CHECKI.o  EXTINT.o   GARAGE.o JULIE.o  MMIN.o   OMGJ3.o    PSI.o                                                             RSTREAD.o  THNODE.o BEI.o     CHECKR.o  FCTORL.o   GRID.o   KEI.o    OMEGA1.o O                                                       MGJ4.o    QDERIV.o   RSTWRITE.o TORQUE.o BER.o     CREAT2.o  HEAT.o     KER.o                                                           OMEGA2.o OMGJ5.o  QSQLP.o    SIMERR.o   TRAIN.o    WLLTM2.o BESSEL.o  CREAT3.o                                                         FINS.o     HEATUP.o LATENT.o OMEGA3.o OMGJ6.o    QUARRK.o   SIMLAT.o   TRANST.o                                                        DSES.o    FLOWAY.o  HOOKUP.o   LOCATE.o OMEGA4.o RATES.o  SIMQ1.o    TRIDG3.o                                                          FILESUBS.o
+tuck@raspberrypi:~/SES41GF $ ./SES41_GF inferno.inp
+tuck@raspberrypi:~/SES41GF $ ./SES41_GF normal.inp
+tuck@raspberrypi:~/SES41GF $ ^C
+tuck@raspberrypi:~/SES41GF $ cat inferno.out
+cat: inferno.out: No such file or directory
+tuck@raspberrypi:~/SES41GF $ cat ./inferno.out | more
+cat: ./inferno.out: No such file or directory
+tuck@raspberrypi:~/SES41GF $ ls
+ACEST2.FOR  CREAT2.FOR   FCTORL.o      HEAT.o            JULIE.o     normal-41GF.OUT  OMGJ1.o     QDERIV.o      SES41_GF    TRAIN.o
+ACEST2.o    CREAT2.o     FILESUBS.FOR  HEATUC            KEI.FOR     normal-41GF.RST  OMGJ2.FOR   QSQLP.FOR     SIMERR.FOR  TRANST.FOR
+AIR.FOR     CREAT3.FOR   FILESUBS.o    HEATUP.FOR        KEI.o       normal-41.PRN    OMGJ2.o     QSQLP.o       SIMERR.o    TRANST.o
+AIR.o       CREAT3.o     FINS.FOR      HEATUP.o          KER.FOR     normal-41.RST    OMGJ3.FOR   QUARRK.FOR    SIMLAT.FOR  TRIDG3.FOR
+ALCHAR.FOR  desktop.ini  FINS.o        HOOKUP.FOR        KER.o       normal.inp       OMGJ3.o     QUARRK.o      SIMLAT.o    TRIDG3.o
+ALCHAR.o    DSES.FOR     FLOWAY.FOR    HOOKUP.o          LATENT.FOR  normal.OUT       OMGJ4.FOR   RATES.FOR     SIMQ1.FOR   TRINS.FOR
+AMPERE.FOR  DSES.o       FLOWAY.o      inferno-41GF.OUT  LATENT.o    normal.RST       OMGJ4.o     RATES.o       SIMQ1.o     TRINS.o
+AMPERE.o    DSHARE       FLYWHL.FOR    inferno-41.PRN    LOCATE.FOR  OMEGA1.FOR       OMGJ5.FOR   RECORD.TXT    SIMQ2.FOR   TRSLOP.FOR
+BEI.FOR     DSHRHS       FLYWHL.o      inferno.inp       LOCATE.o    OMEGA1.o         OMGJ5.o     RELHUM.FOR    SIMQ2.o     TRSLOP.o
+BEI.o       DTHTS2.FOR   FORCE1.FOR    inferno.OUT       LSINS.FOR   OMEGA2.FOR       OMGJ6.FOR   RELHUM.o      SUMARY.FOR  VSINS.FOR
+BER.FOR     DTHTS2.o     FORCE1.o      INPUT.FOR         LSINS.o     OMEGA2.o         OMGJ6.o     RESIST.FOR    SUMARY.o    VSINS.o
+BER.o       EERROR.FOR   FORCEL.FOR    INPUT.o           makefile    OMEGA3.FOR       PINPNT.FOR  RESIST.o      THDERV.FOR  WETBLB.FOR
+BESSEL.FOR  EERROR.o     FORCEL.o      INTEXT.FOR        MAXMIN.FOR  OMEGA3.o         PINPNT.o    RKTHRM.FOR    THDERV.o    WETBLB.o
+BESSEL.o    EQUAT.FOR    GARAGE.FOR    INTEXT.o          MAXMIN.o    OMEGA4.FOR       PRINT.FOR   RKTHRM.o      THNODE.FOR  WLLTM2.FOR
+CHECKI.FOR  EQUAT.o      GARAGE.o      JINS.FOR          MMAX.FOR    OMEGA4.o         PRINT.o     RSTREAD.FOR   THNODE.o    WLLTM2.o
+CHECKI.o    EXTINT.FOR   GRID.FOR      JINS.o            MMAX.o      OMEGA5.FOR       PSI.FOR     RSTREAD.o     TORQUE.FOR
+CHECKR.FOR  EXTINT.o     GRID.o        JULIEC            MMIN.FOR    OMEGA5.o         PSI.o       RSTWRITE.FOR  TORQUE.o
+CHECKR.o    FCTORL.FOR   HEAT.FOR      JULIE.FOR         MMIN.o      OMGJ1.FOR        QDERIV.FOR  RSTWRITE.o    TRAIN.FOR
+tuck@raspberrypi:~/SES41GF $ cat ./inferno.OUT |more
+                                      UNITED STATES DEPARTMENT OF TRANSPORTATION
+                                            FEDERAL TRANSIT ADMINISTRATION
+                                 JOHN A. VOLPE NATIONAL TRANSPORTATION SYSTEMS CENTER
+
+                                               XXXXX   XXXXXXX   XXXXX
+                                              X        X        X
+                                               XXXXX   XXXXX     XXXXX
+                                                    X  X              X
+                                                    X  X              X
+                                              XXXXXX   XXXXXXX  XXXXXX
+
+                                            SUBWAY ENVIRONMENT SIMULATION
+
+                                                  SIMULATION OF
+
+                         SAMPLE SES INPUT FILE FOR EMERGENCY SIMULATION (FIRE MODEL)
+
+                         A 6-CAR TRAIN IS IN A TUNNEL WITH A 3 PERCENT GRADE
+
+                         A FIRE OCCURS IN THE 4TH CAR
+
+                         FIRE HEAT RELEASE RATE = 48000000 BTU/H
+
+                         DOWNHILL VENTILATION WITH A FAN CAPACITY OF 300,000 CFM
+
+                                    DESIGN TIME 1700 HRS   JULY       1984
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                             DEVELOPED BY -
+                                                                                               PARSONS, BRINCKERHOFF,
+                                                                                               QUADE AND DOUGLAS, INC.
+                                                                                               NEW YORK CITY, NEW YORK
+                                                                                               VERSION 4.10GF
+^L
+tuck@raspberrypi:~/SES41GF $
