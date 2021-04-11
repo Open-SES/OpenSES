@@ -1,0 +1,14 @@
+C     TML2                                                              
+C                                                                       
+C     INCLUDE JULIEC                           ( DATE: 15 AUGUST 1997 ) 
+C     
+C---- JULIEC LABELED COMMON                                             
+C                                                                       
+      COMMON /JULIEC/  PIHS, TM, B, E, F                                
+      COMMON /JULIEC/  ZM0XR, ZN0XR, ATH0XR, APH0XR                     
+      COMMON /JULIEC/  ZM1XR, ZN1XR, ATH1XR, APH1XR                     
+      COMMON /JULIEC/  ZM0X1, ZN0X1, ATH0X1, APH0X1                     
+      COMMON /JULIEC/  ZM1X1, ZN1X1, ATH1X1, APH1X1                     
+      COMMON /JULIEC/  ZM0X2, ZN0X2, ATH0X2, APH0X2                     
+      COMMON /JULIEC/  ZM1X2, ZN1X2, ATH1X2, APH1X2                     
+C----                                                                   
