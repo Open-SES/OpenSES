@@ -14,7 +14,7 @@
 
 %%% PAGE DIMENSIONS
 \usepackage{geometry} % to change the page dimensions
-\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+\geometry{letterpaper, margin=1in} % or letterpaper (US) or a5paper or....
 % \geometry{margin=2in} % for example, change the margins to 2 inches all round
 % \geometry{landscape} % set up the page for landscape
 %   read geometry.pdf for detailed page layout information
@@ -86,12 +86,12 @@ m_\mathrm{v,mod} = m_\mathrm{v} \left(1 + f_\mathrm{acc}\right)
 \noindent where $f_\mathrm{acc}$ is a coefficient representing the effective mass of rotating parts relative to the car mass.
 SES is coded in such a way that $f_\mathrm{acc}$ cannot be set directly. 
 The corresponding user input is the Acceleration Resistance of Rotating Parts, $R_\mathrm{acc}$, with units lbf/(ton-mph/sec).
-The two parameters are related by a unit conversion factor, $f_\mathrm{c}$
+The two parameters are related by a unit conversion factor, $f_\mathrm{c}$,
 
 \begin{align} \label{eqn_acc_resistance}
 f_\mathrm{acc} &= \frac{R_\mathrm{acc}}{f_\mathrm{c}} \\
 f_\mathrm{c} &= \frac{2000 \, \frac{\mathrm{lb} }{\mathrm{ton} } \times 5280 \frac{\mathrm{ft} }{\mathrm{mil} }}{32.174 \, \frac{\mathrm{ft}}{\mathrm s^2} \, \times 3600 \, \frac{\mathrm{s}}{\mathrm{hr}} } \\
- &= 91.2 \, \frac{\mathrm{lb}}{\mathrm{ton} } \frac{\mathrm {s \, hr}}{\mathrm{mil} }
+ &= 91.2 \, \frac{\mathrm{lb}}{\mathrm{ton} } \frac{\mathrm {s \, hr}}{\mathrm{mil} } \nonumber
 \end{align}
 
 If the acceleration resistance of rotating parts is to be estimated as a fraction of the vehicle mass, then it can be converted to the appropriate SES input using equation \ref{eqn_acc_resistance}.
@@ -106,14 +106,14 @@ C*****FIND ACCELERATION TRAIN IS CAPABLE OF
      1ITYP)+WPATV(NUMV)/GRACC) 
 \end{lstlisting}
 
-where the modified empty car mass (equation \ref{eqn_effective_mass}) appears as the term {\tt WV(ITYP)*RRACC(ITYP)}.
+\noindent where the modified empty car mass (equation \ref{eqn_effective_mass}) appears as the term {\tt WV(ITYP)*RRACC(ITYP)}.
 Note that the variable {\tt RRACC(ITYP)} is redefined when initially read by the {\tt GARAGE} subroutine (line 307):
 
 \begin{lstlisting}
        RRACC(I) = ( 91.2 + RRACC(I) ) / ( 91.2 * GRACC )               
 \end{lstlisting}
 
-Equation \ref{eqn_effective_mass} can be recovered from the above source code as follows, where the subscript `input' indicates the original $R_\mathrm{acc}$ defined by the user.
+Equation \ref{eqn_effective_mass} can be recovered from the above source code as follows,
 
 \begin{align*}
 R_\mathrm{racc} &= \frac{91.2 + R_\mathrm{acc,input}}{91.2 g} = \frac{f_\mathrm{c} + R_\mathrm{acc,input}}{f_\mathrm{c} g} \\
@@ -122,5 +122,7 @@ m_{\mathrm{v,mod}} &= w_\mathrm{v} R_\mathrm{acc} = \frac{w_\mathrm{v} ( f_\math
  &= m_\mathrm{v} +  \frac{ R_\mathrm{acc,input}  }{f_\mathrm{c}} m_\mathrm{v} \\
  &= m_\mathrm{v} \left(1 + f_\mathrm{acc}\right)
 \end{align*}
+
+\noindent where $w_\mathrm{v}$ is car weight, $g$ is gravitational acceleration and the subscript `input' indicates the original $R_\mathrm{acc}$ defined by the user.
 
 \end{document}
