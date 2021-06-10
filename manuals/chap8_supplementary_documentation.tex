@@ -8,6 +8,8 @@
 
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
 
+\bibliographystyle{unsrt}
+
 %%% Examples of Article customizations
 % These packages are optional, depending whether you want the features they provide.
 % See the LaTeX Companion or other references for full information.
@@ -36,6 +38,9 @@
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
 % These packages are all incorporated in the memoir class to one degree or another...
+
+%\usepackage{hyperref}
+\usepackage{url}
 
 %%% HEADERS & FOOTERS
 \usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
@@ -124,5 +129,46 @@ m_{\mathrm{v,mod}} &= w_\mathrm{v} R_\mathrm{acc} = \frac{w_\mathrm{v} ( f_\math
 \end{align*}
 
 \noindent where $w_\mathrm{v}$ is car weight, $g$ is gravitational acceleration and the subscript `input' indicates the original $R_\mathrm{acc}$ defined by the user.
+
+\section{Rolling Resistance Coefficients}
+The Train Rolling Resistance Coefficients are used to compute the mechanical friction created by
+train movement, and suggested values for rubber-tired and steel wheels are provided on the instructions
+for Input Form 9E. 
+
+The mechanical rolling resistance is calculated in the subroutine {\tt GARAGE.FOR} (line 297) and {\tt TRAIN.FOR} (line 493) as
+
+\begin{lstlisting}
+      CORMV(I,2) = CORMV(I,2) * NCARV(I)
+      RM=CORMV(ITYP,2)+(CORMV(ITYP,1)+CORMV(ITYP,3)*UV(NUMV))*WTRN
+\end{lstlisting}   
+
+\noindent which is equivalent to
+
+\begin{align}
+R_\mathrm{m} = C_1 w_\mathrm{t} + C_2 n_\mathrm{car} + C_3 w_\mathrm{t} u_\mathrm{v}
+\end{align}
+
+\noindent where $w_\mathrm{t}$ is the train weight (force in tons), $n_\mathrm{car}$ is the number of cars in a train and $u_\mathrm{v}$ is the train speed.
+
+The default resistance coefficients for trains with steel wheels appear to be based on the original equation by Davis \cite{davis1926} (also see Szanto \cite{szanto2016}), who defined the specific resistance as
+
+\begin{align}
+r_\mathrm{Davis} = \frac{R_\mathrm{Davis}}{w_\mathrm{t}} =  1.3 + \frac{29}{w_\mathrm{ax}} + 0.045 u_\mathrm{v} + 0.0005 \frac{A u^2}{n_\mathrm{ax} w_\mathrm{ax}}
+\end{align}
+
+\noindent where $w_\mathrm{ax}$ is the axle load and $n_\mathrm{ax}$ is the number of axles per car.
+Note that the axles are assumed to have journal bearings \cite{szanto2016}.
+The default SES coefficients of $C_1 = 1.3$ lbf/ton, $C_2 = 116$ lbf and $C_3 = 0.045$ lbf/ton-mph can be recovered by assuming $n_\mathrm{ax}=4$ and noting that $n_\mathrm{ax} w_\mathrm{ax} = w_\mathrm{car}$ and $w_\mathrm{t}/w_\mathrm{car} = n_\mathrm{car}$.
+
+\begin{align}
+R_\mathrm{Davis} & = 1.3 w_\mathrm{t} + \frac{116 w_\mathrm{t}}{n_\mathrm{ax} w_\mathrm{ax}} + 0.045 w_\mathrm{t} u_\mathrm{v} + 0.0005 \frac{w_\mathrm{t} A u^2}{n_\mathrm{ax} w_\mathrm{ax}} \nonumber \\
+ &= 1.3 w_\mathrm{t} + 116 n_\mathrm{car} + 0.045 w_\mathrm{t} u_\mathrm{v} + 0.0005 n_\mathrm{car} A u^2 
+\end{align}
+
+\noindent Note that the final term in the Davis equation accounts for aerodynamic resistance, and is not used in SES.
+
+Szanto \cite{szanto2016} provides a useful discussion on the impact of roller bearings versus journal bearings as well as dynamic effects.
+
+\bibliography{chap8bib}
 
 \end{document}
