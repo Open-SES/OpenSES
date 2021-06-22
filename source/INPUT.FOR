@@ -33,22 +33,72 @@ C     MAXTIT: MAXIMUM NUMBER OF TITLE LINES
 40    FORMAT (A36,4X,4F10.0)
 45    FORMAT (116(' '))                                            
 46    FORMAT (122(' '))
-50    FORMAT (T34,
-     1    '     UNITED STATES DEPARTMENT OF TRANSPORTATION     ',/,T34,
-     1    '           FEDERAL TRANSIT ADMINISTRATION           ',/,T34,
-     2    'JOHN A. VOLPE NATIONAL TRANSPORTATION SYSTEMS CENTER',
-     32(/),T48,5('X'),3X,7('X'),3X,5('X'),/,T47,'X',T56
-     4,'X',T65,'X',/,T48,5('X'),T56,5('X'),T66,5('X'),/,T53,'X',T56,'X'
-     5,T71,'X',/,T53,'X',T56,'X',T71,'X',/,T47,6('X'),T56,7('X'),T65,6('
-     6X'),//,T45,'SUBWAY ENVIRONMENT SIMULATION',2(/),T51,
-     7'SIMULATION OF',/)                 
-60    FORMAT (25X,A80,/)
-70    FORMAT (25X,A80)
-80    FORMAT (36X,'DESIGN TIME',I5,' HRS',3X,A9,I6)            
-90    FORMAT (36X,'DESIGN TIME 0',I3,' HRS',3X,A9,I6)            
-100   FORMAT (T94,'DEVELOPED BY -',/,T96,'PARSONS, BRINCKERHOFF,',/,T96, 
-     1'QUADE AND DOUGLAS, INC.',/,T96,'NEW YORK CITY, NEW YORK',/,T96, 
-     2'VERSION ',A8)                                     
+50    FORMAT (
+     159('░'),' OpenSES is based on SES 4.1',/,
+     1'░░█████╗░██████╗░███',
+     1'████╗███╗░░██╗░█████',
+     1'█╗███████╗░██████╗░ ',
+     2'Subway Environment Simulation Computer Program, ',
+     2'Version 4.1',/,
+     2'░██╔══██╗██╔══██╗██╔',
+     2'════╝████╗░██║██╔═══',
+     2'═╝██╔════╝██╔════╝░ ',
+     2'SES 4.1 was created for the',/,
+     2'░██║░░██║██████╔╝███',
+     2'██╗░░██╔██╗██║╚█████',
+     2'╗░█████╗░░╚█████╗░░ ',
+     2'United States Department of Transportation',/,
+     2'░██║░░██║██╔═══╝░██╔',
+     2'══╝░░██║╚████║░╚═══█',
+     2'█╗██╔══╝░░░╚═══██╗░ ',     
+     2'Federal Transit Administration',/,
+     2'░╚█████╔╝██║░░░░░███',
+     2'████╗██║░╚███║██████',
+     2'╔╝███████╗██████╔╝░ ',     
+     2'John A. Volpe National Transportation Systems ',
+     2'Center',/,
+     2'░░╚════╝░╚═╝░░░░░╚══',
+     2'════╝╚═╝░░╚══╝╚═════',
+     2'╝░╚══════╝╚═════╝░░ ',
+     2'SES 4.1 was developed by',/,
+     259('░'),' Parsons, Brinckerhoff, Quade and Douglas Inc.',/,
+     1'OpenSES, Version 4.2, 18 June 2021',//,
+     2'Copyright (c) 2021, Engineers of the OpenSES Agreement. All ',
+     2'rights reserved. ',//,
+     2'BSD 3-Clause License. Redistribution and use in source and bina',
+     2'ry forms, with or without modification, are permitted',/,
+     2'provided that the following conditions are met:',//,
+     2'1. Redistributions of source code must retain the above copyrig',
+     2'ht notice, this list of conditions and the following',/, 
+     2'disclaimer.',//,
+     2'2. Redistributions in binary form must reproduce the above copy',
+     2'right notice, this list of conditions and the following',/,
+     2'disclaimer in the documentation and/or other materials provided',
+     2' with the distribution.',//,
+     2'3. Neither the name of the copyright holder nor the names of it',
+     2's contributors may be used to endorse or promote products',/,
+     2'derived from this software without specific prior written permi',
+     2'ssion.',//,
+     3'THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBU',
+     3'TORS "AS IS"  AND ANY EXPRESS OR IMPLIED WARRANTIES,',/,
+     3'INCLUDING, BUT NOT LIMITED TO, THE  IMPLIED WARRANTIES OF MERCH',
+     3'ANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE',/,
+     3'DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUT',
+     3'ORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,',/,
+     3'SPECIAL, EXEMPLARY, OR CONSEQUENTIAL  DAMAGES (INCLUDING, BUT N',
+     3'OT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR  SERVICES;',/,
+     3'LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVE',
+     3'R  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN',/,
+     3'CONTRACT, STRICT LIABILITY,  OR TORT (INCLUDING NEGLIGENCE OR O',
+     3'THERWISE) ARISING IN ANY WAY OUT OF THE USE  OF THIS',/,
+     3'SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.',/,
+     4122('█'),/,
+     5'SIMULATION OUTPUT:',/)
+60    FORMAT (A80)
+70    FORMAT (A80)
+80    FORMAT ('DESIGN TIME',I5,' HRS',3X,A9,I6)            
+90    FORMAT ('DESIGN TIME 0',I3,' HRS',3X,A9,I6)            
+100   FORMAT (A8)                                     
 110   FORMAT (/ T44,'INPUT VERIFICATION OF GENERAL DATA')             
 120   FORMAT (/ T112,'FORM 1C'/T29,'TRAIN PERFORMANCE OPTION',T79,I5,T89
      1,'BYPASS')                                                      
