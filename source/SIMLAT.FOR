@@ -25,7 +25,8 @@ C
      15X,'AERODYNAMIC    RATIO =',I2,5X,                                
      2 'INTEGRATION INCREMENT ( TWO CYCLES ) =',F5.2,' SEC'/            
      35X,'THERMODYNAMIC  RATIO =',I2,5X,                                
-     4 'INTEGRATION INCREMENT ( TWO CYCLES ) =',F5.2,' SEC' )           
+     4 'INTEGRATION INCREMENT ( TWO CYCLES ) =',F5.2,' SEC' )
+   80 FORMAT('Simulation Time:  ', F10.2, ' Seconds')
   998 FORMAT( A1,/,'IMPOSSIBLE SITUATION - SUBROUTINE SIMLAT')          
 C                                                                       
 C                                                                       
@@ -84,7 +85,8 @@ C
 C**** MAIN LOOP - CYCLE THROUGH INCREMENTING 'SYSTEM CLOCK' BY 'NDELT'  
 C                 EACH CYCLE UNTIL 'NTIME' IS EQUAL TO 'MAXTIM'.        
 C                                                                       
-  200 NTIME = NTIME + NDELT                                             
+  200 NTIME = NTIME + NDELT
+      IF (MOD(NTIME,1000) .LT. NDELT) WRITE (SCREEN, 80) NTIME/100.0
 C                                                                       
 C**** RESISTOR GRID CALCULATIONS ***************************************
 C                                                                       

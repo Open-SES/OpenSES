@@ -94,6 +94,7 @@ C     MAXTIT: MAXIMUM NUMBER OF TITLE LINES
      3'SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.',/,
      4122('█'),/,
      5'SIMULATION OUTPUT:',/)
+51    FORMAT('Reading Initialization File...')
 60    FORMAT (A80)
 70    FORMAT (A80)
 80    FORMAT ('DESIGN TIME',I5,' HRS',3X,A9,I6)            
@@ -2372,7 +2373,8 @@ C
 C---- READ INITIALIZATION DATA FILE                                     
 C                                                                       
       IF (RSTROPT .EQ. 0 )  GO TO 5545                                   
-      WRITE (OUT,10) CHAR(12)
+      WRITE(SCREEN,51)
+	  WRITE (OUT,10) CHAR(12)
 C---- CHECK WHETHER THE INPUT FILE CONTAINS JUST THE NAME OF THE 
 C---- RESTART FILE OR THE ENTIRE RESTART FILE HAS BEEN ATTACHED TO
 C---- THE INPUT FILE (COMPATIBILITY WITH OLDER SES VERSIONS)
