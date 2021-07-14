@@ -34,35 +34,35 @@ C     MAXTIT: MAXIMUM NUMBER OF TITLE LINES
 45    FORMAT (116(' '))                                            
 46    FORMAT (122(' '))
 50    FORMAT (
-     159('░'),' OpenSES is based on SES 4.1',/,
+     159('░'),'                            ',/,
      1'░░█████╗░██████╗░███',
      1'████╗███╗░░██╗░█████',
      1'█╗███████╗░██████╗░ ',
-     2'Subway Environment Simulation Computer Program, ',
-     2'Version 4.1',/,
+     2'Subway Environment Simulation',
+     2'           ',/,
      2'░██╔══██╗██╔══██╗██╔',
      2'════╝████╗░██║██╔═══',
      2'═╝██╔════╝██╔════╝░ ',
-     2'SES 4.1 was created for the',/,
+     2'                           ',/,
      2'░██║░░██║██████╔╝███',
      2'██╗░░██╔██╗██║╚█████',
      2'╗░█████╗░░╚█████╗░░ ',
-     2'United States Department of Transportation',/,
+     2'                                          ',/,
      2'░██║░░██║██╔═══╝░██╔',
      2'══╝░░██║╚████║░╚═══█',
      2'█╗██╔══╝░░░╚═══██╗░ ',     
-     2'Federal Transit Administration',/,
+     2'                              ',/,
      2'░╚█████╔╝██║░░░░░███',
      2'████╗██║░╚███║██████',
      2'╔╝███████╗██████╔╝░ ',     
-     2'John A. Volpe National Transportation Systems ',
-     2'Center',/,
+     2'                                              ',
+     2'      ',/,
      2'░░╚════╝░╚═╝░░░░░╚══',
      2'════╝╚═╝░░╚══╝╚═════',
      2'╝░╚══════╝╚═════╝░░ ',
-     2'SES 4.1 was developed by',/,
-     259('░'),' Parsons, Brinckerhoff, Quade and Douglas Inc.',/,
-     1'OpenSES, Version 4.2, 18 June 2021',//,
+     2'                        ',/,
+     259('░'),'                                              ',/,
+     1'OpenSES, ',A8,', 14 July 2021',//,
      2'Copyright (c) 2021, Engineers of the OpenSES Agreement. All ',
      2'rights reserved. ',//,
      2'BSD 3-Clause License. Redistribution and use in source and bina',
@@ -92,8 +92,8 @@ C     MAXTIT: MAXIMUM NUMBER OF TITLE LINES
      3'CONTRACT, STRICT LIABILITY,  OR TORT (INCLUDING NEGLIGENCE OR O',
      3'THERWISE) ARISING IN ANY WAY OUT OF THE USE  OF THIS',/,
      3'SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.',/,
-     4122('█'),/,
-     5'SIMULATION OUTPUT:',/)
+     4122('█'),//,
+     5'Simulation started at:  ',A20,//,A1)
 51    FORMAT('Reading Initialization File...')
 60    FORMAT (A80)
 70    FORMAT (A80)
@@ -468,7 +468,7 @@ C**** FOUND VALID NUMERIC INPUT.  STORE NUMBER OF TITLE LINES IN NUMY2
 C**** SETUP TITLE LINE SPACING.  IF THE NUMBER OF TITLE LINES ENTERED
 C**** IS LESS THAN 10 USE FORMAT LABEL #60 (DOUBLE LINE SPACING)
 C**** OTHERWISE USE FORMAT LABEL #70 (SINGLE LINE SPACING)
-1662  WRITE (OUT,50)
+1662  WRITE (OUT,50) SESVER, DATETIME, (12)
       IF (NUMY2 .GT. 10)GOTO 1667
       NUMY4=2*NUMY2+23
       DO 1666 I= 1,NUMY2
