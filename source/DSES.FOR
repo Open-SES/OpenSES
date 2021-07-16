@@ -29,6 +29,11 @@ C
     9 FORMAT(/ T45,'END OF SIMULATION')                           
    10 FORMAT(/ T16,'***** NOTE- OPTION',I2,' INITIALIZATION FILE ',
      1             'DATA HAS BEEN WRITTEN *****')                                         
+   11 FORMAT('OpenSES Version ', A8, / 'Executing...')
+   12 FORMAT('Input Verification Started...')
+   13 FORMAT('Input Verification Completed, Simulation Commencing...')
+   14 FORMAT('Writing Initialization File...')
+   15 FORMAT('Performing Environmental Control Estimate...')
 C
 C
       MONTHS( 1) = 'JANUARY  '
@@ -45,7 +50,7 @@ C
       MONTHS(12) = 'DECEMBER '
 C
 C**** SET SES VERSION
-      SESVER='4.10GF'
+      SESVER='4.2     '
 C**** PROGRAM EQUIVALENT OF INFINITY - REAL VARIABLES
       ZAP=1.0E20
 C**** PROGRAM EQUIVALENT OF INFINITY - INTEGER VARIABLES
@@ -53,6 +58,7 @@ C**** IZAP = (2**31)-1
       IZAP=2147483647
 C**** SET NEW
       NEW=0
+C     
 C**** OBTAIN THE NAME OF THE INPUT FILE FROM COMMAND LINE
       CALL GETARGU
 C**** GET THE DATE AND TIME OF THE SIMULATION FROM SYSTEM CLOCK
@@ -67,7 +73,10 @@ C*****FORTRAN LOGICAL UNIT NUMBER OF INPUT FILE
 C*****FORTRAN LOGICAL UNIT NUMBER OF OUTPUT FILE              
       OUT = 6                                                           
 C*****FORTRAN LOGICAL UNIT NUMBER OF RESTART FILE              
-      RST = 7                                                           
+      RST = 7                     
+C*****FORTRAN LOGICAL UNIT NUMBER FOR STDERR (SCREEN/CONSOLE)   
+      SCREEN = 0
+      WRITE (SCREEN, 11) SESVER
 C
 C*****CERTAIN PHYSICAL CONSTANTS - DEFINED                              
 C                                                                       
@@ -120,6 +129,7 @@ C*****                         PR**0.6 EQUALS ABOUT 0.82166
 C                                                                       
 C*****SES INPUT VERIFICATION                                            
 C                                                                       
+      WRITE (SCREEN, 12)
       CALL INPUT                                                     
 C**** END OF INPUT VERIFICATION - IF FATAL ERROR HAS OCCURRED (NEW = 1)     
 C**** TERMINATE SIMULATION                                              
@@ -139,6 +149,7 @@ C----
 C****
 C---- SES SIMULATION                                                    
 C                                                                       
+      WRITE (SCREEN,13)
   375 CALL SIMLAT( ISIMOP )                                          
       ISIMOP = 2                                                        
 C                                                                       
@@ -162,7 +173,8 @@ C---- ENVIRONMENTAL CONTROL LOAD ESTIMATE
 C                                                                       
 C---- ENVIRONMENTAL LOAD EVALUATION                                     
 C                                                                       
-  410 CALL DTHTS2                                                    
+  410 WRITE (SCREEN, 15)
+      CALL DTHTS2                                                    
 C**** THE SIMULATION HAS BEEN COMPLETED THROUGH AN ERROR CONDITION FROM 
 C**** MEMBER 'DTHTS2'.  SET EXITCODE=17.
   460 IF (NEW .EQ. 1)THEN
@@ -179,6 +191,7 @@ C---- WRITE INITIALIZATION DATA IN RESTART FILE
 C                                                                       
   515 IF (RSTWOPT .EQ. 0)  GO TO 517
       EXITCODE=100                                     
+      WRITE (SCREEN,14)
       WRITE (OUT,1) CHAR(12)
       CALL RSTWRITE                                                    
       WRITE (OUT,10)  RSTWOPT

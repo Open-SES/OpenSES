@@ -1,4 +1,4 @@
-FFLAGS = -falign-commons -Wno-align-commons
+FFLAGS = -falign-commons -Wno-align-commons -std=legacy
 FCOMPL77 = gfortran
 
 
@@ -14,20 +14,17 @@ objects =   ACEST2.o  DTHTS2.o  FLYWHL.o   INPUT.o  LSINS.o  OMEGA5.o PINPNT.o  
 #*** General Purpose Rules ***
 no_target:
 	@echo \******** You did not specify a make target \********
-	@echo Available Options: clean - delete all the object files
-	@echo                    SES41_GF (gfortran compilation)
+	@echo Available Options: clean, deletes all the object files
+	@echo                    OpenSES, complies and links OpenSES
 
 
-#*** Clean Target to remove Object and Module files ***
+#*** Clean up and remove Object files ***
 clean:
-	del *.o
-	del *.mod
-	del *.obj
+	rm -f *.o
 
-SES41_GF: $(objects)
-	$(FCOMPL77) -o  SES41_GF $(objects) -static
+OpenSES: $(objects)
+	$(FCOMPL77) -o  OpenSES $(objects) -static
 	
-
 # *** Object Dependencies ***
 ACEST2.o : ACEST2.FOR
 	$(FCOMPL77) $(FFLAGS) -c ACEST2.FOR
@@ -187,9 +184,6 @@ PINPNT.o : PINPNT.FOR
 
 PRINT.o : PRINT.FOR
 	$(FCOMPL77) $(FFLAGS) -c PRINT.FOR
-
-PRNTCONV.o : PRNTCONV.FOR
-	$(FCOMPL77) $(FFLAGS) -c PRNTCONV.FOR
 
 PSI.o : PSI.FOR
 	$(FCOMPL77) $(FFLAGS) -c PSI.FOR
