@@ -1,265 +1,73 @@
-FFLAGS = -falign-commons -Wno-align-commons -std=legacy
-FCOMPL77 = gfortran
+#  OpenSES makefile
+
+#  based on info in stackoverflow post about makefiles for release and debug versions
+#  https://stackoverflow.com/questions/1079832/how-can-i-configure-my-makefile-for-debug-and-release-builds
 
 
-objects =   ACEST2.o  DTHTS2.o  FLYWHL.o   INPUT.o  LSINS.o  OMEGA5.o PINPNT.o   RELHUM.o   SIMQ2.o    TRINS.o   \
-            AIR.o     EERROR.o  FORCE1.o   INTEXT.o MAXMIN.o OMGJ1.o  PRINT.o    RESIST.o   SUMARY.o   TRSLOP.o  \
-            ALCHAR.o  EQUAT.o   FORCEL.o   JINS.o   MMAX.o   OMGJ2.o  RKTHRM.o   THDERV.o   VSINS.o    WETBLB.o  \
-            AMPERE.o  CHECKI.o  EXTINT.o   GARAGE.o JULIE.o  MMIN.o   OMGJ3.o    PSI.o      RSTREAD.o  THNODE.o  \
-            BEI.o     CHECKR.o  FCTORL.o   GRID.o   KEI.o    OMEGA1.o OMGJ4.o    QDERIV.o   RSTWRITE.o TORQUE.o  \
-            BER.o     CREAT2.o  HEAT.o     KER.o    OMEGA2.o OMGJ5.o  QSQLP.o    SIMERR.o   TRAIN.o    WLLTM2.o  \
-            BESSEL.o  CREAT3.o  FINS.o     HEATUP.o LATENT.o OMEGA3.o OMGJ6.o    QUARRK.o   SIMLAT.o   TRANST.o  \
-            DSES.o    FLOWAY.o  HOOKUP.o   LOCATE.o OMEGA4.o RATES.o  SIMQ1.o    TRIDG3.o   FILESUBS.o       
+
+FCOMP = gfortran
+EXE = OpenSES
+
+SRCS =      ACEST2.FOR  DTHTS2.FOR  FLYWHL.FOR   INPUT.FOR  LSINS.FOR  OMEGA5.FOR PINPNT.FOR   RELHUM.FOR   SIMQ2.FOR    TRINS.FOR   \
+            AIR.FOR     EERROR.FOR  FORCE1.FOR   INTEXT.FOR MAXMIN.FOR OMGJ1.FOR  PRINT.FOR    RESIST.FOR   SUMARY.FOR   TRSLOP.FOR  \
+            ALCHAR.FOR  EQUAT.FOR   FORCEL.FOR   JINS.FOR   MMAX.FOR   OMGJ2.FOR  RKTHRM.FOR   THDERV.FOR   VSINS.FOR    WETBLB.FOR  \
+            AMPERE.FOR  CHECKI.FOR  EXTINT.FOR   GARAGE.FOR JULIE.FOR  MMIN.FOR   OMGJ3.FOR    PSI.FOR      RSTREAD.FOR  THNODE.FOR  \
+            BEI.FOR     CHECKR.FOR  FCTORL.FOR   GRID.FOR   KEI.FOR    OMEGA1.FOR OMGJ4.FOR    QDERIV.FOR   RSTWRITE.FOR TORQUE.FOR  \
+            BER.FOR     CREAT2.FOR  HEAT.FOR     KER.FOR    OMEGA2.FOR OMGJ5.FOR  QSQLP.FOR    SIMERR.FOR   TRAIN.FOR    WLLTM2.FOR  \
+            BESSEL.FOR  CREAT3.FOR  FINS.FOR     HEATUP.FOR LATENT.FOR OMEGA3.FOR OMGJ6.FOR    QUARRK.FOR   SIMLAT.FOR   TRANST.FOR  \
+            DSES.FOR    FLOWAY.FOR  HOOKUP.FOR   LOCATE.FOR OMEGA4.FOR RATES.FOR  SIMQ1.FOR    TRIDG3.FOR   FILESUBS.FOR       
+
+OBJS =   $(SRCS:.FOR=.o) 
+         
+DBGDIR = debug
+DBGEXE = $(DBGDIR)/$(EXE)
+DBGOBJS = $(addprefix $(DBGDIR)/, $(OBJS))
+DBGFFLAGS = -falign-commons -Wno-align-commons -std=legacy -ggdb
+
+RELDIR = release
+RELEXE = $(RELDIR)/$(EXE)
+RELOBJS = $(addprefix $(RELDIR)/, $(OBJS))
+RELFFLAGS = -falign-commons -Wno-align-commons -std=legacy
 
 #*** General Purpose Rules ***
 no_target:
 	@echo \******** You did not specify a make target \********
-	@echo Available Options: clean, deletes all the object files
-	@echo                    OpenSES, complies and links OpenSES
+	@echo Available Options: 
+	@echo   clean: 	deletes all the object and exe files in release and debug folders
+	@echo   remake:  	deletes obj and exe files then builds all/everything again
+	@echo   prep:     creates debug and relase folders if they dont exist
+	@echo   debug:    makes the debug exe file only (if needed)
+	@echo   release:  makes the release exe file only (if needed)
+	@echo   all:      makes the debug and release exe files (if needed)
 
 
 #*** Clean up and remove Object files ***
+remake: clean all
+
 clean:
-	rm -f *.o
+	rm -f $(RELEXE) $(RELOBJS) $(DBGEXE) $(DBGOBJS)
 
-OpenSES: $(objects)
-	$(FCOMPL77) -o  OpenSES $(objects) -static
-	
-# *** Object Dependencies ***
-ACEST2.o : ACEST2.FOR
-	$(FCOMPL77) $(FFLAGS) -c ACEST2.FOR
+all: prep release debug
 
-AIR.o : AIR.FOR
-	$(FCOMPL77) $(FFLAGS) -c AIR.FOR
+prep:
+	@mkdir -p $(DBGDIR) $(RELDIR)
 
-ALCHAR.o : ALCHAR.FOR
-	$(FCOMPL77) $(FFLAGS) -c ALCHAR.FOR
+debug: $(DBGEXE)
 
-AMPERE.o : AMPERE.FOR
-	$(FCOMPL77) $(FFLAGS) -c AMPERE.FOR
+$(DBGEXE): $(DBGOBJS)
+	$(FCOMP) -o $(DBGEXE) $(DBGOBJS) -static 
 
-BEI.o : BEI.FOR
-	$(FCOMPL77) $(FFLAGS) -c BEI.FOR
+$(DBGDIR)/%.o: %.FOR
+	$(FCOMP) $(DBGFFLAGS) -c $< -o $@
 
-BER.o : BER.FOR
-	$(FCOMPL77) $(FFLAGS) -c BER.FOR
+release: $(RELEXE)
 
-BESSEL.o : BESSEL.FOR
-	$(FCOMPL77) $(FFLAGS) -c BESSEL.FOR
+$(RELEXE): $(RELOBJS)
+	$(FCOMP) -o $(RELEXE) $(RELOBJS) -static 
 
-CHECKI.o : CHECKI.FOR
-	$(FCOMPL77) $(FFLAGS) -c CHECKI.FOR
+$(RELDIR)/%.o: %.FOR
+	$(FCOMP) $(RELFFLAGS) -c $< -o $@
 
-CHECKR.o : CHECKR.FOR
-	$(FCOMPL77) $(FFLAGS) -c CHECKR.FOR
 
-CREAT2.o : CREAT2.FOR
-	$(FCOMPL77) $(FFLAGS) -c CREAT2.FOR
 
-CREAT3.o : CREAT3.FOR
-	$(FCOMPL77) $(FFLAGS) -c CREAT3.FOR
-
-DSES.o : DSES.FOR
-	$(FCOMPL77) $(FFLAGS) -c DSES.FOR
-
-DTHTS2.o : DTHTS2.FOR
-	$(FCOMPL77) $(FFLAGS) -c DTHTS2.FOR
-
-EERROR.o : EERROR.FOR
-	$(FCOMPL77) $(FFLAGS) -c EERROR.FOR
-
-EQUAT.o : EQUAT.FOR
-	$(FCOMPL77) $(FFLAGS) -c EQUAT.FOR
-
-EXTINT.o : EXTINT.FOR
-	$(FCOMPL77) $(FFLAGS) -c EXTINT.FOR
-
-FCTORL.o : FCTORL.FOR
-	$(FCOMPL77) $(FFLAGS) -c FCTORL.FOR
-
-FILESUBS.o : FILESUBS.FOR
-	$(FCOMPL77) $(FFLAGS) -c FILESUBS.FOR
-
-FINS.o : FINS.FOR
-	$(FCOMPL77) $(FFLAGS) -c FINS.FOR
-
-FLOWAY.o : FLOWAY.FOR
-	$(FCOMPL77) $(FFLAGS) -c FLOWAY.FOR
-
-FLYWHL.o : FLYWHL.FOR
-	$(FCOMPL77) $(FFLAGS) -c FLYWHL.FOR
-
-FORCE1.o : FORCE1.FOR
-	$(FCOMPL77) $(FFLAGS) -c FORCE1.FOR
-
-FORCEL.o : FORCEL.FOR
-	$(FCOMPL77) $(FFLAGS) -c FORCEL.FOR
-
-GARAGE.o : GARAGE.FOR
-	$(FCOMPL77) $(FFLAGS) -c GARAGE.FOR
-
-GRID.o : GRID.FOR
-	$(FCOMPL77) $(FFLAGS) -c GRID.FOR
-
-HEAT.o : HEAT.FOR
-	$(FCOMPL77) $(FFLAGS) -c HEAT.FOR
-
-HEATUP.o : HEATUP.FOR
-	$(FCOMPL77) $(FFLAGS) -c HEATUP.FOR
-
-HOOKUP.o : HOOKUP.FOR
-	$(FCOMPL77) $(FFLAGS) -c HOOKUP.FOR
-
-INPUT.o : INPUT.FOR
-	$(FCOMPL77) $(FFLAGS) -c INPUT.FOR
-
-INTEXT.o : INTEXT.FOR
-	$(FCOMPL77) $(FFLAGS) -c INTEXT.FOR
-
-JINS.o : JINS.FOR
-	$(FCOMPL77) $(FFLAGS) -c JINS.FOR
-
-JULIE.o : JULIE.FOR
-	$(FCOMPL77) $(FFLAGS) -c JULIE.FOR
-
-KEI.o : KEI.FOR
-	$(FCOMPL77) $(FFLAGS) -c KEI.FOR
-
-KER.o : KER.FOR
-	$(FCOMPL77) $(FFLAGS) -c KER.FOR
-
-LATENT.o : LATENT.FOR
-	$(FCOMPL77) $(FFLAGS) -c LATENT.FOR
-
-LOCATE.o : LOCATE.FOR
-	$(FCOMPL77) $(FFLAGS) -c LOCATE.FOR
-
-LSINS.o : LSINS.FOR
-	$(FCOMPL77) $(FFLAGS) -c LSINS.FOR
-
-MAXMIN.o : MAXMIN.FOR
-	$(FCOMPL77) $(FFLAGS) -c MAXMIN.FOR
-
-MMAX.o : MMAX.FOR
-	$(FCOMPL77) $(FFLAGS) -c MMAX.FOR
-
-MMIN.o : MMIN.FOR
-	$(FCOMPL77) $(FFLAGS) -c MMIN.FOR
-
-OMEGA1.o : OMEGA1.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMEGA1.FOR
-
-OMEGA2.o : OMEGA2.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMEGA2.FOR
-
-OMEGA3.o : OMEGA3.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMEGA3.FOR
-
-OMEGA4.o : OMEGA4.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMEGA4.FOR
-
-OMEGA5.o : OMEGA5.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMEGA5.FOR
-
-OMGJ1.o : OMGJ1.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMGJ1.FOR
-
-OMGJ2.o : OMGJ2.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMGJ2.FOR
-
-OMGJ3.o : OMGJ3.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMGJ3.FOR
-
-OMGJ4.o : OMGJ4.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMGJ4.FOR
-
-OMGJ5.o : OMGJ5.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMGJ5.FOR
-
-OMGJ6.o : OMGJ6.FOR
-	$(FCOMPL77) $(FFLAGS) -c OMGJ6.FOR
-
-PINPNT.o : PINPNT.FOR
-	$(FCOMPL77) $(FFLAGS) -c PINPNT.FOR
-
-PRINT.o : PRINT.FOR
-	$(FCOMPL77) $(FFLAGS) -c PRINT.FOR
-
-PSI.o : PSI.FOR
-	$(FCOMPL77) $(FFLAGS) -c PSI.FOR
-
-QDERIV.o : QDERIV.FOR
-	$(FCOMPL77) $(FFLAGS) -c QDERIV.FOR
-
-QSQLP.o : QSQLP.FOR
-	$(FCOMPL77) $(FFLAGS) -c QSQLP.FOR
-
-QUARRK.o : QUARRK.FOR
-	$(FCOMPL77) $(FFLAGS) -c QUARRK.FOR
-
-RATES.o : RATES.FOR
-	$(FCOMPL77) $(FFLAGS) -c RATES.FOR
-
-RELHUM.o : RELHUM.FOR
-	$(FCOMPL77) $(FFLAGS) -c RELHUM.FOR
-
-RESIST.o : RESIST.FOR
-	$(FCOMPL77) $(FFLAGS) -c RESIST.FOR
-
-RKTHRM.o : RKTHRM.FOR
-	$(FCOMPL77) $(FFLAGS) -c RKTHRM.FOR
-
-RSTREAD.o : RSTREAD.FOR
-	$(FCOMPL77) $(FFLAGS) -c RSTREAD.FOR
-
-RSTWRITE.o : RSTWRITE.FOR
-	$(FCOMPL77) $(FFLAGS) -c RSTWRITE.FOR
-
-SIMERR.o : SIMERR.FOR
-	$(FCOMPL77) $(FFLAGS) -c SIMERR.FOR
-
-SIMLAT.o : SIMLAT.FOR
-	$(FCOMPL77) $(FFLAGS) -c SIMLAT.FOR
-
-SIMQ1.o : SIMQ1.FOR
-	$(FCOMPL77) $(FFLAGS) -c SIMQ1.FOR
-
-SIMQ2.o : SIMQ2.FOR
-	$(FCOMPL77) $(FFLAGS) -c SIMQ2.FOR
-
-SUMARY.o : SUMARY.FOR
-	$(FCOMPL77) $(FFLAGS) -c SUMARY.FOR
-
-THDERV.o : THDERV.FOR
-	$(FCOMPL77) $(FFLAGS) -c THDERV.FOR
-
-THNODE.o : THNODE.FOR
-	$(FCOMPL77) $(FFLAGS) -c THNODE.FOR
-
-TORQUE.o : TORQUE.FOR
-	$(FCOMPL77) $(FFLAGS) -c TORQUE.FOR
-
-TRAIN.o : TRAIN.FOR
-	$(FCOMPL77) $(FFLAGS) -c TRAIN.FOR
-
-TRANST.o : TRANST.FOR
-	$(FCOMPL77) $(FFLAGS) -c TRANST.FOR
-
-TRIDG3.o : TRIDG3.FOR
-	$(FCOMPL77) $(FFLAGS) -c TRIDG3.FOR
-
-TRINS.o : TRINS.FOR
-	$(FCOMPL77) $(FFLAGS) -c TRINS.FOR
-
-TRSLOP.o : TRSLOP.FOR
-	$(FCOMPL77) $(FFLAGS) -c TRSLOP.FOR
-
-VSINS.o : VSINS.FOR
-	$(FCOMPL77) $(FFLAGS) -c VSINS.FOR
-
-WETBLB.o : WETBLB.FOR
-	$(FCOMPL77) $(FFLAGS) -c WETBLB.FOR
-
-WLLTM2.o : WLLTM2.FOR
-	$(FCOMPL77) $(FFLAGS) -c WLLTM2.FOR
 
