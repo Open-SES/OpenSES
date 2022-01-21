@@ -62,7 +62,7 @@ C     MAXTIT: MAXIMUM NUMBER OF TITLE LINES
      2'╝░╚══════╝╚═════╝░░ ',
      2'                        ',/,
      259('░'),'                                              ',/,
-     1'OpenSES, ',A8,', 14 July 2021',//,
+     1'OpenSES, ',A8,', XXXXXXXXXXXX',//,
      2'Copyright (c) 2021, Engineers of the OpenSES Agreement. All ',
      2'rights reserved. ',//,
      2'BSD 3-Clause License. Redistribution and use in source and bina',
@@ -529,7 +529,7 @@ C**** LESS THAN ONE OR GREATER THAN 12.
 1730  DO 1732 I=NUMY4,50
         WRITE (OUT,910)
 1732  CONTINUE
-      WRITE (OUT,100) SESVER
+C     WRITE (OUT,100) SESVER
 C                                                                       
 C                                                                       
 C---- FORM 1C                                                           
@@ -2417,6 +2417,35 @@ C
 5610  IF (THOPT) 5650,5620,5630                                         
 5620  WRITE (OUT,10) CHAR(12)
 5630  CALL PRINT
+C
+C     SES DATASET HAS MADE IT THROUGH INPUT VERIFICATION AND
+C     HAS NOT CRASHED HARD (NEW=1) 
+C     BEGIN JSON OUTPUT DATASET AS A LIST OF OBJECTSDATASET METADATA
+C     THIS SECTION WILL PROBABLY BE MODIFIED IF INPUT IS RE-WRITTEN TO
+C     THE JSON AT SOME POINT.
+C
+C     BEGIN JSON OUTPUT LIST
+6000  FORMAT ( T5, '[')
+6005  FORMAT ( T5, ']')
+6010  FORMAT ( T5, '],')
+6015  FORMAT ( T10, '{')
+6020  FORMAT ( T10, '}')
+6025  FORMAT ( T10, '},')
+6050  FORMAT ( T10, '"info" : ')
+6055  FORMAT ( T10, '"info" : {}')
+
+C     BEGIN LIST OF OBJECTS
+      WRITE (JSON, 6000)
+C     BEGIN METADATA OBJECT
+      WRITE (JSON, 6015)
+C     META DATA WRITTEN OUT HERE
+      WRITE (JSON, 6055) 
+C
+C     CLOSE OUT METADATA OBJECT
+      WRITE (JSON, 6025)
+C
+C     PRINT INITAL CONDITIONS TO FIRST JSONPIT
+      CALL JSONPIT
 C
 C********************************************************************
 C     INPUT VERIFICATION COMPLETED SUCCESSFULLY.  SET EXITCODE TO 99.
