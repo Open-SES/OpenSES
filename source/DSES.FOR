@@ -189,6 +189,7 @@ C     ECZ ESTIMATE, PRINT OUT A LAST JSONPIT.
       IF ((NTIME - MAXTIM .GE. 0) .OR. (IPRGRP - NPGRP .GE. 0)) THEN
         NEW = 2
         CALL JSONPIT
+        EXITCODE=100
       ENDIF
 
 C                                                                       

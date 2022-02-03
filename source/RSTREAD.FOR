@@ -222,7 +222,8 @@ C --  INITIALIZE THE NUMBER OF THE LAST TRAIN DISPATCHED INTO THE SYSTEM
       IROUTE=IROTEV(NUMV)                                               
       ITYPV(NUMV)=NUMY2                                                 
       ITYP=ITYPV(NUMV)                                                  
-      NUMBTR=NUMBTR+1                                                   
+      NUMBTR=NUMBTR+1
+      TRAINID(NUMV) = NUMBTR                                                   
       CALL ALCHAR (NUMBTR,TNUMV(NUMV))                                  
       GO TO (710,535,535), TPOPT                                        
 C---- LOCATE TRAIN ON SPEED-TIME PROFILE         TPOPT =2,3             

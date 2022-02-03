@@ -1761,7 +1761,8 @@ C---- AT BEGINING OF SIMULATION
       IROUTE=IROTEV(NUMV)                                               
       ITYPV(NUMV)=DUMY2                                                 
       ITYP=ITYPV(NUMV)                                                  
-      NUMBTR=NUMBTR+1                                                   
+      NUMBTR=NUMBTR+1
+      TRAINID(NUMV) = NUMBTR                                                  
       CALL ALCHAR (NUMBTR,TNUMV(NUMV))                                  
       GO TO (4420,4320,4320), TPOPT                                     
 C---- LOCATE TRAIN ON SPEED-TIME PROFILE         TPOPT =2,3             

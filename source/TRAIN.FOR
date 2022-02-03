@@ -99,6 +99,7 @@ C*****FIND INTERNAL NUMBER OF NEWLY DISPATCHED TRAIN
 C*****INCREMENT TOTAL NUMBER OF TRAINS THAT HAVE ENTERED SYSTEM         
       NUMBTR=NUMBTR+1                                                   
 C*****ASSIGN TRAIN EXTERNAL NUMBER - STORED ALPHAMERICALLY              
+      TRAINID(NUMV) = NUMBTR
       CALL ALCHAR (NUMBTR,TNUMV(NUMV))                                  
 C*****INCREMENT NUMBER OF TRAINS DISPATCHED FOR THIS GROUP              
       NMTRGR(IROUTE)=NMTRGR(IROUTE)+1                                   

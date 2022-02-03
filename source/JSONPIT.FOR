@@ -38,7 +38,8 @@ C     BEGIN AND END OF PIT OBJECT
 2300  FORMAT ( T10, '"subsegment_data" : ')
 2310  FORMAT ( T10, '"subsegment_data" : []')
 C     TRAIN ITEMS
-2400  FORMAT ( T25, '"train_id" : ', T60, A10, ',')
+2400  FORMAT ( T25, '"train_id" : ', T60, I10, ',')
+2402  FORMAT ( T25, '"train_short_id" : ', T66,'"', A2,'"', ',')
 2405  FORMAT ( T25, '"type" : ', T60, I10, ',')
 2410  FORMAT ( T25, '"route" : ', T60, I10, ',')
 2415  FORMAT ( T25, '"position" : ', T60, F10.2, ',')
@@ -113,11 +114,11 @@ C     THE SIMULATION TIME
 C
 C     TRAIN DATA
 C     BEGIN TRAINS DATA BLOCK
-      WRITE(JSON, 2000)
       IF (NTRAN .EQ. 0) THEN
           WRITE (JSON, 2020)
           GOTO 245
       ELSE
+          WRITE(JSON, 2000)
           WRITE(JSON, 1800)
       ENDIF 
 C     LOOP OVER OPERATING TRAINS AND WRITE DATA RECORDS
@@ -135,7 +136,8 @@ C     LOOP OVER OPERATING TRAINS AND WRITE DATA RECORDS
       QTRPF=QPRPV(NUMV) + QAXSV(NUMV)
 C     WRITE OUT TRAIN DATA OBJECTS
       WRITE (JSON, 1600)
-      WRITE (JSON, 2400) TNUMV(NUMV)
+      WRITE (JSON, 2400) TRAINID(NUMV)
+      WRITE (JSON, 2402) TNUMV(NUMV)
       WRITE (JSON, 2405) ITYPV(NUMV)
       WRITE (JSON, 2410) IROTEV(NUMV)
       WRITE (JSON, 2415) XV(NUMV)
