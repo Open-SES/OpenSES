@@ -1,0 +1,174 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+\bibliographystyle{unsrt}
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{letterpaper, margin=1in} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{xcolor}
+\usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{amsmath}
+\usepackage{listings}
+\lstset{language=[77]Fortran,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{red},
+  commentstyle=\color{blue}}
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%\usepackage{hyperref}
+\usepackage{url}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{Brief Article}
+\author{The Author}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+%\maketitle
+
+\section{Introduction}
+
+This article provides additional guidance on Train Physical Data, supplementing section 8.2 of the SES Users' Manual.
+
+\section{Acceleration Resistance of Rotating Parts}
+
+The Acceleration Resistance of Rotating Parts is a factor which is used to increase the effective mass of the train to allow for the rotational inertia of the wheels, motors, axles, etc. 
+The train effective mass consists of two parts: the empty car mass, which is modified by a factor to account for the acceleration resistance of rotating parts, and the mass of the passengers. 
+
+The modified empty car mass is
+
+\begin{equation}
+m_\mathrm{v,mod} = m_\mathrm{v} \left(1 + f_\mathrm{acc}\right)
+\label{eqn_effective_mass}
+\end{equation}
+
+\noindent where $f_\mathrm{acc}$ is a coefficient representing the effective mass of rotating parts relative to the car mass.
+SES is coded in such a way that $f_\mathrm{acc}$ cannot be set directly. 
+The corresponding user input is the Acceleration Resistance of Rotating Parts, $R_\mathrm{acc}$, with units lbf/(ton-mph/sec).
+The two parameters are related by a unit conversion factor, $f_\mathrm{c}$,
+
+\begin{align} \label{eqn_acc_resistance}
+f_\mathrm{acc} &= \frac{R_\mathrm{acc}}{f_\mathrm{c}} \\
+f_\mathrm{c} &= \frac{2000 \, \frac{\mathrm{lb} }{\mathrm{ton} } \times 5280 \frac{\mathrm{ft} }{\mathrm{mil} }}{32.174 \, \frac{\mathrm{ft}}{\mathrm s^2} \, \times 3600 \, \frac{\mathrm{s}}{\mathrm{hr}} } \\
+ &= 91.2 \, \frac{\mathrm{lb}}{\mathrm{ton} } \frac{\mathrm {s \, hr}}{\mathrm{mil} } \nonumber
+\end{align}
+
+If the acceleration resistance of rotating parts is to be estimated as a fraction of the vehicle mass, then it can be converted to the appropriate SES input using equation \ref{eqn_acc_resistance}.
+The default value of 8.8 lbs per ton/(mph/sec) corresponds to 9.6\% of the car mass. 
+
+The implementation of equation \ref{eqn_effective_mass} in the SES source code is as follows.
+The train acceleration is calculated in the {\tt TRAIN} subroutine (line 198), 
+
+\begin{lstlisting}
+C*****FIND ACCELERATION TRAIN IS CAPABLE OF                             
+      DUDTV(NUMV)=(TEV(NUMV)*MOTORV(ITYP)-RSISTV(NUMV))/(WV(ITYP)*RRACC(
+     1ITYP)+WPATV(NUMV)/GRACC) 
+\end{lstlisting}
+
+\noindent where the modified empty car mass (equation \ref{eqn_effective_mass}) appears as the term {\tt WV(ITYP)*RRACC(ITYP)}.
+Note that the variable {\tt RRACC(ITYP)} is redefined when initially read by the {\tt GARAGE} subroutine (line 307):
+
+\begin{lstlisting}
+       RRACC(I) = ( 91.2 + RRACC(I) ) / ( 91.2 * GRACC )               
+\end{lstlisting}
+
+Equation \ref{eqn_effective_mass} can be recovered from the above source code as follows,
+
+\begin{align*}
+R_\mathrm{racc} &= \frac{91.2 + R_\mathrm{acc,input}}{91.2 g} = \frac{f_\mathrm{c} + R_\mathrm{acc,input}}{f_\mathrm{c} g} \\
+m_{\mathrm{v,mod}} &= w_\mathrm{v} R_\mathrm{acc} = \frac{w_\mathrm{v} ( f_\mathrm{c} + R_\mathrm{acc,input} ) }{f_\mathrm{c} g} \\
+ &= \frac{w_\mathrm{v}}{g} +  \frac{ w_\mathrm{v} R_\mathrm{acc,input}  }{f_\mathrm{c} g} \\
+ &= m_\mathrm{v} +  \frac{ R_\mathrm{acc,input}  }{f_\mathrm{c}} m_\mathrm{v} \\
+ &= m_\mathrm{v} \left(1 + f_\mathrm{acc}\right)
+\end{align*}
+
+\noindent where $w_\mathrm{v}$ is car weight, $g$ is gravitational acceleration and the subscript `input' indicates the original $R_\mathrm{acc}$ defined by the user.
+
+\section{Rolling Resistance Coefficients}
+The Train Rolling Resistance Coefficients are used to compute the mechanical friction created by
+train movement, and suggested values for rubber-tired and steel wheels are provided on the instructions
+for Input Form 9E. 
+
+The mechanical rolling resistance is calculated in the subroutine {\tt GARAGE.FOR} (line 297) and {\tt TRAIN.FOR} (line 493) as
+
+\begin{lstlisting}
+      CORMV(I,2) = CORMV(I,2) * NCARV(I)
+      RM=CORMV(ITYP,2)+(CORMV(ITYP,1)+CORMV(ITYP,3)*UV(NUMV))*WTRN
+\end{lstlisting}   
+
+\noindent which is equivalent to
+
+\begin{align}
+R_\mathrm{m} = C_1 w_\mathrm{t} + C_2 n_\mathrm{car} + C_3 w_\mathrm{t} u_\mathrm{v}
+\end{align}
+
+\noindent where $w_\mathrm{t}$ is the train weight (force in tons), $n_\mathrm{car}$ is the number of cars in a train and $u_\mathrm{v}$ is the train speed.
+
+The default resistance coefficients for trains with steel wheels appear to be based on the original equation by Davis \cite{davis1926} (also see Szanto \cite{szanto2016}), who defined the specific resistance as
+
+\begin{align}
+r_\mathrm{Davis} = \frac{R_\mathrm{Davis}}{w_\mathrm{t}} =  1.3 + \frac{29}{w_\mathrm{ax}} + 0.045 u_\mathrm{v} + 0.0005 \frac{A u^2}{n_\mathrm{ax} w_\mathrm{ax}}
+\end{align}
+
+\noindent where $w_\mathrm{ax}$ is the axle load and $n_\mathrm{ax}$ is the number of axles per car.
+Note that the axles are assumed to have journal bearings \cite{szanto2016}.
+The default SES coefficients of $C_1 = 1.3$ lbf/ton, $C_2 = 116$ lbf and $C_3 = 0.045$ lbf/ton-mph can be recovered by assuming $n_\mathrm{ax}=4$ and noting that $n_\mathrm{ax} w_\mathrm{ax} = w_\mathrm{car}$ and $w_\mathrm{t}/w_\mathrm{car} = n_\mathrm{car}$.
+
+\begin{align}
+R_\mathrm{Davis} & = 1.3 w_\mathrm{t} + \frac{116 w_\mathrm{t}}{n_\mathrm{ax} w_\mathrm{ax}} + 0.045 w_\mathrm{t} u_\mathrm{v} + 0.0005 \frac{w_\mathrm{t} A u^2}{n_\mathrm{ax} w_\mathrm{ax}} \nonumber \\
+ &= 1.3 w_\mathrm{t} + 116 n_\mathrm{car} + 0.045 w_\mathrm{t} u_\mathrm{v} + 0.0005 n_\mathrm{car} A u^2 
+\end{align}
+
+\noindent Note that the final term in the Davis equation accounts for aerodynamic resistance, and is not used in SES.
+
+Szanto \cite{szanto2016} provides a useful discussion on the impact of roller bearings versus journal bearings as well as dynamic effects.
+
+\bibliography{chap8bib}
+
+\end{document}
