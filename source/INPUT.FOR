@@ -2430,18 +2430,43 @@ C     BEGIN JSON OUTPUT LIST
 6005  FORMAT ( T5, ']')
 6010  FORMAT ( T5, '],')
 6015  FORMAT ( T10, '{')
+6016  FORMAT ( T25, '{')
 6020  FORMAT ( T10, '}')
+6021  FORMAT ( T25, '}')
 6025  FORMAT ( T10, '},')
-6050  FORMAT ( T10, '"info" : ')
-6055  FORMAT ( T10, '"info" : {}')
+6026  FORMAT ( T25, '},')
+6050  FORMAT ( T10, '"info" :       {')
+6052  FORMAT ( T25, '"input_file" : ', T40,'"', A,'"', ',')
+6060  FORMAT ( T25, '"timestamp" : ', T48,'"', A20,'"', ',')
+6062  FORMAT ( T25, '"units" : ', T66,'"IP",')
+6065  FORMAT ( T25, '"ambient_dry_bulb_temperature" : ',T60, F10.2, ',')
+6070  FORMAT ( T25, '"ambient_wet_bulb_temperature" : ',T60, F10.2, ',')
+6075  FORMAT ( T25, '"ambient_pressure" : ',T60, F10.5, ',')
+6080  FORMAT ( T25, '"ambient_density" : ',T60, F10.5, ',')
+6085  FORMAT ( T25, '"ambient_humidity_ratio" : ',T60, F10.5)
+
+
 
 C     BEGIN LIST OF OBJECTS
+C     THIS IS THE FIRST OPENING BRACKET OF THE JSON FILE
+C     JSON FILE IS AN ORDERED LIST OF OBJECTS.  THE CLOSING
+C     BARCKET IS 
       WRITE (JSON, 6000)
 C     BEGIN METADATA OBJECT
-      WRITE (JSON, 6015)
 C     META DATA WRITTEN OUT HERE
-      WRITE (JSON, 6055) 
-C
+      WRITE (JSON, 6015)
+      WRITE (JSON, 6050) 
+      WRITE (JSON, 6052) TRIM(INPFILE)
+      WRITE (JSON, 6060) DATETIME
+      WRITE (JSON, 6062)
+      WRITE (JSON, 6065) TDBAMB
+      WRITE (JSON, 6070) TWBAMB
+      WRITE (JSON, 6075) PAMB
+      WRITE (JSON, 6080) RHOWHT
+      WRITE (JSON, 6085) HUMAMB
+      WRITE (JSON, 6021)
+
+
 C     CLOSE OUT METADATA OBJECT
       WRITE (JSON, 6025)
 C
