@@ -32,7 +32,8 @@ C**** IMPULSE FAN -- CHECK IF FAN IS OPERATING
 C**** COMPUTE GAIN IN TOTAL HEAD CAUSED BY IMPULSE FAN USING            
 C**** 'THRUST' EQUATION                                                 
 C     (ASSUMED TO USE OUTSIDE AIR OR BE UPSTREAM FROM FIRE -            
-C     HENCE NO DENSITY ADJUSTMENT)                                      
+C     HENCE NO DENSITY ADJUSTMENT) 
+C     YSS: Adding Density ADJUSTMENT                                     
       GAIN = QIFS(IFS)*( VIFS(IFS) - Q/ALS(ILS) )/ ALS(ILS)             
       SUM2 = SUM2 + GAIN                                                
 C**** FIND THE LOW AND HIGH SUBSEGMENT IN THIS LINE SEGMENT             
