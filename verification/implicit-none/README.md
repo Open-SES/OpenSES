@@ -19,8 +19,11 @@ something.
 
 The most famous example is the typo "DO 10 I = 1.10" from early in the
 US space program.  The programmer typed a decimal point instead of a
-comma - the code ought to have read "DO 10 I = 1,10".
-------------------------------------------------^
+comma - the code ought to have read
+```
+"DO 10 I = 1,10".
+------------^
+```
 If implicit declarations are allowed, "DO 10 I = 1.10" creates a new
 variable named "DO10I" and assigns it the value 1.10.
 
@@ -40,11 +43,14 @@ tells gfortran to print the type of every variable, whether it is implicitly
 or explicitly declared, and the array dimensions.  These transcripts were
 saved to the files "transcript-implicit.txt" and "transcript-explicit.txt".
 Command-line instructions were:
+```
 % gfortran -fno-align-commons -fdump-parse-tree Dsh-implicit.for > transcript-implicit.txt
 % gfortran -fdump-parse-tree Dsh-explicit.for > transcript-explicit.txt
-
+```
 "transcript-diff.txt" is the output of a diff on the command line:
+```
 % diff -b transcript-implicit.txt transcript-explicit.txt > transcript-diff.txt
+```
 This lists all the differences, ignoring changes in whitespace.
 
 The only differences are:
