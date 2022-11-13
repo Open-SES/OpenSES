@@ -1,8 +1,8 @@
                       SUBWAY ENVIRONMENT SIMULATION
-                                   SES
+                                OpenSES
                      PROGRAM DICTIONARY OF VARIABLES
 
-                  VERSION 4 MODIFICATION LEVEL 00
+                  VERSION 4.2 MODIFICATION LEVEL 00
 
            THE PRINCIPAL VARIABLES OF THE SES PROGRAM ARE LISTED
         BELOW IN ALPHABETICAL ORDER.  EACH VARIABLE NAME IS FOLLOWED
@@ -915,6 +915,11 @@
  INPFILE   IS A CHARACTER*254 VARIABLE USED TO STORE THE COMPLETE
           NAME OF THE INPUT FILE AS PROVIDED BY THE USER.  (I,CH)
 
+ inpver   is the version number of the OpenSES input file (not the
+        version number of the program).  It is read from the input
+        file after form 1B (in a call to GetVersion), multiplied by
+        1000 and stored as an integer. ( c,i )
+
  INODE  NUMBER OF NODE FOR WHICH AERODYNAMIC JUNCTION CALCULATIONS
         ARE CURRENTLY BEING PERFORMED.  ( C,I ).
 
@@ -1780,7 +1785,12 @@
         FROM TRAIN AUXILIARY SYSTEM AND PASSENGERS OVER THE SUMMARY
         INTERVAL. (BTU/SEC) * PINPT. SUMMED IN PINPNT.  ( C,R ).
 
- SESVER    IS A CHARACTER*5 CONSTANT USED TO STORE THE SES VERSION
+ screen  is the fortran logical unit number of the terminal/screen.
+        It is initialized at the beginning of the program and passed
+        through common to all other portions of the program.  ( c,i ).
+
+
+ SESVER    IS A CHARACTER*8 CONSTANT USED TO STORE THE SES VERSION
           NUMBER.  CHANGES TO THE LENGTH OF THIS CONSTANT WOULD
           NECESSITATE MODIFICATIONS TO THE DEFINITIONS OF VARIABLE
           HEADER AS WELL AS FORMAT STATEMENTS IN SUBROUTINES INPUT AND

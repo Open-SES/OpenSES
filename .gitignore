@@ -28,3 +28,6 @@
 
 # Executables
 *.app
+
+# macOS hidden files
+.DS_Store

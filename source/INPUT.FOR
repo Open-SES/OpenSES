@@ -13,6 +13,7 @@ C     OTHER SUBROUTINES WHICH ARE USED ARE -
 C              CHECKI - CHECKS INTEGER VARIABLE BETWEEN TWO LIMITS      
 C              CHECKR - CHECKS REAL VARIABLE BETWEEN TWO LIMITS         
 C              ERROR  - WRITES ERROR MESSAGES                           
+C              Getversion - reads and checks a fourth number in form 1B.
 C                                                                       
 C                                                                       
 C
@@ -25,11 +26,12 @@ C     MAXTIT: MAXIMUM NUMBER OF TITLE LINES
       PARAMETER (MAXTIT=20)
       DIMENSION NUMMY1(18)                             
       DIMENSION DUMMY1(8), NUMMY2(8),NUMMY3(8),NUMMY4(8),NUMMY5(8)   
-      CHARACTER*80 TITLINES(MAXTIT), DISPSTR
+      CHARACTER*80 TITLINES(MAXTIT+1), DISPSTR
 5     FORMAT (80(' '))                                
 10    FORMAT (A1)   
 20    FORMAT (A80)                                                  
 30    FORMAT (8F10.0)                                                   
+31    FORMAT (3F10.0) ! For form 1B
 40    FORMAT (A36,4X,4F10.0)
 45    FORMAT (116(' '))                                            
 46    FORMAT (122(' '))
@@ -62,9 +64,9 @@ C     MAXTIT: MAXIMUM NUMBER OF TITLE LINES
      2'╝░╚══════╝╚═════╝░░ ',
      2'                        ',/,
      259('░'),'                                              ',/,
-     1'OpenSES, ',A8,', 14 July 2021',//,
-     2'Copyright (c) 2021, Engineers of the OpenSES Agreement. All ',
-     2'rights reserved. ',//,
+     1'OpenSES, ',A8,', 13 November 2022',//,
+     2'Copyright (c) 2021-2022, Engineers of the OpenSES Agreement.  ',
+     2'All rights reserved. ',//,
      2'BSD 3-Clause License. Redistribution and use in source and bina',
      2'ry forms, with or without modification, are permitted',/,
      2'provided that the following conditions are met:',//,
@@ -382,8 +384,8 @@ C     MAXTIT: MAXIMUM NUMBER OF TITLE LINES
 1500  FORMAT (5X,'NODE',I5)                                             
 1510  FORMAT (// T35,'INPUT VERIFICATION OF CONTROL GROUP INFORMATION'
      1,T112,'FORM 12')                                                  
-1520  FORMAT (// 'TEMPERATURE TABULATION INCREMENT',T79,F14.1,T96,'DEG 
-     1F')                                                             
+1520  FORMAT (// 'TEMPERATURE TABULATION INCREMENT',T79,F14.1,T96,
+     1'DEG F')
 1530  FORMAT (/ 'NUMBER OF CONTROL GROUPS',T79,I14)                  
 1540  FORMAT (// T3,'GROUP',T13,'NUMBER OF',T25,'INTERVAL',T37,'NUMBER O
      1F',T55,'SUMMARY OPTION',T90,'NUMBER OF',T105,'NUMBER OF',T122,'TIM
@@ -458,10 +460,21 @@ C**** IS EXCEEDED.
       DO 1665 I=1, MAXTIT
         READ (IN,20) TITLE
         IF (LEN_TRIM(TITLE) .EQ. 0)GOTO 1664
-        READ (TITLE,FMT=30,ERR=1664)DUMY1, DUMY2, DUMY3, DUMY4,
-     1                              DUMY5, DUMY6, DUMY7, DUMY8
+!****   READ (TITLE,FMT=30,ERR=1664)DUMY1, DUMY2, DUMY3, DUMY4,
+!****1                              DUMY5, DUMY6, DUMY7, DUMY8
+        ! We look for three numbers in form 1B (down from of eight in
+        ! SES v4.1).
+        ! We look for the fourth number in getver.f95, where we can
+        ! issue a good error message if the version number is malformed.
+        ! If we tried to read it here and it was malformed, we'd get
+        ! a slew of unhelpful error messages caused by SES processing
+        ! the values in form 1C as form 1B.
+        READ (TITLE,FMT=31,ERR=1664)DUMY1, DUMY2, DUMY3
 C**** FOUND VALID NUMERIC INPUT.  STORE NUMBER OF TITLE LINES IN NUMY2
         NUMY2=I-1
+!**** Store the line with form 1B so we can use it in error messages
+!**** if the OpenSES input file version is too high or too low.
+        titlines(maxtit+1) = title
         GOTO 1662
 1664  TITLINES(I)=TITLE
 1665  CONTINUE
@@ -532,6 +545,13 @@ C**** LESS THAN ONE OR GREATER THAN 12.
       WRITE (OUT,100) SESVER
 C                                                                       
 C                                                                       
+!**** Call a routine that checks for a line that sets the version of the
+!**** input file.  If it succeeds it puts the version number into the
+!**** COMMON block variables "intver" (which is an integer that is 1,000
+!**** times the value, e.g. 4300).  We can use that in integer comparisons
+!**** to check how to behave.
+      call getVersion(titlines(maxtit+1))
+
 C---- FORM 1C                                                           
 C                                                                       
       WRITE (OUT,10) CHAR(12)

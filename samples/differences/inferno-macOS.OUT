@@ -1,29 +1,46 @@
-                                      UNITED STATES DEPARTMENT OF TRANSPORTATION     
-                                            FEDERAL TRANSIT ADMINISTRATION           
-                                 JOHN A. VOLPE NATIONAL TRANSPORTATION SYSTEMS CENTER
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                            
+░░█████╗░██████╗░███████╗███╗░░██╗░██████╗███████╗░██████╗░ Subway Environment Simulation           
+░██╔══██╗██╔══██╗██╔════╝████╗░██║██╔════╝██╔════╝██╔════╝░                            
+░██║░░██║██████╔╝█████╗░░██╔██╗██║╚█████╗░█████╗░░╚█████╗░░                                           
+░██║░░██║██╔═══╝░██╔══╝░░██║╚████║░╚═══██╗██╔══╝░░░╚═══██╗░                               
+░╚█████╔╝██║░░░░░███████╗██║░╚███║██████╔╝███████╗██████╔╝░                                                     
+░░╚════╝░╚═╝░░░░░╚══════╝╚═╝░░╚══╝╚═════╝░╚══════╝╚═════╝░░                         
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                                              
+OpenSES, 4.2     , 13 November 2022
 
-                                               XXXXX   XXXXXXX   XXXXX
-                                              X        X        X
-                                               XXXXX   XXXXX     XXXXX
-                                                    X  X              X
-                                                    X  X              X
-                                              XXXXXX   XXXXXXX  XXXXXX
+Copyright (c) 2021-2022, Engineers of the OpenSES Agreement.  All rights reserved. 
 
-                                            SUBWAY ENVIRONMENT SIMULATION
+BSD 3-Clause License. Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
 
-                                                  SIMULATION OF
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+disclaimer.
 
-                         SAMPLE SES INPUT FILE FOR EMERGENCY SIMULATION (FIRE MODEL)                     
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+disclaimer in the documentation and/or other materials provided with the distribution.
 
-                         A 6-CAR TRAIN IS IN A TUNNEL WITH A 3 PERCENT GRADE                             
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products
+derived from this software without specific prior written permission.
 
-                         A FIRE OCCURS IN THE 4TH CAR                                                    
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"  AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR  SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY,  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE  OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
-                         FIRE HEAT RELEASE RATE = 48000000 BTU/H                                         
+Simulation started at:  13 NOV 2022 09:52:28
 
-                         DOWNHILL VENTILATION WITH A FAN CAPACITY OF 300,000 CFM                         
-
-                                    DESIGN TIME 1700 HRS   JULY       1984
+
+SAMPLE SES INPUT FILE FOR EMERGENCY SIMULATION (FIRE MODEL)                     
+A 6-CAR TRAIN IS IN A TUNNEL WITH A 3 PERCENT GRADE                             
+A FIRE OCCURS IN THE 4TH CAR                                                    
+FIRE HEAT RELEASE RATE = 48000000 BTU/H                                         
+DOWNHILL VENTILATION WITH A FAN CAPACITY OF 300,000 CFM                         
+Modified form 1B to work in OpenSES v4.2 (added an input file version number).  
+DESIGN TIME 1700 HRS   JULY       1984
  
  
  
@@ -40,13 +57,9 @@
  
  
  
- 
- 
-                                                                                             DEVELOPED BY -
-                                                                                               PARSONS, BRINCKERHOFF,
-                                                                                               QUADE AND DOUGLAS, INC.
-                                                                                               NEW YORK CITY, NEW YORK
-                                                                                               VERSION 4.10GF  
+4.2     
+This OpenSES input file is a version 4.2 input file.
+This file will run as SES v4.1 but give OpenSES output.
 
 
                                            INPUT VERIFICATION OF GENERAL DATA
@@ -760,7 +773,7 @@ NUMBER        ON ROUTE        SPEED         NUMBER          TYPE       TEMPERATU
                                   INPUT VERIFICATION OF CONTROL GROUP INFORMATION                              FORM 12
 
 
-TEMPERATURE TABULATION INCREMENT                                                         5.0   DEG  F
+TEMPERATURE TABULATION INCREMENT                                                         5.0   DEG F
 
 NUMBER OF CONTROL GROUPS                                                                   3
 
@@ -1200,7 +1213,7 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  3 -  6            94.7           1212232.1       270311.5
          2 -  3 -  7            97.3           1384233.5       330159.4
          2 -  3 -  8           100.1           1557755.6       397873.6
-         2 -  3 -  9           117.9           3478406.5       463583.6
+         2 -  3 -  9           117.9           3478406.8       463583.6
          2 -  3 - 10           127.3           4294667.5       601905.9
          2 -  3 - 11           238.5           3551435.2     12612721.0
          2 -  3 - 12            86.4            147294.5         6403.9
@@ -1411,14 +1424,14 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  3 -  1            91.0            718012.6       140912.0
          2 -  3 -  2            92.6            834268.9       172825.2
          2 -  3 -  3            94.4            946781.3       206404.6
-         2 -  3 -  4            96.4           1059930.4       242901.2
+         2 -  3 -  4            96.4           1059930.1       242901.0
          2 -  3 -  5            98.6           1178449.1       284083.2
-         2 -  3 -  6           101.0           1304662.0       331981.4
+         2 -  3 -  6           101.0           1304661.9       331981.3
          2 -  3 -  7           103.8           1441623.1       388893.3
          2 -  3 -  8           107.0           1594238.9       457601.7
          2 -  3 -  9           130.1           3469496.8       522240.2
          2 -  3 - 10           141.9           4261346.0       679736.2
-         2 -  3 - 11           280.3           3214288.5     12640511.0
+         2 -  3 - 11           280.3           3214286.8     12640511.0
          2 -  3 - 12            86.8            148179.4         5519.1
          2 -  3 - 13            86.4            118107.8         3742.3
          2 -  3 - 14            85.9             73142.0         1849.5
@@ -1572,11 +1585,11 @@ PARTITIONING        FLOW     VEL.    -------------------
                               (DEG F)            (BTU/HR)       (BTU/HR)
 
          2 -  2 -  1            88.7           1261016.8       240220.7
-         2 -  2 -  2            91.6           1948914.6       410325.2
+         2 -  2 -  2            91.6           1948914.1       410325.2
          2 -  3 -  1            96.2            820860.9       183346.2
          2 -  3 -  2            98.0            902501.5       209808.5
          2 -  3 -  3           100.0            992262.1       240732.4
-         2 -  3 -  4           102.2           1091643.6       277230.7
+         2 -  3 -  4           102.2           1091643.2       277230.5
          2 -  3 -  5           104.8           1201112.9       320697.9
          2 -  3 -  6           107.7           1321351.6       372895.9
          2 -  3 -  7           111.0           1456058.5       436048.5
@@ -1637,7 +1650,7 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  3 -  8           117.1           1612278.4       526762.3
          2 -  3 -  9           147.8           3427586.0       596029.2
          2 -  3 - 10           163.5           4195334.0       780020.6
-         2 -  3 - 11           340.7           2717103.5     12636497.0
+         2 -  3 - 11           340.7           2717106.2     12636498.0
          2 -  3 - 12            86.7             68146.6         4723.5
          2 -  3 - 13            86.3             46504.6         3205.9
          2 -  3 - 14            86.2             73702.4         1289.1
@@ -1691,7 +1704,7 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  3 -  8           119.2           1615913.2       538057.8
          2 -  3 -  9           151.5           3417346.5       607297.0
          2 -  3 - 10           168.0           4180761.5       794593.3
-         2 -  3 - 11           352.9           2605024.5     12621773.0
+         2 -  3 - 11           352.9           2605025.5     12621774.0
          2 -  3 - 12            86.7             65119.4         4541.4
          2 -  3 - 13            86.3             44637.0         3096.3
          2 -  3 - 14            86.3             73818.6         1172.9
@@ -1733,13 +1746,13 @@ PARTITIONING        FLOW     VEL.    -------------------
         PARTITIONING        TEMPERATURE         CONVECTION      RADIATION
                               (DEG F)            (BTU/HR)       (BTU/HR)
 
-         2 -  2 -  1            91.3           1552394.2       319679.7
+         2 -  2 -  1            91.3           1552394.5       319679.7
          2 -  2 -  2            94.7           2105248.5       472961.5
          2 -  3 -  1           100.0            843731.2       198778.9
          2 -  3 -  2           102.0            924019.0       226623.0
          2 -  3 -  3           104.3           1012671.7       259297.1
          2 -  3 -  4           106.9           1110927.4       297909.0
-         2 -  3 -  5           109.8           1217482.5       343921.2
+         2 -  3 -  5           109.8           1217482.6       343921.2
          2 -  3 -  6           113.1           1336101.0       399113.4
          2 -  3 -  7           116.9           1469000.6       465921.4
          2 -  3 -  8           121.3           1618782.9       547640.3
@@ -1787,19 +1800,19 @@ PARTITIONING        FLOW     VEL.    -------------------
         PARTITIONING        TEMPERATURE         CONVECTION      RADIATION
                               (DEG F)            (BTU/HR)       (BTU/HR)
 
-         2 -  2 -  1            92.1           1595794.6       333421.5
+         2 -  2 -  1            92.1           1595795.0       333421.5
          2 -  2 -  2            95.5           2130299.5       485232.6
          2 -  3 -  1           101.1            849394.6       202622.6
          2 -  3 -  2           103.2            929313.2       230795.1
          2 -  3 -  3           105.6           1017571.6       263859.0
-         2 -  3 -  4           108.2           1115180.2       302944.8
-         2 -  3 -  5           111.3           1221155.5       349537.7
+         2 -  3 -  4           108.2           1115180.5       302944.8
+         2 -  3 -  5           111.3           1221156.0       349537.7
          2 -  3 -  6           114.7           1339314.8       405440.7
          2 -  3 -  7           118.7           1471749.5       473145.7
-         2 -  3 -  8           123.2           1621058.2       556008.8
+         2 -  3 -  8           123.2           1621058.6       556008.8
          2 -  3 -  9           158.3           3399894.2       624749.5
          2 -  3 - 10           176.3           4158806.8       816547.8
-         2 -  3 - 11           375.0           2393254.8     12583985.0
+         2 -  3 - 11           375.0           2393256.5     12583985.0
          2 -  3 - 12            86.7             60030.2         4220.8
          2 -  3 - 13            86.3             41388.8         2895.0
          2 -  3 - 14            86.4             74027.6          963.9
@@ -1850,7 +1863,7 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  3 -  5           112.7           1224183.2       354488.5
          2 -  3 -  6           116.2           1341987.1       411055.2
          2 -  3 -  7           120.3           1474059.0       479595.8
-         2 -  3 -  8           125.1           1622833.9       563523.8
+         2 -  3 -  8           125.1           1622833.6       563523.8
          2 -  3 -  9           161.5           3392746.8       631896.9
          2 -  3 - 10           180.2           4150035.8       825318.8
          2 -  3 - 11           385.1           2294438.5     12562906.0
@@ -1899,15 +1912,15 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  2 -  2            97.1           2165916.0       504276.3
          2 -  3 -  1           103.1            857936.1       208894.6
          2 -  3 -  2           105.4            937275.3       237632.6
-         2 -  3 -  3           107.9           1024956.8       271387.3
+         2 -  3 -  3           107.9           1024956.9       271387.3
          2 -  3 -  4           110.8           1121357.9       311330.4
          2 -  3 -  5           114.0           1226710.2       358963.3
          2 -  3 -  6           117.7           1344238.2       416164.1
          2 -  3 -  7           122.0           1476023.5       485501.9
          2 -  3 -  8           126.9           1624066.0       570446.0
-         2 -  3 -  9           164.5           3386242.8       638400.8
+         2 -  3 -  9           164.5           3386243.0       638400.5
          2 -  3 - 10           184.0           4142181.0       833173.6
-         2 -  3 - 11           394.7           2200067.5     12541051.0
+         2 -  3 - 11           394.7           2200065.8     12541051.0
          2 -  3 - 12            86.7             55937.5         3954.4
          2 -  3 - 13            86.3             38724.7         2723.7
          2 -  3 - 14            86.5             74209.4          782.1
@@ -1953,15 +1966,15 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  2 -  2            97.9           2179009.8       511952.1
          2 -  3 -  1           104.1            861233.6       211534.4
          2 -  3 -  2           106.4            940383.6       240540.2
-         2 -  3 -  3           109.0           1027881.1       274623.2
+         2 -  3 -  3           109.0           1027881.1       274623.1
          2 -  3 -  4           112.0           1123827.2       314972.9
          2 -  3 -  5           115.3           1228970.6       363097.4
          2 -  3 -  6           119.2           1346277.4       420906.6
          2 -  3 -  7           123.5           1477821.1       491004.3
-         2 -  3 -  8           128.6           1625201.8       576911.8
+         2 -  3 -  8           128.6           1625201.6       576911.8
          2 -  3 -  9           167.5           3380225.8       644417.9
          2 -  3 - 10           187.6           4134992.0       840362.5
-         2 -  3 - 11           403.8           2110325.0     12518830.0
+         2 -  3 - 11           403.8           2110327.8     12518831.0
          2 -  3 - 12            86.7             54185.2         3838.7
          2 -  3 - 13            86.3             37576.2         2648.8
          2 -  3 - 14            86.6             74291.6          699.9
@@ -2010,9 +2023,9 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  2 -  2            99.6           2203814.2       527982.2
          2 -  3 -  1           106.3            867866.1       217295.5
          2 -  3 -  2           108.8            946723.1       246951.3
-         2 -  3 -  3           111.6           1033920.4       281820.9
+         2 -  3 -  3           111.6           1033920.6       281820.9
          2 -  3 -  4           114.8           1128949.1       323137.2
-         2 -  3 -  5           118.4           1233689.5       372417.7
+         2 -  3 -  5           118.4           1233689.9       372417.9
          2 -  3 -  6           122.5           1350538.2       431646.3
          2 -  3 -  7           127.3           1481539.5       503499.9
          2 -  3 -  8           132.7           1627404.1       591617.9
@@ -2065,7 +2078,7 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  3 -  1           108.4            873153.6       222311.4
          2 -  3 -  2           111.1            951804.1       252570.4
          2 -  3 -  3           114.1           1038765.9       288162.3
-         2 -  3 -  4           117.4           1133011.5       330361.4
+         2 -  3 -  4           117.4           1133011.6       330361.4
          2 -  3 -  5           121.3           1237402.0       380695.6
          2 -  3 -  6           125.7           1353853.6       441223.0
          2 -  3 -  7           130.7           1484403.0       514698.2
@@ -2117,13 +2130,13 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  2 -  1            97.9           1743421.1       393035.1
          2 -  2 -  2           102.6           2237654.0       553230.2
          2 -  3 -  1           110.3            877657.9       226858.1
-         2 -  3 -  2           113.1            956171.1       257694.2
-         2 -  3 -  3           116.3           1042811.2       293980.8
+         2 -  3 -  2           113.1            956170.7       257694.2
+         2 -  3 -  3           116.3           1042811.1       293980.8
          2 -  3 -  4           119.9           1136559.6       337021.2
          2 -  3 -  5           124.0           1240671.9       388360.2
          2 -  3 -  6           128.6           1356787.4       450119.0
          2 -  3 -  7           134.0           1486925.9       525120.6
-         2 -  3 -  8           140.2           1630333.0       617232.0
+         2 -  3 -  8           140.2           1630333.1       617231.9
          2 -  3 -  9           186.8           3343719.5       680924.0
          2 -  3 - 10           209.9           3969314.8       884352.8
          2 -  3 - 11           460.8           1550831.9     12350657.0
@@ -2179,7 +2192,7 @@ PARTITIONING        FLOW     VEL.    -------------------
          2 -  3 -  7           137.1           1489194.4       534980.4
          2 -  3 -  8           143.6           1631539.6       628951.4
          2 -  3 -  9           192.5           3333259.5       691384.1
-         2 -  3 - 10           216.4           3936205.2       896844.3
+         2 -  3 - 10           216.4           3936205.2       896844.4
          2 -  3 - 11           476.6           1399135.2     12296094.0
          2 -  3 - 12            86.7             42145.1         3030.3
          2 -  3 - 13            86.3             29119.3         2084.1

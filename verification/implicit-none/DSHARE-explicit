@@ -1,5 +1,5 @@
 !
-!     INCLUDE DSHARE                           ( DATE: 25 Oct 2022 )
+!     INCLUDE DSHARE                           ( DATE: 26 Oct 2022 )
 !
 !
 !     This version of 'DSHARE' has a number of changes from the version
@@ -25,13 +25,6 @@
 !
 !      5) All comment characters in the first column have been changed
 !         from C to ! so that DSHARE can be included in Fortran 95 files.
-!
-!      6) The character array declarations have been changed to the new
-!         Fortran style so that gfortran with the -pedantic switch on
-!         doesn't complain about them when it compiles .f95 source files.
-!
-!      6) A new integer variables has been declared, 'inpver', holding
-!         a version number for the input file.
 !
 !
 !
@@ -96,8 +89,6 @@
 !
 !
 ! ******************** New variables for OpenSES *********************
-!
-      integer :: inpver                    ! Version number of the input file.
 !
 !
 ! ************************ INTEGER VARIABLES *************************
@@ -194,21 +185,18 @@
 !
 ! ************************ CHARACTER VARIABLES ***********************
 !  OPERATIONAL TRAIN VARIABLES  (LMTRAN)
-      CHARACTER (len=2), dimension(lmtran) :: TNUMV
+      CHARACTER*2 TNUMV(LMTRAN)
 !  LINE SUBSEGMENT BY TRAIN ROUTE ( LMLSS X LMTRRT )
-      CHARACTER (len=2), dimension(lmlss,lmtrrt) :: ITNLSS
+      CHARACTER*2   ITNLSS(LMLSS,LMTRRT)
 !  LINE SEGMENT VARIABLES  ( LMLSEG )
-      CHARACTER (len=36), dimension(lmlseg) :: NAMLS
+      CHARACTER*36  NAMLS(LMLSEG)
 !  VENTILATION SHAFT SEGMENT VARIABLES  ( LMVSEG )
-      CHARACTER (len=36), dimension(lmvseg) :: NAMVS
+      CHARACTER*36 NAMVS(LMVSEG)
 !  FILE INPUT/OUTPUT VARIABLES
-      CHARACTER (len=20) DATETIME
-      CHARACTER (len=20) SESVER
-      CHARACTER (len=80) TITLE
-      CHARACTER(len=9), dimension(12) :: MONTHS
-      CHARACTER (len=116) :: HEADER
-      CHARACTER (len=122) :: FOOTER
-      CHARACTER (len=254) :: FILENAME, INPFILE, RESTART, PRNTCTRL
+      CHARACTER  DATETIME*20, SESVER*8, TITLE*80
+      CHARACTER*9   MONTHS (12)
+      CHARACTER HEADER*116, FOOTER*122
+      CHARACTER*254 FILENAME,INPFILE, RESTART, PRNTCTRL
 !
 ! ******************** Formerly undeclared variables *******************
 !
@@ -558,8 +546,6 @@
 !  PRINT GROUP VARIABLES  ( LMPRGP )
       COMMON   GINTPR, GRABBP, GRATAE, GRATTH, GRSUM, NPRGR
 
-      common   inpver
-
 
 ! When adding new variables to the common block, place them above this
 ! comment.  We want to keep the variables below (some of which have
@@ -569,6 +555,7 @@
       COMMON   FILENAME, INPFILE, RESTART, PRNTCTRL, HEADER, FOOTER
       COMMON   DATETIME, TITLE, MONTHS, SESVER
       COMMON   TNUMV
+
       EQUIVALENCE  (ND(1), NDS(2), NDSS(3))
 !
 !

@@ -1,27 +1,45 @@
-                                      UNITED STATES DEPARTMENT OF TRANSPORTATION     
-                                            FEDERAL TRANSIT ADMINISTRATION           
-                                 JOHN A. VOLPE NATIONAL TRANSPORTATION SYSTEMS CENTER
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                            
+░░█████╗░██████╗░███████╗███╗░░██╗░██████╗███████╗░██████╗░ Subway Environment Simulation           
+░██╔══██╗██╔══██╗██╔════╝████╗░██║██╔════╝██╔════╝██╔════╝░                            
+░██║░░██║██████╔╝█████╗░░██╔██╗██║╚█████╗░█████╗░░╚█████╗░░                                           
+░██║░░██║██╔═══╝░██╔══╝░░██║╚████║░╚═══██╗██╔══╝░░░╚═══██╗░                               
+░╚█████╔╝██║░░░░░███████╗██║░╚███║██████╔╝███████╗██████╔╝░                                                     
+░░╚════╝░╚═╝░░░░░╚══════╝╚═╝░░╚══╝╚═════╝░╚══════╝╚═════╝░░                         
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                                              
+OpenSES, 4.2     , 13 November 2022
 
-                                               XXXXX   XXXXXXX   XXXXX
-                                              X        X        X
-                                               XXXXX   XXXXX     XXXXX
-                                                    X  X              X
-                                                    X  X              X
-                                              XXXXXX   XXXXXXX  XXXXXX
+Copyright (c) 2021-2022, Engineers of the OpenSES Agreement.  All rights reserved. 
 
-                                            SUBWAY ENVIRONMENT SIMULATION
+BSD 3-Clause License. Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
 
-                                                  SIMULATION OF
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+disclaimer.
 
-                         SAMPLE SES INPUT FILE FOR NORMAL OPERATIONS SIMULATION                          
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+disclaimer in the documentation and/or other materials provided with the distribution.
 
-                         AIR CONDITIONED STATION - EVENING RUSH HOUR  OPERATION                          
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products
+derived from this software without specific prior written permission.
 
-                         ONE STATION SYSTEM WITH SINGLE BORE TUNNELS AND DOUBLE-TRACK TUNNEL             
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"  AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR  SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY,  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE  OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
-                         VERSION 4.10 - DEMONSTRATION OF PROGRAM OPTIONS                                 
+Simulation started at:  13 NOV 2022 21:29:25
 
-                                    DESIGN TIME 1700 HRS   JULY       2004
+
+SAMPLE SES INPUT FILE FOR NORMAL OPERATIONS SIMULATION                          
+AIR CONDITIONED STATION - EVENING RUSH HOUR  OPERATION                          
+ONE STATION SYSTEM WITH SINGLE BORE TUNNELS AND DOUBLE-TRACK TUNNEL             
+VERSION 4.2 - DEMONSTRATION OF PROGRAM OPTIONS                                  
+Modified form 1B to work in OpenSES v4.2 (added an input file version number).  
+DESIGN TIME 1700 HRS   JULY       2004
  
  
  
@@ -40,13 +58,9 @@
  
  
  
- 
- 
-                                                                                             DEVELOPED BY -
-                                                                                               PARSONS, BRINCKERHOFF,
-                                                                                               QUADE AND DOUGLAS, INC.
-                                                                                               NEW YORK CITY, NEW YORK
-                                                                                               VERSION 4.10GF  
+4.2     
+This OpenSES input file is a version 4.1 input file.
+This file will run as SES v4.1 but give OpenSES output.
 
 
                                            INPUT VERIFICATION OF GENERAL DATA
@@ -2188,7 +2202,7 @@ LINE SEGMENTS AND VENTILATION SHAFTS IN ZONE   ( SECTION - SEGMENT )
                                   INPUT VERIFICATION OF CONTROL GROUP INFORMATION                              FORM 12
 
 
-TEMPERATURE TABULATION INCREMENT                                                         5.0   DEG  F
+TEMPERATURE TABULATION INCREMENT                                                         5.0   DEG F
 
 NUMBER OF CONTROL GROUPS                                                                   8
 
@@ -5012,7 +5026,7 @@ DRY-BULB TEMPERATURE   ( DEG F )     2 -  4 -  1        88.4      701.7         
                                      2 -  4 -  3        88.9      696.9           82.4      682.5        0.0        85.1
 
 HUMIDITY RATIO         ( LB/LB )     2 -  4 -  1      0.0175      719.7         0.0164      696.1           0.0171
-                                     2 -  4 -  2      0.0176      715.7         0.0162      692.5           0.0170
+                                     2 -  4 -  2      0.0176      715.7         0.0162      692.1           0.0170
                                      2 -  4 -  3      0.0177      708.9         0.0160      681.3           0.0169
 
 
@@ -5031,7 +5045,7 @@ HUMIDITY RATIO         ( LB/LB )     2 -  4 -  1      0.0175      719.7         
 
       SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                                     0.0             0.0
 
-      HEAT SINK                                                                          -528971.8
+      HEAT SINK                                                                          -528971.4
 
                                SUMMARY OF SIMULATION FROM    630.00 TO    720.00 SECONDS
 
@@ -5125,7 +5139,7 @@ HUMIDITY RATIO         ( LB/LB )     5 -  5 -  1      0.0203      673.7         
 
       SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                                     0.0             0.0
 
-      HEAT SINK                                                                          -416595.3
+      HEAT SINK                                                                          -416595.5
 
                                SUMMARY OF SIMULATION FROM    630.00 TO    720.00 SECONDS
 
@@ -5217,7 +5231,7 @@ HUMIDITY RATIO         ( LB/LB )     7 -  7 -  1      0.0160      685.7         
 
       SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                               -533517.0       -561099.0
 
-      HEAT SINK                                                                           -41976.9
+      HEAT SINK                                                                           -41976.8
 
       HEAT CAPTURED BY TRACKWAY EXHAUST SYSTEM                                            -78604.4
 
@@ -5817,9 +5831,9 @@ PARTITIONING   MISCELLANEOUS       STEADY-STATE    HEAT SINK       AIR FLOW     
               SENSIBLE  LATENT  SENSIBLE  LATENT   SENSIBLE   SENSIBLE    LATENT  SENSIBLE    LATENT  SENSIBLE    LATENT    TOTAL
 
 
-  7 -  7 - 1   352062    18491    60500    35750     -12981     254653    775789   -533516   -561098   -654234   -830030   -1484264
+  7 -  7 - 1   352062    18491    60500    35750     -12981     254655    775789   -533516   -561098   -654236   -830030   -1484266
 
-  9 -  9 - 1   419366    21354    52250    37125     -13757       8737     93513   -373656    -76153   -466596   -151992    -618588
+  9 -  9 - 1   419366    21354    52250    37125     -13757       8738     93513   -373656    -76153   -466597   -151992    -618589
 
   9 -  9 - 2   436669    21609    52250    37125     -14103     -87993   -141787   -437691    -50054   -386823     83053    -303770
 
@@ -5829,7 +5843,7 @@ PARTITIONING   MISCELLANEOUS       STEADY-STATE    HEAT SINK       AIR FLOW     
 
  12 - 11 - 1   376329    18764    60499    35750     -13295    1584338   3006452  -2001850  -3019992  -2007871  -3060966   -5068837
               -------  -------  -------  -------    -------    -------   -------   -------   -------   -------   -------   --------
- ZONE TOTAL   2457353   123731   329999   220000     -83137    1964408   3986557  -4356183  -3949180  -4668623  -4330288   -8998911
+ ZONE TOTAL   2457353   123731   329999   220000     -83137    1964411   3986557  -4356183  -3949180  -4668626  -4330288   -8998914
 
                                             ENVIRONMENTAL CONTROL SYSTEM LOAD ESTIMATES
 
@@ -6705,11 +6719,11 @@ HUMIDITY RATIO         ( LB/LB )     2 -  4 -  1      0.0171      901.7         
 
       SEGMENT STEADY-STATE HEAT SOURCES                                                    26460.0             0.0
 
-      SEGMENT UNSTEADY-STATE HEAT SOURCES, EVAPORATION AND VISCOUS HEATING                -36169.5         53760.5
+      SEGMENT UNSTEADY-STATE HEAT SOURCES, EVAPORATION AND VISCOUS HEATING                -36169.5         53760.4
 
       SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                                     0.0             0.0
 
-      HEAT SINK                                                                          -497885.3
+      HEAT SINK                                                                          -497885.0
 
                                SUMMARY OF SIMULATION FROM    900.00 TO    990.00 SECONDS
 
@@ -6803,7 +6817,7 @@ HUMIDITY RATIO         ( LB/LB )     5 -  5 -  1      0.0203      944.9         
 
       SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                                     0.0             0.0
 
-      HEAT SINK                                                                          -422495.8
+      HEAT SINK                                                                          -422496.1
 
                                SUMMARY OF SIMULATION FROM    900.00 TO    990.00 SECONDS
 
@@ -6843,11 +6857,11 @@ HUMIDITY RATIO         ( LB/LB )     6 -  6 -  1      0.0172      975.3         
 
       SEGMENT STEADY-STATE HEAT SOURCES                                                    26460.0             0.0
 
-      SEGMENT UNSTEADY-STATE HEAT SOURCES, EVAPORATION AND VISCOUS HEATING                -36305.0         48405.8
+      SEGMENT UNSTEADY-STATE HEAT SOURCES, EVAPORATION AND VISCOUS HEATING                -36305.0         48405.7
 
       SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                                     0.0             0.0
 
-      HEAT SINK                                                                          -475042.2
+      HEAT SINK                                                                          -475041.5
 
                                SUMMARY OF SIMULATION FROM    900.00 TO    990.00 SECONDS
 
@@ -6893,9 +6907,9 @@ HUMIDITY RATIO         ( LB/LB )     7 -  7 -  1      0.0151      955.7         
 
       SEGMENT UNSTEADY-STATE HEAT SOURCES, EVAPORATION AND VISCOUS HEATING                 -6567.7          6628.1
 
-      SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                               -654234.0       -830030.0
+      SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                               -654236.0       -830030.0
 
-      HEAT SINK                                                                           -17383.2
+      HEAT SINK                                                                           -17382.9
 
       HEAT CAPTURED BY TRACKWAY EXHAUST SYSTEM                                            -78708.8
 
@@ -6948,7 +6962,7 @@ HUMIDITY RATIO         ( LB/LB )     8 -  8 -  1      0.0153      983.3         
 
       SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                               -215920.0       -523599.0
 
-      HEAT SINK                                                                            -7861.8
+      HEAT SINK                                                                            -7861.7
 
       HEAT CAPTURED BY TRACKWAY EXHAUST SYSTEM                                                -0.0
 
@@ -7005,9 +7019,9 @@ HUMIDITY RATIO         ( LB/LB )     9 -  9 -  1      0.0139      954.1         
 
       SEGMENT UNSTEADY-STATE HEAT SOURCES, EVAPORATION AND VISCOUS HEATING                -28327.8         28543.1
 
-      SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                              -2006517.9       -439292.0
+      SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                              -2006519.0       -439292.0
 
-      HEAT SINK                                                                           -33625.0
+      HEAT SINK                                                                           -33624.6
 
       HEAT CAPTURED BY TRACKWAY EXHAUST SYSTEM                                           -387657.2
 
@@ -7181,7 +7195,7 @@ HUMIDITY RATIO         ( LB/LB )    13 - 12 -  1      0.0199      916.9         
 
       SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                                     0.0             0.0
 
-      HEAT SINK                                                                          -460271.8
+      HEAT SINK                                                                          -460271.9
 
                                SUMMARY OF SIMULATION FROM    900.00 TO    990.00 SECONDS
 
@@ -7495,19 +7509,19 @@ PARTITIONING   MISCELLANEOUS       STEADY-STATE    HEAT SINK       AIR FLOW     
               SENSIBLE  LATENT  SENSIBLE  LATENT   SENSIBLE   SENSIBLE    LATENT  SENSIBLE    LATENT  SENSIBLE    LATENT    TOTAL
 
 
-  7 -  7 - 1   352561    18230    60500    35750     -12948     304731    896643   -654233   -830029   -704844   -950623   -1655467
+  7 -  7 - 1   352561    18230    60500    35750     -12948     304731    896643   -654235   -830029   -704844   -950623   -1655467
 
-  9 -  9 - 1   420005    20947    52250    37125     -13722      -8046     38812   -466595   -151991   -450487    -96884    -547371
+  9 -  9 - 1   420005    20947    52250    37125     -13722      -8048     38812   -466596   -151991   -450485    -96884    -547369
 
-  9 -  9 - 2   437191    21282    52250    37125     -14092    -122202   -214748   -386822     83053   -353147    156341    -196806
+  9 -  9 - 2   437191    21282    52250    37125     -14092    -122199   -214748   -386822     83053   -353150    156341    -196809
 
   9 -  9 - 3   439748    21527    52250    37125     -14617     -57082   -140344   -400379    103840   -420299     81692    -338607
 
-  9 -  9 - 4   434196    21229    52250    37125     -14373     321842    512358   -752718   -474192   -793915   -570712   -1364627
+  9 -  9 - 4   434196    21229    52250    37125     -14373     321841    512358   -752718   -474192   -793914   -570712   -1364626
 
- 12 - 11 - 1   376556    18553    60499    35750     -13338    1556321   2954280  -2007870  -3060966  -1980038  -3008583   -4988621
+ 12 - 11 - 1   376556    18553    60499    35750     -13338    1556322   2954280  -2007870  -3060966  -1980039  -3008583   -4988622
               -------  -------  -------  -------    -------    -------   -------   -------   -------   -------   -------   --------
- ZONE TOTAL   2460257   121768   329999   220000     -83090    1995564   4047001  -4668617  -4330285  -4702730  -4388769   -9091499
+ ZONE TOTAL   2460257   121768   329999   220000     -83090    1995565   4047001  -4668620  -4330285  -4702731  -4388769   -9091500
 
                                             ENVIRONMENTAL CONTROL SYSTEM LOAD ESTIMATES
 
@@ -7597,13 +7611,13 @@ SECT SEG SUB   SUB      (DEGREE F)    (LB/LB)     (DEGREE F)        BTU/HR      
   7-  7-  1     14          80.0       0.0136         79.0         -704844.       -950623.
   8-  8-  1     15          85.0       0.0149         84.0          -23710.         28710.
   8-  8-  2     16          85.0       0.0149         84.0         -205031.       -585726.
-  9-  9-  1     17          80.0       0.0136         79.0         -450487.        -96884.
-  9-  9-  2     18          80.0       0.0136         79.0         -353147.        156341.
+  9-  9-  1     17          80.0       0.0136         79.0         -450485.        -96884.
+  9-  9-  2     18          80.0       0.0136         79.0         -353150.        156341.
   9-  9-  3     19          80.0       0.0136         79.0         -420299.         81692.
-  9-  9-  4     20          80.0       0.0136         79.0         -793915.       -570712.
+  9-  9-  4     20          80.0       0.0136         79.0         -793914.       -570712.
  11- 10-  1     21          85.0       0.0149         84.0         -176632.       -465205.
  11- 10-  2     22          85.0       0.0149         84.0            4914.         80020.
- 12- 11-  1     23          80.0       0.0136         79.0        -1980038.      -3008583.
+ 12- 11-  1     23          80.0       0.0136         79.0        -1980039.      -3008583.
  13- 12-  1     24          90.3       0.0181         82.9               0.             0.
  13- 12-  2     25          92.2       0.0196         83.9               0.             0.
  13- 12-  3     26          91.6       0.0201         82.7               0.             0.

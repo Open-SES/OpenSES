@@ -1,27 +1,45 @@
-                                      UNITED STATES DEPARTMENT OF TRANSPORTATION     
-                                            FEDERAL TRANSIT ADMINISTRATION           
-                                 JOHN A. VOLPE NATIONAL TRANSPORTATION SYSTEMS CENTER
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                            
+░░█████╗░██████╗░███████╗███╗░░██╗░██████╗███████╗░██████╗░ Subway Environment Simulation           
+░██╔══██╗██╔══██╗██╔════╝████╗░██║██╔════╝██╔════╝██╔════╝░                            
+░██║░░██║██████╔╝█████╗░░██╔██╗██║╚█████╗░█████╗░░╚█████╗░░                                           
+░██║░░██║██╔═══╝░██╔══╝░░██║╚████║░╚═══██╗██╔══╝░░░╚═══██╗░                               
+░╚█████╔╝██║░░░░░███████╗██║░╚███║██████╔╝███████╗██████╔╝░                                                     
+░░╚════╝░╚═╝░░░░░╚══════╝╚═╝░░╚══╝╚═════╝░╚══════╝╚═════╝░░                         
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                                              
+OpenSES, 4.2     , 13 November 2022
 
-                                               XXXXX   XXXXXXX   XXXXX
-                                              X        X        X
-                                               XXXXX   XXXXX     XXXXX
-                                                    X  X              X
-                                                    X  X              X
-                                              XXXXXX   XXXXXXX  XXXXXX
+Copyright (c) 2021-2022, Engineers of the OpenSES Agreement.  All rights reserved. 
 
-                                            SUBWAY ENVIRONMENT SIMULATION
+BSD 3-Clause License. Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
 
-                                                  SIMULATION OF
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+disclaimer.
 
-                         SAMPLE SES INPUT FILE FOR NORMAL OPERATIONS SIMULATION                          
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+disclaimer in the documentation and/or other materials provided with the distribution.
 
-                         AIR CONDITIONED STATION - EVENING RUSH HOUR  OPERATION                          
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products
+derived from this software without specific prior written permission.
 
-                         ONE STATION SYSTEM WITH SINGLE BORE TUNNELS AND DOUBLE-TRACK TUNNEL             
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"  AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR  SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY,  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE  OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
-                         VERSION 4.10 - DEMONSTRATION OF PROGRAM OPTIONS                                 
+Simulation started at:  13 NOV 2022 09:52:22
 
-                                    DESIGN TIME 1700 HRS   JULY       2004
+
+SAMPLE SES INPUT FILE FOR NORMAL OPERATIONS SIMULATION                          
+AIR CONDITIONED STATION - EVENING RUSH HOUR  OPERATION                          
+ONE STATION SYSTEM WITH SINGLE BORE TUNNELS AND DOUBLE-TRACK TUNNEL             
+VERSION 4.2 - DEMONSTRATION OF PROGRAM OPTIONS                                  
+Modified form 1B to work in OpenSES v4.2 (added an input file version number).  
+DESIGN TIME 1700 HRS   JULY       2004
  
  
  
@@ -40,13 +58,9 @@
  
  
  
- 
- 
-                                                                                             DEVELOPED BY -
-                                                                                               PARSONS, BRINCKERHOFF,
-                                                                                               QUADE AND DOUGLAS, INC.
-                                                                                               NEW YORK CITY, NEW YORK
-                                                                                               VERSION 4.10GF  
+4.2     
+This OpenSES input file is a version 4.1 input file.
+This file will run as SES v4.1 but give OpenSES output.
 
 
                                            INPUT VERIFICATION OF GENERAL DATA
@@ -2188,7 +2202,7 @@ LINE SEGMENTS AND VENTILATION SHAFTS IN ZONE   ( SECTION - SEGMENT )
                                   INPUT VERIFICATION OF CONTROL GROUP INFORMATION                              FORM 12
 
 
-TEMPERATURE TABULATION INCREMENT                                                         5.0   DEG  F
+TEMPERATURE TABULATION INCREMENT                                                         5.0   DEG F
 
 NUMBER OF CONTROL GROUPS                                                                   8
 
@@ -6803,7 +6817,7 @@ HUMIDITY RATIO         ( LB/LB )     5 -  5 -  1      0.0203      944.9         
 
       SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                                     0.0             0.0
 
-      HEAT SINK                                                                          -422494.1
+      HEAT SINK                                                                          -422494.5
 
                                SUMMARY OF SIMULATION FROM    900.00 TO    990.00 SECONDS
 
@@ -7003,7 +7017,7 @@ HUMIDITY RATIO         ( LB/LB )     9 -  9 -  1      0.0139      954.1         
 
       SEGMENT STEADY-STATE HEAT SOURCES                                                   209000.0        148500.0
 
-      SEGMENT UNSTEADY-STATE HEAT SOURCES, EVAPORATION AND VISCOUS HEATING                -28327.8         28543.1
+      SEGMENT UNSTEADY-STATE HEAT SOURCES, EVAPORATION AND VISCOUS HEATING                -28327.8         28543.2
 
       SEGMENT ENVIRONMENTAL CONTROL SYSTEM                                              -2006519.9       -439295.0
 

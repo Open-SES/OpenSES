@@ -1,0 +1,790 @@
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                            
+░░█████╗░██████╗░███████╗███╗░░██╗░██████╗███████╗░██████╗░ Subway Environment Simulation           
+░██╔══██╗██╔══██╗██╔════╝████╗░██║██╔════╝██╔════╝██╔════╝░                            
+░██║░░██║██████╔╝█████╗░░██╔██╗██║╚█████╗░█████╗░░╚█████╗░░                                           
+░██║░░██║██╔═══╝░██╔══╝░░██║╚████║░╚═══██╗██╔══╝░░░╚═══██╗░                               
+░╚█████╔╝██║░░░░░███████╗██║░╚███║██████╔╝███████╗██████╔╝░                                                     
+░░╚════╝░╚═╝░░░░░╚══════╝╚═╝░░╚══╝╚═════╝░╚══════╝╚═════╝░░                         
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                                              
+OpenSES, 4.2     , 13 November 2022
+
+Copyright (c) 2021-2022, Engineers of the OpenSES Agreement.  All rights reserved. 
+
+BSD 3-Clause License. Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products
+derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"  AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR  SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY,  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE  OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+
+Simulation started at:  13 NOV 2022 09:52:34
+
+
+OpenSES v4.2 file for figuring out pressure changes at junctions.               
+This file has three tunnels and three-way junction.  Jet fans in one or         
+two legs generate a flow pattern that we use to figure out SES pressure         
+losses at type 4 junctions (angled junctions, form 6F).                         
+DESIGN TIME 1700 HRS   JULY       2022
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4.2     
+This OpenSES input file is a version 4.2 input file.
+This file will run as SES v4.1 but give OpenSES output.
+
+
+                                           INPUT VERIFICATION OF GENERAL DATA
+
+                                                                                                               FORM 1C
+                            TRAIN PERFORMANCE OPTION                              0     BYPASS
+
+                            TEMPERATURE / HUMIDITY SIMULATION OPTION              0     BYPASS
+
+                            SUPPLEMENTARY OUTPUT OPTION                           1
+
+                            ALLOWABLE SIMULATION ERRORS                           0
+
+                            ALLOWABLE INPUT ERRORS                                0
+
+
+                            NUMBER OF LINE SEGMENTS                               3                            FORM 1D
+
+                            TOTAL NUMBER OF SECTIONS                              3
+
+                            NUMBER OF VENTILATION SHAFT SECTIONS                  0
+
+                            NUMBER OF NODES                                       4
+
+                            NUMBER OF BRANCHED JUNCTIONS                          1
+
+                            NUMBER OF UNSTEADY HEAT SOURCES                       0
+
+                            NUMBER OF FAN TYPES                                   0
+
+
+                            NUMBER OF TRAIN ROUTES                                0                            FORM 1E
+
+                            NUMBER OF TRAIN TYPES                                 0
+
+                            NUMBER OF ENVIRONMENTAL CONTROL ZONES                 0
+
+                            FAN STOPPING/WINDMILLING OPTION                       1     SIMULATION TERMINATION
+
+                            NUMBER OF TRAINS IN OPERATION AT INITIALIZATION       0
+
+                            NUMBER OF IMPULSE FAN TYPES                           2
+
+                            INITIALIZATION FILE WRITING OPTION                    0
+
+                            INITIALIZATION FILE READING OPTION                    0
+
+
+                                           INPUT VERIFICATION OF GENERAL DATA
+
+
+                                                 DESIGN HOUR WEATHER DATA
+
+AMBIENT AIR DRY-BULB TEMPERATURE                                                        85.0   DEG F           FORM 1F
+
+AMBIENT AIR WET-BULB TEMPERATURE                                                        74.0   DEG F
+
+AMBIENT BAROMETRIC PRESSURE                                                            29.91   IN. HG
+
+  AMBIENT AIR DENSITY                                                                0.07281   LB/CU FT
+  AMBIENT HUMIDITY RATIO                                                             0.01552   LB/LB OF DRY AIR
+  AMBIENT RELATIVE HUMIDITY                                                              60.   PERCENT
+
+                                                 DAILY WEATHER DATA
+
+MORNING AMBIENT AIR DRY-BULB TEMPERATURE                                                75.0   DEG F
+
+MORNING AMBIENT AIR WET-BULB TEMPERATURE                                                65.0   DEG F
+
+  AMBIENT HUMIDITY RATIO                                                             0.01088   LB/LB OF DRY AIR
+  AMBIENT RELATIVE HUMIDITY                                                              59.   PERCENT
+
+EVENING OR OFF HOUR AMBIENT AIR DRY-BULB TEMPERATURE                                    85.0   DEG F
+
+EVENING OR OFF HOUR AMBIENT AIR WET-BULB TEMPERATURE                                    74.0   DEG F
+
+  AMBIENT HUMIDITY RATIO                                                             0.01552   LB/LB OF DRY AIR
+  AMBIENT RELATIVE HUMIDITY                                                              60.   PERCENT
+
+                                                 ANNUAL WEATHER DATA
+
+AMPLITUDE OF ANNUAL TEMPERATURE FLUCTUATION                                             12.0   DEG F
+
+
+AVERAGE PATRON WEIGHT                                                                   150.   LBS             FORM 1G
+
+PERCENT OF HEAT FROM TRAIN PROPULSION/BRAKING SYSTEM
+CAPTURED BY THE TRACKWAY EXHAUST SYSTEM WHEN TRAIN IS STOPPED                            0.0   PERCENT
+
+PERCENT OF HEAT FROM TRAIN PROPULSION/BRAKING SYSTEM
+CAPTURED BY THE TRACKWAY EXHAUST SYSTEM WHEN TRAIN IS MOVING                             0.0   PERCENT
+
+PERCENT OF SENSIBLE HEAT FROM TRAIN AUXILIARIES AND PASSENGERS
+CAPTURED BY THE TRACKWAY EXHAUST SYSTEM WHEN TRAIN IS STOPPED                            0.0   PERCENT
+
+PERCENT OF SENSIBLE HEAT FROM TRAIN AUXILIARIES AND PASSENGERS
+CAPTURED BY THE TRACKWAY EXHAUST SYSTEM WHEN TRAIN IS MOVING                             0.0   PERCENT
+
+MAXIMUM TRAIN SPEED AT WHICH THE TRACKWAY EXHAUST SYSTEM OPERATES                        0.0   MPH
+
+FIRE SIMULATION OPTION                                                                     0   BYPASS
+
+
+                                                   SYSTEM GEOMETRY
+
+                         SECTION        STARTING        ENDING         NUMBER        INITIAL
+                     IDENTIFICATION       NODE           NODE            OF          AIR FLOW
+                         NUMBER          NUMBER         NUMBER        SEGMENTS        (CFM)
+
+LINE SECTIONS                                                                                                  FORM 2A
+
+                          101             101            104              1               0.
+
+                          102             102            104              1               0.
+
+                          103             103            104              1               0.
+
+                      INTERNAL-EXTERNAL SECTION-NODE REFERENCE TABLES
+
+
+   INTERNAL                 EXTERNAL                 BACKWARD                   FORWARD
+   SECTION                  SECTION                  AERO NODE                 AERO NODE
+   --------                 --------                 ---------                 ---------
+                            (TABL11)                 (TABL12)                  (TABL13)
+
+       1                      101                        1                         2
+       2                      102                        3                         2
+       3                      103                        4                         2
+
+
+
+
+   INTERNAL                 EXTERNAL             NO. OF SECTIONS           INTERNAL SECTIONS
+     NODE                     NODE               ADJACENT TO NODE          ADJACENT TO NODE*
+   --------                 --------             ----------------          -----------------
+                            (TABL15)                 (TABL16)                  (TABL17)
+
+       1                      101                        1                  -1
+       2                      104                        3                   1    2    3
+       3                      102                        1                  -2
+       4                      103                        1                  -3
+
+                   * NOTE - ORDER OF ENTRIES MAY BE CHANGED BY JINS
+
+
+
+
+   EXTERNAL                 INTERNAL                 INTERNAL
+   SECTION                  SECTION                    NODE
+   OR NODE                  (TABL14)                 (TABL19) 
+   --------                 --------                 --------
+
+     101                        1                        1
+     102                        2                        3
+     103                        3                        4
+     104                        0                        2
+
+                                       LOOP TABLE
+
+ LOOP     EXTERNAL NUMBERS OF SECTIONS                        
+          ----------------------------------------------------
+NUMBER    INTERNAL NUMBERS OF SECTIONS-CONTAINED IN ARRAY LOOP
+
+   1       101 -102
+             1   -2
+
+   2       102 -103
+             2   -3
+
+
+
+
+
+   HALF-BANDWIDTH OF AERODYNAMIC RESPONSE MATRIX =  2
+
+   ARRAY BLP DATA     4 ELEMENTS REQUIRED
+                  20000 ELEMENTS AVAILABLE
+
+                                              CONTINUITY TABLE
+
+INTERNAL  EXTERNAL  STORAGE LOCATIONS   LOOPS THAT PASS THROUGH SECTION - SIGN SHOWS DIRECTION WITH RESPECT TO SECTION
+SECTION   SECTION     IN ARRAY LKAN
+NUMBER    NUMBER      FROM       TO
+
+   1       101           1        1      1
+
+   2       102           2        3     -1    2
+
+   3       103           4        4     -2
+
+                TABLES OF LOOPS PASSING THROUGH BRANCHED JUNCTIONS
+
+
+        INTERNAL  EXTERNAL   LOOP      FROM SECTION         TO SECTION
+          NODE      NODE    NUMBER  INTERNAL  EXTERNAL  INTERNAL  EXTERNAL
+         NUMBER    NUMBER            NUMBER    NUMBER    NUMBER    NUMBER
+
+
+            1       101     STRAIGHT-THROUGH JUNCTION OR PORTAL
+
+            2       104        1        1       101         2       102
+
+            2       104        2        2       102         3       103
+
+            3       102     STRAIGHT-THROUGH JUNCTION OR PORTAL
+
+            4       103     STRAIGHT-THROUGH JUNCTION OR PORTAL
+
+
+
+
+                                                    FLOW INITIALIZATION CHECK
+
+
+    INTERNAL SECTION AIRFLOW RATE (CFM)
+    -----------------------------------
+
+              0.0         0.0         0.0
+
+
+
+    LOOP AIRFLOW RATE (CFS)
+    -----------------------
+
+            0.000      -0.000
+
+INPUT VERIFICATION FOR LINE SEGMENT  101 -101           Tee piece 1                                            FORM 3A
+
+LINE SEGMENT TYPE                                                                          1   (TUNNEL)
+
+LENGTH                                                                                328.10   FT
+
+CROSS SECTION AREA                                                                     215.3   SQ FT
+
+STACK HEIGHT                                                                             0.0   FT
+
+  GRADE OF LINE SEGMENT                                                                0.000   PERCENT
+
+SEGMENT                                                                                                        FORM 3B
+ PERIMETERS         64.2                                                           TOTAL PERIMETER        64.2  FT
+
+ROUGHNESS                                                                          WEIGHTED AVERAGE
+ LENGTHS          0.0160                                                           ROUGHNESS LENGTH     0.0160  FT
+
+   HYDRAULIC DIAMETER                                                                   13.4   FT
+   RELATIVE ROUGHNESS   ( E/D )                                                      0.00119
+   FULLY TURBULENT FRICTION FACTOR (FROM AVERAGE ROUGHNESS)                           0.0211
+   AVERAGE OF INDIVIDUAL WALL FRICTION FACTORS                                        0.0211
+
+SEGMENT TOTAL HEAD LOSS COEFFICIENTS                 POSITIVE             NEGATIVE                             FORM 3C
+                                                       FLOW                 FLOW
+
+   AT FORWARD LIMIT                                    0.50                 1.00
+   AT BACKWARD LIMIT                                   0.00                 0.00
+
+WETTED WALL SURFACE                                                                      0.0   PERCENT
+
+NUMBER OF SUBSEGMENTS                                                                      5
+
+NUMBER OF STEADY-STATE HEAT SOURCES                                                        0
+
+ STARTING        ENDING                                                                                        FORM 3E
+SUBSEGMENT     SUBSEGMENT     WALL SURFACE      INITIAL AIR TEMPERATURE
+  NUMBER         NUMBER       TEMPERATURE       DRY-BULB       WET-BULB
+                                (DEG F)         (DEG F)        (DEG F)
+
+     1     THRU     5             85.0            85.0           74.0
+
+INPUT VERIFICATION FOR LINE SEGMENT  102 -102           Tee piece 2                                            FORM 3A
+
+LINE SEGMENT TYPE                                                                          1   (TUNNEL)
+
+LENGTH                                                                                328.10   FT
+
+CROSS SECTION AREA                                                                     215.3   SQ FT
+
+STACK HEIGHT                                                                             0.0   FT
+
+  GRADE OF LINE SEGMENT                                                                0.000   PERCENT
+
+SEGMENT                                                                                                        FORM 3B
+ PERIMETERS         64.2                                                           TOTAL PERIMETER        64.2  FT
+
+ROUGHNESS                                                                          WEIGHTED AVERAGE
+ LENGTHS          0.0160                                                           ROUGHNESS LENGTH     0.0160  FT
+
+   HYDRAULIC DIAMETER                                                                   13.4   FT
+   RELATIVE ROUGHNESS   ( E/D )                                                      0.00119
+   FULLY TURBULENT FRICTION FACTOR (FROM AVERAGE ROUGHNESS)                           0.0211
+   AVERAGE OF INDIVIDUAL WALL FRICTION FACTORS                                        0.0211
+
+SEGMENT TOTAL HEAD LOSS COEFFICIENTS                 POSITIVE             NEGATIVE                             FORM 3C
+                                                       FLOW                 FLOW
+
+   AT FORWARD LIMIT                                    0.50                 1.00
+   AT BACKWARD LIMIT                                   0.00                 0.00
+
+WETTED WALL SURFACE                                                                      0.0   PERCENT
+
+NUMBER OF SUBSEGMENTS                                                                      5
+
+NUMBER OF STEADY-STATE HEAT SOURCES                                                        0
+
+ STARTING        ENDING                                                                                        FORM 3E
+SUBSEGMENT     SUBSEGMENT     WALL SURFACE      INITIAL AIR TEMPERATURE
+  NUMBER         NUMBER       TEMPERATURE       DRY-BULB       WET-BULB
+                                (DEG F)         (DEG F)        (DEG F)
+
+     1     THRU     5             85.0            85.0           74.0
+
+INPUT VERIFICATION FOR LINE SEGMENT  103 -103           Stem with jet fan                                      FORM 3A
+
+LINE SEGMENT TYPE                                                                          9   (SPECIAL TUNNEL)
+
+LENGTH                                                                                328.10   FT
+
+CROSS SECTION AREA                                                                     215.3   SQ FT
+
+STACK HEIGHT                                                                             0.0   FT
+
+  GRADE OF LINE SEGMENT                                                                0.000   PERCENT
+
+SEGMENT                                                                                                        FORM 3B
+ PERIMETERS         64.2                                                           TOTAL PERIMETER        64.2  FT
+
+ROUGHNESS                                                                          WEIGHTED AVERAGE
+ LENGTHS          0.0160                                                           ROUGHNESS LENGTH     0.0160  FT
+
+   HYDRAULIC DIAMETER                                                                   13.4   FT
+   RELATIVE ROUGHNESS   ( E/D )                                                      0.00119
+   FULLY TURBULENT FRICTION FACTOR (FROM AVERAGE ROUGHNESS)                           0.0211
+   AVERAGE OF INDIVIDUAL WALL FRICTION FACTORS                                        0.0211
+
+SEGMENT TOTAL HEAD LOSS COEFFICIENTS                 POSITIVE             NEGATIVE                             FORM 3C
+                                                       FLOW                 FLOW
+
+   AT FORWARD LIMIT                                    0.50                 1.00
+   AT BACKWARD LIMIT                                   0.00                 0.00
+
+WETTED WALL SURFACE                                                                      0.0   PERCENT
+
+NUMBER OF SUBSEGMENTS                                                                      5
+
+NUMBER OF STEADY-STATE HEAT SOURCES                                                        0
+
+ STARTING        ENDING                                                                                        FORM 3E
+SUBSEGMENT     SUBSEGMENT     WALL SURFACE      INITIAL AIR TEMPERATURE
+  NUMBER         NUMBER       TEMPERATURE       DRY-BULB       WET-BULB
+                                (DEG F)         (DEG F)        (DEG F)
+
+     1     THRU     5             85.0            85.0           74.0
+
+                                    SUBSEGMENTS ADJACENT TO THE NODE
+
+
+
+   INTERNAL            EXTERNAL            NO. OF SECTIONS                SUBSEGMENTS ADJACENT TO NODE
+     NODE                NODE              ADJACENT TO NODE         (ORDER OF ENTRIES MAY BE CHANGED BY JINS)
+   --------            --------            ----------------         -----------------------------------------
+                       (TABL15)                (TABL16)                             (TABL18)
+
+
+
+       1                 101                       1                         1
+
+       2                 104                       3                         5     10     15
+
+       3                 102                       1                         6
+
+       4                 103                       1                        11
+
+
+                                            INPUT VERIFICATION OF NODE DATA
+
+
+NODE NUMBER                                                                              101                   FORM 6A
+
+NODE AERODYNAMIC TYPE                                                                      0   STRAIGHT-THROUGH JUNCTION OR PORTAL
+
+NODE THERMODYNAMIC TYPE                                                                    3   (TEMP/HUMID B.C.)
+
+DRY-BULB TEMPERATURE AT BOUNDARY                                                        85.0   DEG F           FORM 6B
+
+WET-BULB TEMPERATURE AT BOUNDARY                                                        74.0   DEG F
+
+    HUMIDITY RATIO AT BOUNDARY                                                       0.01552   LB/LB OF DRY AIR
+ 
+
+
+NODE NUMBER                                                                              102                   FORM 6A
+
+NODE AERODYNAMIC TYPE                                                                      0   STRAIGHT-THROUGH JUNCTION OR PORTAL
+
+NODE THERMODYNAMIC TYPE                                                                    3   (TEMP/HUMID B.C.)
+
+DRY-BULB TEMPERATURE AT BOUNDARY                                                        85.0   DEG F           FORM 6B
+
+WET-BULB TEMPERATURE AT BOUNDARY                                                        74.0   DEG F
+
+    HUMIDITY RATIO AT BOUNDARY                                                       0.01552   LB/LB OF DRY AIR
+
+
+                                            INPUT VERIFICATION OF NODE DATA
+
+
+NODE NUMBER                                                                              103                   FORM 6A
+
+NODE AERODYNAMIC TYPE                                                                      0   STRAIGHT-THROUGH JUNCTION OR PORTAL
+
+NODE THERMODYNAMIC TYPE                                                                    3   (TEMP/HUMID B.C.)
+
+DRY-BULB TEMPERATURE AT BOUNDARY                                                        85.0   DEG F           FORM 6B
+
+WET-BULB TEMPERATURE AT BOUNDARY                                                        74.0   DEG F
+
+    HUMIDITY RATIO AT BOUNDARY                                                       0.01552   LB/LB OF DRY AIR
+ 
+
+
+NODE NUMBER                                                                              104                   FORM 6A
+
+NODE AERODYNAMIC TYPE                                                                      4   ANGLED JUNCTION
+
+NODE THERMODYNAMIC TYPE                                                                    1   (MIXING NODE)
+
+BRANCH NUMBER  1                                                         SECTION NUMBER  101
+
+BRANCH NUMBER  2                                                         SECTION NUMBER  102
+
+BRANCH NUMBER  3                                                         SECTION NUMBER  103
+
+JUNCTION ASPECT RATIO                                                                 1.0000
+
+JUNCTION ANGLE                                                                          20.0   DEGREES
+
+                                    DUMP OF TABLES RELATED TO AERO AND THERMO PHENOMENA
+
+
+
+                                                                      (ORDER OF ENTRIES MAY HAVE BEEN CHANGED BY JINS)
+   INTERNAL            EXTERNAL            NO. OF SECTIONS             INTERNAL SECTIONS              SUBSEGMENTS
+     NODE                NODE              ADJACENT TO NODE            ADJACENT TO NODE             ADJACENT TO NODE
+   --------            --------            ----------------            -----------------            ----------------
+                       (TABL15)                (TABL16)                    (TABL17)                     (TABL18)
+
+
+       1                 101                       1                   -1
+                                                                                                      1
+       2                 104                       3                    1    2    3
+                                                                                                      5   10   15
+       3                 102                       1                   -2
+                                                                                                      6
+       4                 103                       1                   -3
+                                                                                                     11
+
+
+
+
+   INTERNAL            EXTERNAL                       (BACKWARD THERMO SUBNODE)                  (FORWARD THERMO SUBNODE)
+   SECTION             SECTION                           NUMBER       BRANCH                        NUMBER      BRANCH
+   --------            --------            --------   -----------   -----------       --------   -----------  -----------
+                       (TABL11)            (TABL20)                                   (TABL21)
+
+
+       1                 101                   65           1            1               257          4            1
+
+       2                 102                  129           2            1               258          4            2
+
+       3                 103                  193           3            1               259          4            3
+
+
+
+FIRST DUMP OF TABL1
+
+
+    1    1   68   68   68
+
+
+
+FIRST DUMP OF TABL2
+
+
+    1    1    1    2    3    1    4    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+
+
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+
+
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+
+
+
+COMBINED DUMP OF TABL1 AND TABL2
+
+   1   0
+
+   1  67        1   1   1   2   3   1   4   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+
+   0   0        0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+
+   0   0        0   0   0   0   0   0   0
+
+  68  67
+
+  68  67
+
+
+
+FIRST DUMP OF TABL23
+
+
+    1    1   22   22   22
+
+
+
+FIRST DUMP OF COAEND
+
+     1.4500       -0.18328         1.2731       -0.27054        0.60735        -1.0641        0.13287       -0.19632    
+
+
+   -0.66386        0.34403       -0.34330        0.64860       -0.92300        0.33591       -0.15834E-01   -0.95491    
+
+
+     1.4834       -0.31317       -0.36805        0.80015       -0.67785         0.0000    
+
+
+
+COMBINED DUMP OF TABL23 AND COAEND
+
+    1    0
+
+    1   21     1.4500       -0.18328         1.2731       -0.27054        0.60735        -1.0641        0.13287       -0.19632    
+             -0.66386        0.34403       -0.34330        0.64860       -0.92300        0.33591       -0.15834E-01   -0.95491    
+
+               1.4834       -0.31317       -0.36805        0.80015       -0.67785    
+
+   22   21
+
+   22   21
+
+
+
+
+                                      INPUT VERIFICATION OF IMPULSE FAN DATA
+
+
+
+                       IMPULSE FAN TYPE                                                   1                    FORM 7C
+                       FOR LINE SEGMENT TYPE                                              9
+
+                       IMPULSE FAN VOLUME FLOW RATE                           63566.4   CFM
+
+                       IMPULSE FAN PRESSURE EFFICIENCY
+                       (RATIO OF ACTUAL/THEORETICAL PRESSURE RISE)               0.70
+
+                       IMPULSE FAN NOZZLE DISCHARGE VELOCITY                   5500.0   FPM
+
+                       SIMULATION TIME AFTER WHICH IMPULSE FAN SWITCHES ON        0.0   SEC
+
+                       SIMULATION TIME AFTER WHICH IMPULSE FAN SWITCHES OFF    1000.0   SEC
+
+
+
+                       IMPULSE FAN TYPE                                                   2                    FORM 7C
+                       FOR LINE SEGMENT TYPE                                             10
+
+                       IMPULSE FAN VOLUME FLOW RATE                           63566.4   CFM
+
+                       IMPULSE FAN PRESSURE EFFICIENCY
+                       (RATIO OF ACTUAL/THEORETICAL PRESSURE RISE)               0.70
+
+                       IMPULSE FAN NOZZLE DISCHARGE VELOCITY                  -5500.0   FPM
+
+                       SIMULATION TIME AFTER WHICH IMPULSE FAN SWITCHES ON        0.0   SEC
+
+                       SIMULATION TIME AFTER WHICH IMPULSE FAN SWITCHES OFF    1000.0   SEC
+
+
+
+                                  INPUT VERIFICATION OF CONTROL GROUP INFORMATION                              FORM 12
+
+
+TEMPERATURE TABULATION INCREMENT                                                         5.0   DEG F
+
+NUMBER OF CONTROL GROUPS                                                                   1
+
+
+  GROUP     NUMBER OF   INTERVAL    NUMBER OF         SUMMARY OPTION                     NUMBER OF      NUMBER OF        TIME OF
+  NUMBER    INTERVALS    LENGTH    ABBREVIATED                                          CYCLES PER      CYCLES PER      LAST PRINT
+                                   PRINTS PER                                           AERODYNAMIC    THERMODYNAMIC     IN GROUP
+                                   DETAIL PRINT                                         EVALUATION      EVALUATION        (SEC)
+
+
+
+     1          6         50.00         2         0 - NEITHER SUMMARY NOR INITIALIZATION     1               5            300.00
+
+
+
+                                                   PROGRAM CONTROLS                                            FORM 13
+
+
+TIME INCREMENT PER CYCLE                                                                0.20   SECONDS
+
+MAXIMUM SIMULATION TIME                                                               300.00   SECONDS
+
+NUMBER OF CYCLES PER COMPLETE TRAIN EVALUATION                                            10
+
+NUMBER OF THERMODYNAMIC CYCLES PER WALL TEMPERATURE EVALUATION                            10
+
+
+
+
+TIME      0.00 SECONDS                           0 TRAIN(S) ARE OPERATIONAL
+
+
+   SYSTEM            AIR     AIR
+PARTITIONING        FLOW     VEL.
+                    (CFM)    (FPM)
+
+  101 -101            0.0      0.0
+  102 -102            0.0      0.0
+  103 -103            0.0      0.0
+
+
+
+               END OF SES INPUT VERIFICATION.   0 ERRORS WERE FOUND.
+
+               EXECUTION OF THIS SUBWAY ENVIRONMENT SIMULATION IS TO PROCEED.
+
+INTEGRATION STEP SIZE
+     AERODYNAMIC    RATIO = 1     INTEGRATION INCREMENT ( TWO CYCLES ) = 0.40 SEC
+     THERMODYNAMIC  RATIO = 5     INTEGRATION INCREMENT ( TWO CYCLES ) = 2.00 SEC
+
+
+TIME     50.00 SECONDS                           0 TRAIN(S) ARE OPERATIONAL
+
+
+   SYSTEM            AIR     AIR
+PARTITIONING        FLOW     VEL.
+                    (CFM)    (FPM)
+
+  101 -101      -132371.8   -614.8
+  102 -102       -54854.6   -254.8
+  103 -103       187226.4    869.6
+
+
+
+TIME    100.00 SECONDS                           0 TRAIN(S) ARE OPERATIONAL
+
+
+   SYSTEM            AIR     AIR
+PARTITIONING        FLOW     VEL.
+                    (CFM)    (FPM)
+
+  101 -101      -155769.2   -723.5
+  102 -102       -37247.7   -173.0
+  103 -103       193016.9    896.5
+
+
+
+TIME    150.00 SECONDS                           0 TRAIN(S) ARE OPERATIONAL
+
+
+   SYSTEM            AIR     AIR
+PARTITIONING        FLOW     VEL.
+                    (CFM)    (FPM)
+
+  101 -101      -158532.5   -736.3
+  102 -102       -34096.3   -158.4
+  103 -103       192628.8    894.7
+
+
+
+TIME    200.00 SECONDS                           0 TRAIN(S) ARE OPERATIONAL
+
+
+   SYSTEM            AIR     AIR
+PARTITIONING        FLOW     VEL.
+                    (CFM)    (FPM)
+
+  101 -101      -158855.7   -737.8
+  102 -102       -33689.2   -156.5
+  103 -103       192544.9    894.3
+
+
+
+TIME    250.00 SECONDS                           0 TRAIN(S) ARE OPERATIONAL
+
+
+   SYSTEM            AIR     AIR
+PARTITIONING        FLOW     VEL.
+                    (CFM)    (FPM)
+
+  101 -101      -158893.8   -738.0
+  102 -102       -33640.0   -156.2
+  103 -103       192533.8    894.3
+
+
+
+TIME    300.00 SECONDS                           0 TRAIN(S) ARE OPERATIONAL
+
+
+   SYSTEM            AIR     AIR
+PARTITIONING        FLOW     VEL.
+                    (CFM)    (FPM)
+
+  101 -101      -158898.3   -738.0
+  102 -102       -33634.2   -156.2
+  103 -103       192532.5    894.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            END OF SIMULATION

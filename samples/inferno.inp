@@ -3,7 +3,8 @@ A 6-CAR TRAIN IS IN A TUNNEL WITH A 3 PERCENT GRADE
 A FIRE OCCURS IN THE 4TH CAR
 FIRE HEAT RELEASE RATE = 48000000 BTU/H
 DOWNHILL VENTILATION WITH A FAN CAPACITY OF 300,000 CFM
-17.0      7.0       1984.0    
+Modified form 1B to work in OpenSES v4.2 (added an input file version number).
+17.0      7.0       1984.0      4.2
  1         1         1         0         0         0         10        0        
  4         3         1         4         1                   1         1        
  1         1         0         1         1         0         0         0        

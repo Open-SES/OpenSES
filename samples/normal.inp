@@ -1,8 +1,9 @@
 SAMPLE SES INPUT FILE FOR NORMAL OPERATIONS SIMULATION
 AIR CONDITIONED STATION - EVENING RUSH HOUR  OPERATION
 ONE STATION SYSTEM WITH SINGLE BORE TUNNELS AND DOUBLE-TRACK TUNNEL
-VERSION 4.10 - DEMONSTRATION OF PROGRAM OPTIONS
-17.00     7.0       2004.0
+VERSION 4.2 - DEMONSTRATION OF PROGRAM OPTIONS
+Modified form 1B to work in OpenSES v4.2 (added an input file version number).
+17.00     7.0       2004.0     4.1
 1.0       2.0       1.0       1.0       0.0       0.0       0.0       00.0
 14.0      15.0      4.0       15.0      7.0       3.0       0.0       1.0
 2.0       2.0       5.0       1.0       2.0       2.0       5.0       0.0

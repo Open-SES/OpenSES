@@ -1,0 +1,2086 @@
+
+Namespace: A-Z: (UNKNOWN 0)
+procedure name = test_explicit
+  common: /hsshar/ tabl42, taals, tsfv, hcnlss, tabl40, tmalss, humess, hummss, tsfals, tsfmls, tsmax, tsmean, tsmn2, tsmx2, dtrm, force2, force3, htskfm, tabl41
+
+  symtree: 'absamb'      || symbol: 'absamb'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'abtemp'      || symbol: 'abtemp'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'acaccv'      || symbol: 'acaccv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'accv'        || symbol: 'accv'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'acdecv'      || symbol: 'acdecv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'aetime'      || symbol: 'aetime'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'afirul'      || symbol: 'afirul'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'agvs'        || symbol: 'agvs'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'ahighs'      || symbol: 'ahighs'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'alossv'      || symbol: 'alossv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'alows'       || symbol: 'alows'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'als'         || symbol: 'als'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'amplv'       || symbol: 'amplv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'ampv'        || symbol: 'ampv'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'annamp'      || symbol: 'annamp'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'anvv'        || symbol: 'anvv'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'araccv'      || symbol: 'araccv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'ardecv'      || symbol: 'ardecv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'av'          || symbol: 'av'           
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'avs'         || symbol: 'avs'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'bcs'         || symbol: 'bcs'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'blossv'      || symbol: 'blossv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'blp'         || symbol: 'blp'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20000 )
+  symtree: 'blpreq'      || symbol: 'blpreq'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'bs'          || symbol: 'bs'           
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'btuflb'      || symbol: 'btuflb'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'buoys'       || symbol: 'buoys'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'c1ls'        || symbol: 'c1ls'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'cbnls'       || symbol: 'cbnls'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'cbpls'       || symbol: 'cbpls'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'cdbvov'      || symbol: 'cdbvov'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'cdfvov'      || symbol: 'cdfvov'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'cens'        || symbol: 'cens'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'ceps'        || symbol: 'ceps'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'cfmhft'      || symbol: 'cfmhft'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'cfmlft'      || symbol: 'cfmlft'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'cfnls'       || symbol: 'cfnls'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'cfpls'       || symbol: 'cfpls'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'chpr1v'      || symbol: 'chpr1v'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'chpr2v'      || symbol: 'chpr2v'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'clossv'      || symbol: 'clossv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'coaend'      || symbol: 'coaend'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 800 )
+  symtree: 'coamp'       || symbol: 'coamp'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 16 1 4 )
+  symtree: 'coampl'      || symbol: 'coampl'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 16 1 6 )
+  symtree: 'coatev'      || symbol: 'coatev'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'cobtev'      || symbol: 'cobtev'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'coptrt'      || symbol: 'coptrt'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20 )
+  symtree: 'cormv'       || symbol: 'cormv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 16 1 3 )
+  symtree: 'cotev'       || symbol: 'cotev'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 16 1 4 )
+  symtree: 'cp'          || symbol: 'cp'           
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'datetime'    || symbol: 'datetime'     
+    type spec : (CHARACTER 20_8 1)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'dbtls'       || symbol: 'dbtls'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'death'       || symbol: 'death'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'decav'       || symbol: 'decav'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'decbv'       || symbol: 'decbv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'decv'        || symbol: 'decv'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'decv1v'      || symbol: 'decv1v'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'del2th'      || symbol: 'del2th'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'delae'       || symbol: 'delae'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'delp'        || symbol: 'delp'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'delt'        || symbol: 'delt'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'delth'       || symbol: 'delth'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'deltr'       || symbol: 'deltr'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'derhss'      || symbol: 'derhss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'dertss'      || symbol: 'dertss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'desper'      || symbol: 'desper'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'dgrdqv'      || symbol: 'dgrdqv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'diacgv'      || symbol: 'diacgv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'didcgv'      || symbol: 'didcgv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'dlossv'      || symbol: 'dlossv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'dpv'         || symbol: 'dpv'          
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'dqdtlp'      || symbol: 'dqdtlp'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 500 )
+  symtree: 'dqdts'       || symbol: 'dqdts'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'dragv'       || symbol: 'dragv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'dtdels'      || symbol: 'dtdels'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'dtdmls'      || symbol: 'dtdmls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'dthels'      || symbol: 'dthels'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'dthmls'      || symbol: 'dthmls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'dtrm'        || symbol: 'dtrm'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 1350 1 1350 )
+  symtree: 'dtrm2'       || symbol: 'dtrm2'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1822500 )
+  symtree: 'dtwels'      || symbol: 'dtwels'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'dtwmls'      || symbol: 'dtwmls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'dudtv'       || symbol: 'dudtv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'dwlts'       || symbol: 'dwlts'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 20 )
+  symtree: 'eauxsr'      || symbol: 'eauxsr'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'eecpg'       || symbol: 'eecpg'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'efamux'      || symbol: 'efamux'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'efasux'      || symbol: 'efasux'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'efmux'       || symbol: 'efmux'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'efsux'       || symbol: 'efsux'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'elossv'      || symbol: 'elossv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'emhbss'      || symbol: 'emhbss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'emhbtn'      || symbol: 'emhbtn'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 600 1 5 )
+  symtree: 'emhfss'      || symbol: 'emhfss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'emisag'      || symbol: 'emisag'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'emisdg'      || symbol: 'emisdg'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'emtbss'      || symbol: 'emtbss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'emtbtn'      || symbol: 'emtbtn'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 600 1 5 )
+  symtree: 'emtfss'      || symbol: 'emtfss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'epr3sr'      || symbol: 'epr3sr'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'eprfsr'      || symbol: 'eprfsr'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'epsls'       || symbol: 'epsls'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'ergnsr'      || symbol: 'ergnsr'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'esptsr'      || symbol: 'esptsr'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'eta1v'       || symbol: 'eta1v'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'eta2v'       || symbol: 'eta2v'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'exdtdb'      || symbol: 'exdtdb'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 1200 1 6 )
+  symtree: 'exitcode'    || symbol: 'exitcode'     
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'extra'       || symbol: 'extra'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 350 )
+  symtree: 'exvovs'      || symbol: 'exvovs'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'fbss'        || symbol: 'fbss'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'fdirvs'      || symbol: 'fdirvs'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'fffls'       || symbol: 'fffls'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'ffss'        || symbol: 'ffss'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'filename'    || symbol: 'filename'     
+    type spec : (CHARACTER 254_8 1)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'firop2'      || symbol: 'firop2'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'firopt'      || symbol: 'firopt'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'fkenew'      || symbol: 'fkenew'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'flbbtu'      || symbol: 'flbbtu'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'flbhp'       || symbol: 'flbhp'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'flobss'      || symbol: 'flobss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'flobtn'      || symbol: 'flobtn'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 600 1 5 )
+  symtree: 'flofss'      || symbol: 'flofss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'fls'         || symbol: 'fls'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'flyjv'       || symbol: 'flyjv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'flyopv'      || symbol: 'flyopv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'fn1ift'      || symbol: 'fn1ift'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'fn1oft'      || symbol: 'fn1oft'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'fn2ift'      || symbol: 'fn2ift'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'fn2oft'      || symbol: 'fn2oft'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'fn3ift'      || symbol: 'fn3ift'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'fn3oft'      || symbol: 'fn3oft'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'fn4ift'      || symbol: 'fn4ift'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'fn4oft'      || symbol: 'fn4oft'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'footer'      || symbol: 'footer'       
+    type spec : (CHARACTER 122_8 1)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'force2'      || symbol: 'force2'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1350 )
+  symtree: 'force3'      || symbol: 'force3'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1350 )
+  symtree: 'fpmnvs'      || symbol: 'fpmnvs'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'fpmxvs'      || symbol: 'fpmxvs'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'fpsmph'      || symbol: 'fpsmph'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'fscft'       || symbol: 'fscft'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'fsts'        || symbol: 'fsts'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 20 )
+  symtree: 'ftin'        || symbol: 'ftin'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ftofvs'      || symbol: 'ftofvs'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'ftonvs'      || symbol: 'ftonvs'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'ftypvs'      || symbol: 'ftypvs'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'gintpr'      || symbol: 'gintpr'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 25 )
+  symtree: 'grabbp'      || symbol: 'grabbp'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 25 )
+  symtree: 'gracc'       || symbol: 'gracc'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'gratae'      || symbol: 'gratae'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 25 )
+  symtree: 'gratth'      || symbol: 'gratth'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 25 )
+  symtree: 'grdts'       || symbol: 'grdts'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 20 )
+  symtree: 'grhdwy'      || symbol: 'grhdwy'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 25 1 20 )
+  symtree: 'grsum'       || symbol: 'grsum'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 25 )
+  symtree: 'grtypv'      || symbol: 'grtypv'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 25 1 20 )
+  symtree: 'havgtn'      || symbol: 'havgtn'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 600 )
+  symtree: 'hcnlss'      || symbol: 'hcnlss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'hcopt'       || symbol: 'hcopt'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'header'      || symbol: 'header'       
+    type spec : (CHARACTER 116_8 1)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'hllul'       || symbol: 'hllul'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'hlsul'       || symbol: 'hlsul'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'hmambe'      || symbol: 'hmambe'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'hmambm'      || symbol: 'hmambm'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'hour'        || symbol: 'hour'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'hrmn'        || symbol: 'hrmn'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'hrmx'        || symbol: 'hrmx'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'hsopt'       || symbol: 'hsopt'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'hsumss'      || symbol: 'hsumss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'htmpss'      || symbol: 'htmpss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'htrnss'      || symbol: 'htrnss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'htskfm'      || symbol: 'htskfm'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1350 )
+  symtree: 'htsmss'      || symbol: 'htsmss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'humamb'      || symbol: 'humamb'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'humess'      || symbol: 'humess'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 2200 )
+  symtree: 'hummss'      || symbol: 'hummss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 2200 )
+  symtree: 'humopt'      || symbol: 'humopt'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'humss'       || symbol: 'humss'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'humtn'       || symbol: 'humtn'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 600 )
+  symtree: 'hvh2o'       || symbol: 'hvh2o'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'idot'        || symbol: 'idot'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'iequat'      || symbol: 'iequat'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'iextra'      || symbol: 'iextra'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 350 )
+  symtree: 'iindex'      || symbol: 'iindex'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'iline'       || symbol: 'iline'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'imotor'      || symbol: 'imotor'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'in'          || symbol: 'in'           
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'inode'       || symbol: 'inode'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'inpfile'     || symbol: 'inpfile'      
+    type spec : (CHARACTER 254_8 1)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'iprgrp'      || symbol: 'iprgrp'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'irotev'      || symbol: 'irotev'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'isitu'       || symbol: 'isitu'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'itnlss'      || symbol: 'itnlss'       
+    type spec : (CHARACTER 2_8 1)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 1200 1 20 )
+  symtree: 'itypv'       || symbol: 'itypv'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'izap'        || symbol: 'izap'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'jgroup'      || symbol: 'jgroup'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20 )
+  symtree: 'jratae'      || symbol: 'jratae'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'jratth'      || symbol: 'jratth'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'jrattr'      || symbol: 'jrattr'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'kaero'       || symbol: 'kaero'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'kastep'      || symbol: 'kastep'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'kbnd1'       || symbol: 'kbnd1'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'kbnd2'       || symbol: 'kbnd2'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'kbnd3'       || symbol: 'kbnd3'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'kprnth'      || symbol: 'kprnth'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ktstep'      || symbol: 'ktstep'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ktwall'      || symbol: 'ktwall'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'laclss'      || symbol: 'laclss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1200 )
+  symtree: 'lamdav'      || symbol: 'lamdav'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'lhlss'       || symbol: 'lhlss'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1200 )
+  symtree: 'lhltss'      || symbol: 'lhltss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'lhrev'       || symbol: 'lhrev'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'lhrpv'       || symbol: 'lhrpv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'life'        || symbol: 'life'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'lines'       || symbol: 'lines'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'lkan'        || symbol: 'lkan'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 2700 )
+  symtree: 'lls'         || symbol: 'lls'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'llss'        || symbol: 'llss'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'lmblp'       || symbol: 'lmblp'        
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 20000
+  symtree: 'lmclst'      || symbol: 'lmclst'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 75
+  symtree: 'lmcond'      || symbol: 'lmcond'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 800
+  symtree: 'lmcrpt'      || symbol: 'lmcrpt'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 12
+  symtree: 'lmeqrm'      || symbol: 'lmeqrm'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 1350
+  symtree: 'lmexpd'      || symbol: 'lmexpd'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 101
+  symtree: 'lmextra'     || symbol: 'lmextra'      
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 350
+  symtree: 'lmfntp'      || symbol: 'lmfntp'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 75
+  symtree: 'lmlpk'       || symbol: 'lmlpk'        
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 2220
+  symtree: 'lmlplk'      || symbol: 'lmlplk'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 2700
+  symtree: 'lmlseg'      || symbol: 'lmlseg'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 620
+  symtree: 'lmlss'       || symbol: 'lmlss'        
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 1200
+  symtree: 'lmnlop'      || symbol: 'lmnlop'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 500
+  symtree: 'lmnode'      || symbol: 'lmnode'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 600
+  symtree: 'lmnodx'      || symbol: 'lmnodx'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 999
+  symtree: 'lmprgp'      || symbol: 'lmprgp'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 25
+  symtree: 'lmscnd'      || symbol: 'lmscnd'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 5
+  symtree: 'lmsctx'      || symbol: 'lmsctx'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 999
+  symtree: 'lmsect'      || symbol: 'lmsect'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 900
+  symtree: 'lmss'        || symbol: 'lmss'         
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 1600
+  symtree: 'lmsstn'      || symbol: 'lmsstn'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 2200
+  symtree: 'lmstr'       || symbol: 'lmstr'        
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 50
+  symtree: 'lmtbl2'      || symbol: 'lmtbl2'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 20000
+  symtree: 'lmthnd'      || symbol: 'lmthnd'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 600
+  symtree: 'lmtran'      || symbol: 'lmtran'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 75
+  symtree: 'lmtrgp'      || symbol: 'lmtrgp'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 25
+  symtree: 'lmtrrt'      || symbol: 'lmtrrt'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 20
+  symtree: 'lmtrsg'      || symbol: 'lmtrsg'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 8
+  symtree: 'lmtrtp'      || symbol: 'lmtrtp'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 16
+  symtree: 'lmtsrt'      || symbol: 'lmtsrt'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 620
+  symtree: 'lmul'        || symbol: 'lmul'         
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 50
+  symtree: 'lmvseg'      || symbol: 'lmvseg'       
+    type spec : (INTEGER 4)
+    attributes: (PARAMETER IMPLICIT-SAVE)
+    value: 406
+  symtree: 'lssul'       || symbol: 'lssul'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'lsumss'      || symbol: 'lsumss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'ltoful'      || symbol: 'ltoful'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'ltonul'      || symbol: 'ltonul'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'lv'          || symbol: 'lv'           
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'lvs'         || symbol: 'lvs'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'lvss'        || symbol: 'lvss'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'maxtim'      || symbol: 'maxtim'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'mcpgav'      || symbol: 'mcpgav'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'mcpgdv'      || symbol: 'mcpgdv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'mnfpvs'      || symbol: 'mnfpvs'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'mnhr'        || symbol: 'mnhr'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'mnqs'        || symbol: 'mnqs'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'mntdb'       || symbol: 'mntdb'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'mntwb'       || symbol: 'mntwb'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'modev'       || symbol: 'modev'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'month'       || symbol: 'month'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'months'      || symbol: 'months'       
+    type spec : (CHARACTER 9_8 1)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 12 )
+  symtree: 'motorv'      || symbol: 'motorv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'mphfps'      || symbol: 'mphfps'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'mxfpvs'      || symbol: 'mxfpvs'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'mxhr'        || symbol: 'mxhr'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'mxmnpt'      || symbol: 'mxmnpt'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'mxqs'        || symbol: 'mxqs'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'mxtdb'       || symbol: 'mxtdb'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'mxtwb'       || symbol: 'mxtwb'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'namls'       || symbol: 'namls'        
+    type spec : (CHARACTER 36_8 1)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'namvs'       || symbol: 'namvs'        
+    type spec : (CHARACTER 36_8 1)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'nbr'         || symbol: 'nbr'          
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nbrjct'      || symbol: 'nbrjct'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ncarv'       || symbol: 'ncarv'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'nd'          || symbol: 'nd'           
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'ndelt'       || symbol: 'ndelt'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nds'         || symbol: 'nds'          
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 901 )
+  symtree: 'ndss'        || symbol: 'ndss'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 902 )
+  symtree: 'ndtypa'      || symbol: 'ndtypa'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'new'         || symbol: 'new'          
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'newpage'     || symbol: 'newpage'      
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nexpdp'      || symbol: 'nexpdp'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20 )
+  symtree: 'nfntyp'      || symbol: 'nfntyp'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ngrv'        || symbol: 'ngrv'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20 )
+  symtree: 'niftyp'      || symbol: 'niftyp'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nloop'       || symbol: 'nloop'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nls'         || symbol: 'nls'          
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nlscp1'      || symbol: 'nlscp1'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nlsec'       || symbol: 'nlsec'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nmtrgr'      || symbol: 'nmtrgr'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20 )
+  symtree: 'nnode'       || symbol: 'nnode'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'noptv'       || symbol: 'noptv'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'nosumy'      || symbol: 'nosumy'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nosys'       || symbol: 'nosys'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'notran'      || symbol: 'notran'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'npcarv'      || symbol: 'npcarv'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'npetts'      || symbol: 'npetts'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 20 )
+  symtree: 'npgrp'       || symbol: 'npgrp'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nportl'      || symbol: 'nportl'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nprgr'       || symbol: 'nprgr'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 25 )
+  symtree: 'nsec'        || symbol: 'nsec'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nsegts'      || symbol: 'nsegts'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 20 )
+  symtree: 'nsimer'      || symbol: 'nsimer'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nstr'        || symbol: 'nstr'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ntime'       || symbol: 'ntime'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ntimtr'      || symbol: 'ntimtr'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20 )
+  symtree: 'ntnode'      || symbol: 'ntnode'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ntqps'       || symbol: 'ntqps'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'ntran'       || symbol: 'ntran'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ntrgr'       || symbol: 'ntrgr'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 25 1 20 )
+  symtree: 'ntrnls'      || symbol: 'ntrnls'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'ntrrte'      || symbol: 'ntrrte'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ntrtyp'      || symbol: 'ntrtyp'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'ntsrt'       || symbol: 'ntsrt'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20 )
+  symtree: 'ntsv'        || symbol: 'ntsv'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'ntsv2'       || symbol: 'ntsv2'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'ntwall'      || symbol: 'ntwall'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nuair'       || symbol: 'nuair'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'numbtr'      || symbol: 'numbtr'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'numls'       || symbol: 'numls'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'numul'       || symbol: 'numul'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'numvs'       || symbol: 'numvs'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'nvsec'       || symbol: 'nvsec'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'nzone'       || symbol: 'nzone'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'omeglp'      || symbol: 'omeglp'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 500 )
+  symtree: 'omegs'       || symbol: 'omegs'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'optux'       || symbol: 'optux'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'origrt'      || symbol: 'origrt'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20 )
+  symtree: 'out'         || symbol: 'out'          
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'pamb'        || symbol: 'pamb'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'patwht'      || symbol: 'patwht'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'pauxev'      || symbol: 'pauxev'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'pauxpv'      || symbol: 'pauxpv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'pauxv'       || symbol: 'pauxv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'pdryls'      || symbol: 'pdryls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'permls'      || symbol: 'permls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'permv'       || symbol: 'permv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'pflyv'       || symbol: 'pflyv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'pi'          || symbol: 'pi'           
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'pinpt'       || symbol: 'pinpt'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'pow1'        || symbol: 'pow1'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'ppropv'      || symbol: 'ppropv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'pr'          || symbol: 'pr'           
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'pregnv'      || symbol: 'pregnv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'prntctrl'    || symbol: 'prntctrl'     
+    type spec : (CHARACTER 254_8 1)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'prtime'      || symbol: 'prtime'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'qaccv'       || symbol: 'qaccv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'qaxlv'       || symbol: 'qaxlv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'qaxsv'       || symbol: 'qaxsv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'qdecv'       || symbol: 'qdecv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'qeracv'      || symbol: 'qeracv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'qerdcv'      || symbol: 'qerdcv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'qerhss'      || symbol: 'qerhss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'qerrlp'      || symbol: 'qerrlp'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 500 )
+  symtree: 'qertss'      || symbol: 'qertss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'qgridv'      || symbol: 'qgridv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 101 1 20 )
+  symtree: 'qifs'        || symbol: 'qifs'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 6 )
+  symtree: 'qlp'         || symbol: 'qlp'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 500 )
+  symtree: 'qprpv'       || symbol: 'qprpv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'qradss'      || symbol: 'qradss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'qs'          || symbol: 'qs'           
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'qsaves'      || symbol: 'qsaves'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'qsmn'        || symbol: 'qsmn'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'qsmx'        || symbol: 'qsmx'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'qsmxss'      || symbol: 'qsmxss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'qsumss'      || symbol: 'qsumss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'qwalss'      || symbol: 'qwalss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1200 )
+  symtree: 'radts'       || symbol: 'radts'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 20 )
+  symtree: 'rdryar'      || symbol: 'rdryar'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 're1m'        || symbol: 're1m'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 're2m'        || symbol: 're2m'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 're3m'        || symbol: 're3m'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'regenv'      || symbol: 'regenv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'rels'        || symbol: 'rels'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'relss'       || symbol: 'relss'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1200 )
+  symtree: 'restart'     || symbol: 'restart'      
+    type spec : (CHARACTER 254_8 1)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'revs'        || symbol: 'revs'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'rgsumv'      || symbol: 'rgsumv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'rhocp'       || symbol: 'rhocp'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'rhomas'      || symbol: 'rhomas'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'rhowht'      || symbol: 'rhowht'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'rmhtv'       || symbol: 'rmhtv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'rnfls'       || symbol: 'rnfls'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'rnfvs'       || symbol: 'rnfvs'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'rprmls'      || symbol: 'rprmls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'rps'         || symbol: 'rps'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'rpsmnv'      || symbol: 'rpsmnv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'rpsmxv'      || symbol: 'rpsmxv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'rpsov'       || symbol: 'rpsov'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'rracc'       || symbol: 'rracc'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'rsistv'      || symbol: 'rsistv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'rst'         || symbol: 'rst'          
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'rstropt'     || symbol: 'rstropt'      
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'rstwopt'     || symbol: 'rstwopt'      
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'saclss'      || symbol: 'saclss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1200 )
+  symtree: 'sainhg'      || symbol: 'sainhg'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'sapsi'       || symbol: 'sapsi'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'saxlls'      || symbol: 'saxlls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'saxsls'      || symbol: 'saxsls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'sesver'      || symbol: 'sesver'       
+    type spec : (CHARACTER 8_8 1)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'shlss'       || symbol: 'shlss'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1200 )
+  symtree: 'shltss'      || symbol: 'shltss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'shrev'       || symbol: 'shrev'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'shrpv'       || symbol: 'shrpv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'shrss'       || symbol: 'shrss'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'shuxss'      || symbol: 'shuxss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'slopev'      || symbol: 'slopev'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'sp1'         || symbol: 'sp1'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'sp2'         || symbol: 'sp2'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'speedv'      || symbol: 'speedv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 20 )
+  symtree: 'spinv'       || symbol: 'spinv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'sprols'      || symbol: 'sprols'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'sqrdls'      || symbol: 'sqrdls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'sqwlls'      || symbol: 'sqwlls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'sre1m'       || symbol: 'sre1m'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'sre2m'       || symbol: 'sre2m'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'stakls'      || symbol: 'stakls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'stakvs'      || symbol: 'stakvs'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'stdbss'      || symbol: 'stdbss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'stdnss'      || symbol: 'stdnss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'stdpss'      || symbol: 'stdpss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'stefan'      || symbol: 'stefan'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'stwbss'      || symbol: 'stwbss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'sullls'      || symbol: 'sullls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'sulsls'      || symbol: 'sulsls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'sumqns'      || symbol: 'sumqns'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'sumqps'      || symbol: 'sumqps'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'sumtst'      || symbol: 'sumtst'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'supopt'      || symbol: 'supopt'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'surlss'      || symbol: 'surlss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'survss'      || symbol: 'survss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'taals'       || symbol: 'taals'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'taavgv'      || symbol: 'taavgv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'tabl1'       || symbol: 'tabl1'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 601 )
+  symtree: 'tabl10'      || symbol: 'tabl10'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'tabl11'      || symbol: 'tabl11'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'tabl12'      || symbol: 'tabl12'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'tabl13'      || symbol: 'tabl13'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'tabl14'      || symbol: 'tabl14'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 999 )
+  symtree: 'tabl15'      || symbol: 'tabl15'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 600 )
+  symtree: 'tabl16'      || symbol: 'tabl16'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 600 )
+  symtree: 'tabl17'      || symbol: 'tabl17'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 600 1 5 )
+  symtree: 'tabl18'      || symbol: 'tabl18'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 600 1 5 )
+  symtree: 'tabl19'      || symbol: 'tabl19'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 999 )
+  symtree: 'tabl2'       || symbol: 'tabl2'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20000 )
+  symtree: 'tabl20'      || symbol: 'tabl20'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'tabl21'      || symbol: 'tabl21'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'tabl22'      || symbol: 'tabl22'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 600 )
+  symtree: 'tabl23'      || symbol: 'tabl23'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 601 )
+  symtree: 'tabl3'       || symbol: 'tabl3'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'tabl4'       || symbol: 'tabl4'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'tabl40'      || symbol: 'tabl40'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'tabl41'      || symbol: 'tabl41'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1350 )
+  symtree: 'tabl42'      || symbol: 'tabl42'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 600 )
+  symtree: 'tabl44'      || symbol: 'tabl44'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'tabl45'      || symbol: 'tabl45'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 600 )
+  symtree: 'tabl5'       || symbol: 'tabl5'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'tabl6'       || symbol: 'tabl6'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'tabl7'       || symbol: 'tabl7'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'tabl8'       || symbol: 'tabl8'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'tabl9'       || symbol: 'tabl9'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'tamba'       || symbol: 'tamba'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'tambm'       || symbol: 'tambm'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'tavgtn'      || symbol: 'tavgtn'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 600 )
+  symtree: 'tdbamb'      || symbol: 'tdbamb'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'tdbmn'       || symbol: 'tdbmn'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'tdbmx'       || symbol: 'tdbmx'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'tdbss'       || symbol: 'tdbss'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'tdbtn'       || symbol: 'tdbtn'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 600 )
+  symtree: 'tesp1'       || symbol: 'tesp1'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'test_explicit'|| symbol: 'test_explicit' 
+    type spec : (UNKNOWN 0)
+    attributes: (PROCEDURE  SUBROUTINE ARRAY-OUTER-DEPENDENCY)
+  symtree: 'tev'         || symbol: 'tev'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'tflmul'      || symbol: 'tflmul'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'tgaccv'      || symbol: 'tgaccv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'tgdecv'      || symbol: 'tgdecv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'thcnls'      || symbol: 'thcnls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 2 1 620 )
+  symtree: 'thcon'       || symbol: 'thcon'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'thdfls'      || symbol: 'thdfls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 2 1 620 )
+  symtree: 'thopt'       || symbol: 'thopt'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'throtl'      || symbol: 'throtl'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 50 )
+  symtree: 'thtime'      || symbol: 'thtime'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'tiaccv'      || symbol: 'tiaccv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'tidecv'      || symbol: 'tidecv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'tiempo'      || symbol: 'tiempo'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'timev'       || symbol: 'timev'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 20 )
+  symtree: 'timft'       || symbol: 'timft'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'title'       || symbol: 'title'        
+    type spec : (CHARACTER 80_8 1)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'tlpsv'       || symbol: 'tlpsv'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'tmalss'      || symbol: 'tmalss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'tnlss'       || symbol: 'tnlss'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'tnss'        || symbol: 'tnss'         
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'tnumv'       || symbol: 'tnumv'        
+    type spec : (CHARACTER 2_8 1)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'tofifs'      || symbol: 'tofifs'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 6 )
+  symtree: 'tonifs'      || symbol: 'tonifs'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 6 )
+  symtree: 'tonlb'       || symbol: 'tonlb'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'tpopt'       || symbol: 'tpopt'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'trndls'      || symbol: 'trndls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 16 )
+  symtree: 'trnnls'      || symbol: 'trnnls'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 8 )
+  symtree: 'trtime'      || symbol: 'trtime'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'tsfals'      || symbol: 'tsfals'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 2200 )
+  symtree: 'tsfmls'      || symbol: 'tsfmls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 2200 )
+  symtree: 'tsfss'       || symbol: 'tsfss'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'tsfv'        || symbol: 'tsfv'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'tsmax'       || symbol: 'tsmax'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 2200 )
+  symtree: 'tsmean'      || symbol: 'tsmean'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 2200 )
+  symtree: 'tsmn2'       || symbol: 'tsmn2'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 2200 )
+  symtree: 'tsmx2'       || symbol: 'tsmx2'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 2200 )
+  symtree: 'tsnkls'      || symbol: 'tsnkls'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'tsstab'      || symbol: 'tsstab'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'tstrtv'      || symbol: 'tstrtv'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'ttmpss'      || symbol: 'ttmpss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'twambe'      || symbol: 'twambe'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'twambm'      || symbol: 'twambm'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'twavgv'      || symbol: 'twavgv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'twbamb'      || symbol: 'twbamb'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'twbmn'       || symbol: 'twbmn'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'twbmx'       || symbol: 'twbmx'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'twbss'       || symbol: 'twbss'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'typcl'       || symbol: 'typcl'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'typls'       || symbol: 'typls'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'typtnd'      || symbol: 'typtnd'       
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 600 )
+  symtree: 'typvs'       || symbol: 'typvs'        
+    type spec : (INTEGER 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'u2m'         || symbol: 'u2m'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'u3m'         || symbol: 'u3m'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'uchprv'      || symbol: 'uchprv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'umaxux'      || symbol: 'umaxux'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'uminrt'      || symbol: 'uminrt'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 20 )
+  symtree: 'umxts'       || symbol: 'umxts'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(2 [0] AS_EXPLICIT 1 620 1 20 )
+  symtree: 'uv'          || symbol: 'uv'           
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'vgridv'      || symbol: 'vgridv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'vhighs'      || symbol: 'vhighs'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'vifs'        || symbol: 'vifs'         
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 6 )
+  symtree: 'visair'      || symbol: 'visair'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'vlows'       || symbol: 'vlows'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 900 )
+  symtree: 'vollss'      || symbol: 'vollss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 620 )
+  symtree: 'volss'       || symbol: 'volss'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 1600 )
+  symtree: 'voltmv'      || symbol: 'voltmv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'voltsv'      || symbol: 'voltsv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'volvss'      || symbol: 'volvss'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'vomxvs'      || symbol: 'vomxvs'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 406 )
+  symtree: 'weelsv'      || symbol: 'weelsv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'wgcons'      || symbol: 'wgcons'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'wntsum'      || symbol: 'wntsum'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'wpatv'       || symbol: 'wpatv'        
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'wtbtus'      || symbol: 'wtbtus'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  symtree: 'wv'          || symbol: 'wv'           
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 16 )
+  symtree: 'xlastv'      || symbol: 'xlastv'       
+    type spec : (REAL 4)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'xv'          || symbol: 'xv'           
+    type spec : (REAL 8)
+    attributes: (VARIABLE  DIMENSION IN-COMMON)
+    Array spec:(1 [0] AS_EXPLICIT 1 75 )
+  symtree: 'zap'         || symbol: 'zap'          
+    type spec : (REAL 4)
+    attributes: (VARIABLE  IN-COMMON)
+  Equivalence: test_explicit:dtrm(1 , 1), test_explicit:dtrm2(1)
+  Equivalence: test_explicit:nd(1), test_explicit:nds(2), test_explicit:ndss(3)
+
+  code:
+  RETURN 
+  
+------------------------------------------
+
