@@ -93,7 +93,7 @@ Errors 1001 to 1004 may be raised.  These are printed to the .OUT file
 and to the screen before the program exits with their number as the
 exitcode.  There is a transcript below from the test files in the
 'verification' folder.
-
+```
 *ERROR* TYPE 1001                    ******************************
 Failed to find an input file version number in the file.  Are
 you sure this is an input file for OpenSES?  Such files ought
@@ -129,6 +129,7 @@ version to between 4.1 and 4.2.
 Faulty line of input is:
 > 17.       7         2022      99.9
 Faulty file is "fault-1004-GetVersion.INP".
+```
 
 Ancill.f95
 ----------
