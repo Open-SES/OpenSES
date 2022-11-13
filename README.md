@@ -8,16 +8,17 @@ Development of an open-source fork of version 4.1 of the Subway Environment Simu
 
 Added code to read and check a fourth entry in form 1B.  In SES v4.1
 form 1B is as follows:
-
+```
 17.       7         2022
 hour    month       year
-
+```
 
 In this branch, it is
+```
 17.       7         2022      4.2
 hour    month       year    input file
                              version
-
+```
 The new number will only be picked up if it is between the 31st and 40th
 characters inclusive (same as all the other numbers).  The new files can
 still be run in SES v4.1.  The input file version is multiplied by 1000
