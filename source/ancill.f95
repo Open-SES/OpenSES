@@ -105,6 +105,7 @@ subroutine LineComplaint(line, pre_quote)
       if (pre_quote) then
 10      format('Faulty line of input is:')
         write(screen, 10)
+        write(out, 10)
       end if
 
 20    format('> ', A,/, &
