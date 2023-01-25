@@ -2,7 +2,7 @@
                                 OpenSES
                      PROGRAM DICTIONARY OF VARIABLES
 
-                  VERSION 4.2 MODIFICATION LEVEL 00
+                  VERSION 4.3 MODIFICATION LEVEL ALPHA
 
            THE PRINCIPAL VARIABLES OF THE SES PROGRAM ARE LISTED
         BELOW IN ALPHABETICAL ORDER.  EACH VARIABLE NAME IS FOLLOWED
@@ -917,8 +917,11 @@
 
  inpver   is the version number of the OpenSES input file (not the
         version number of the program).  It is read from the input
-        file after form 1B (in a call to GetVersion), multiplied by
-        1000 and stored as an integer. ( c,i )
+        file as a fourth number in form 1B (in a call to GetVersion),
+        multiplied by 1000 and stored as an integer.  If a fourth
+        number is not present in form 1B, inpver is set to 4200.
+        It is used to control the behaviour of the calculation and
+        the reading of new input. ( c,i )
 
  INODE  NUMBER OF NODE FOR WHICH AERODYNAMIC JUNCTION CALCULATIONS
         ARE CURRENTLY BEING PERFORMED.  ( C,I ).
@@ -962,6 +965,9 @@
         FOR EACH CYCLE,  WHICH CONSISTS OF THE MOVEMENT OF TRAINS
         CORRESPONDING TO THE TIME INTERVAL 'DELT' AND FINDING
         THEIR LOCATION WITH RESPECT TO SEGMENT BOUNDARIES.  ( C,I ).
+
+ JSON   IS THE LOGICAL UNIT NUMBER FOR THE JSON OUTPUT FILE.  IT IS
+        NUMERICALY EQUAL TO THE INTEGER 8.
 
  KAERO  IS ZERO FOR AERODYNAMIC RUNGE-KUTTA STEPS ONE AND THREE AND ONE
         FOR AERODYNAMIC RUNGE-KUTTA STEPS TWO AND FOUR. KAERO IS USED
@@ -2214,6 +2220,11 @@
             USING MOTOR CHARACTERISTICS
         3 - EXPLICIT TRAIN PERFORMANCE, TRAIN HEAT REJECTION PROFILE
             SUPPLIED BY THE USER
+
+ TRAINID(NUMV) IS THE SERIAL NUMBER OF THE TRAIN NUMV.  IT IS GENERATED
+        WHEN THE TRAIN IS CREATED.  TNUMV(NUMV) IS A 2 CHARACTER ARRAY,
+        WHILE TRAINID(NUMV) IS AN INTEGER THAT IS EQUIVALEN TO
+        NUMBTR AT THE POINT WHEN THE TRAIN IS CREATED.
 
  TRNDLS(ILS,ILOC)  CONTAINS THE DISTANCES FROM THE BACKWARD END OF
         THE SEGMENT TO THE BACKWARD AND FORWARD ENDS OF THE TRAINS THAT

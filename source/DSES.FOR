@@ -50,7 +50,7 @@ C
       MONTHS(12) = 'DECEMBER '
 C
 C**** SET SES VERSION
-      SESVER='4.2     '
+      SESVER='4.3ALPHA'
 C**** PROGRAM EQUIVALENT OF INFINITY - REAL VARIABLES
       ZAP=1.0E20
 C**** PROGRAM EQUIVALENT OF INFINITY - INTEGER VARIABLES
@@ -59,15 +59,6 @@ C**** IZAP = (2**31)-1
 C**** SET NEW
       NEW=0
 C     
-C**** OBTAIN THE NAME OF THE INPUT FILE FROM COMMAND LINE
-      CALL GETARGU
-C**** GET THE DATE AND TIME OF THE SIMULATION FROM SYSTEM CLOCK
-      CALL DATE_AND_TIME (DATE=DATEIS,TIME=TIMEIS,VALUES=IDNT)
-      TITLE=MONTHS(IDNT(2))
-      DATETIME(1:11)=DATEIS(7:8)//' '//TITLE(1:3)//' '//DATEIS(1:4)
-      DATETIME(12:20)=' '//TIMEIS(1:2)//':'//TIMEIS(3:4)//':'
-     1                  //TIMEIS(5:6)
-C
 C*****FORTRAN LOGICAL UNIT NUMBER OF INPUT FILE                      
       IN  = 5                                                            
 C*****FORTRAN LOGICAL UNIT NUMBER OF OUTPUT FILE              
@@ -77,6 +68,18 @@ C*****FORTRAN LOGICAL UNIT NUMBER OF RESTART FILE
 C*****FORTRAN LOGICAL UNIT NUMBER FOR STDERR (SCREEN/CONSOLE)   
       SCREEN = 0
       WRITE (SCREEN, 11) SESVER
+C     FORTRAN LOGICAL UNIT NUMBER OF JSON FILE
+      JSON = 8
+C**** OBTAIN THE NAME OF THE INPUT FILE FROM COMMAND LINE
+      CALL GETARGU
+C**** GET THE DATE AND TIME OF THE SIMULATION FROM SYSTEM CLOCK
+      CALL DATE_AND_TIME (DATE=DATEIS,TIME=TIMEIS,VALUES=IDNT)
+      TITLE=MONTHS(IDNT(2))
+      DATETIME(1:11)=DATEIS(7:8)//' '//TITLE(1:3)//' '//DATEIS(1:4)
+      DATETIME(12:20)=' '//TIMEIS(1:2)//':'//TIMEIS(3:4)//':'
+     1                  //TIMEIS(5:6)
+C
+
 C
 C*****CERTAIN PHYSICAL CONSTANTS - DEFINED                              
 C                                                                       
@@ -181,6 +184,14 @@ C**** MEMBER 'DTHTS2'.  SET EXITCODE=17.
         EXITCODE=17
         GOTO 517                                            
 	END IF
+C     IF LAST TIME OR LAST PRINT GROUP, AND JUST RETURNING FROM 
+C     ECZ ESTIMATE, PRINT OUT A LAST JSONPIT.
+      IF ((NTIME - MAXTIM .GE. 0) .OR. (IPRGRP - NPGRP .GE. 0)) THEN
+        NEW = 2
+        CALL JSONPIT
+        EXITCODE=100
+      ENDIF
+
 C                                                                       
 C---- CHECK IF MAXIMUM TIME OR PRINT GROUPS HAVE BEEN EXHAUSTED         
       IF (NTIME - MAXTIM) 510,512,512                                
@@ -199,5 +210,6 @@ C
   517 CONTINUE
       CLOSE (IN)
 	CLOSE (OUT)
+      CLOSE (JSON)
       CALL EXIT (EXITCODE)                                                              
       END                                                               

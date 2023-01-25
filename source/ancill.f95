@@ -25,6 +25,31 @@ subroutine ToLower(old_string, lc_string)
 end subroutine ToLower
 
 
+subroutine ToSpaces(old_string, sp_string)
+! This subroutine takes a UTF-8 string, copies it into a new string then
+! converts everything except numbers and decimal points in it to spaces.
+! It is used to to remove letters from the string SESVER so that a number
+! can be read from the string, because development versions of OpenSES
+! set SESVER to strings like "4.3ALPHA".
+!
+      implicit none
+
+      character(len = *),               intent(in) :: old_string
+      character(len = len(old_string)), intent(out) :: sp_string
+
+      integer ::  nn, code
+
+      sp_string = old_string
+      do nn = 1, len(old_string)
+        code = ichar(old_string(nn:nn))
+        if ((code .lt. 48 .or. code .gt. 57) .and. code .ne. 46) then
+          ! This character is not a digit or ".", change it to a space.
+          sp_string(nn:nn) = ' '
+        end if
+      end do
+end subroutine ToSpaces
+
+
 subroutine GetFileStem(filestring, start, end)
 ! This routine takes a string that represents a filename or path+filename
 ! and returns the extents of the filestem of the filename.  It works

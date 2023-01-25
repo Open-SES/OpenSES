@@ -80,7 +80,8 @@ C
 C---- PRINT SYSTEM CONDITIONS AT TIME OF ERROR                          
   500 IKPRNT = KPRNTH                                                   
       KPRNTH = 1000000                                                  
-      CALL  PRINT                                                       
+      CALL  PRINT
+      CALL  JSONPIT                                                       
       KPRNTH = IKPRNT                                                   
   513 IF (NEW .EQ. 1) GOTO 620                                           
 C                                                                       

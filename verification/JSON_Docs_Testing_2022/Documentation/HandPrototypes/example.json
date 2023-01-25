@@ -1,0 +1,193 @@
+{
+"ses_simulation" : "normal.inp",
+"simulation timestamp" : "09 JAN 2022 21:02:39",
+"input" : null,
+"output" : [
+	{"pit" : 450.00,
+	 "train_data" : [
+				{
+				"trainid" : 5,
+				"tnumv" : 1,
+				"uv" : 30.0
+				},
+				{
+				"trainid" : 7,
+				"tnumv" : 2,
+				"uv" : 29.0
+				},
+				{
+				"trainid" : 8,
+				"tnumv" : 1,
+				"uv" : 28.0
+				}
+		],
+	 "section_data" : [
+				{
+				"section_id" : "101",
+				"flow_rate" : 159.49
+				},
+				{
+				"section_id" : "102",
+				"flow_rate" : 159.49
+				},
+				{
+				"section_id" : "105",
+				"flow_rate" : 159.49
+				},
+				{
+				"section_id" : "121",
+				"flow_rate" : 159.49
+				},
+				{
+				"section_id" : "108",
+				"flow_rate" : 159.49
+				}
+		],
+	 "segment_data" : [
+				{
+				"segment_id" : "101 -101",
+				"velocity" : 450.01,
+				"reynolds" : 6.25E6,
+				"ntrains" : 0
+				},
+				{
+				"segment_id" : "102 -102",
+				"velocity" : 350.01,
+				"reynolds" : 5.25E6,
+				"ntrains" : 1
+				},
+				{
+				"segment_id" : "105 -105",
+				"velocity" : 250.01,
+				"reynolds" : 4.25E6,
+				"ntrains" : 2
+				},
+				{
+				"segment_id" : "108 -108",
+				"velocity" : 150.01,
+				"reynolds" : 3.25E6,
+				"ntrains" : 0
+				}
+		],
+	 "subsegment_data" : [
+				{
+				"subsegment_id" : "101 -101 -101",
+				"temperature" : 85.10,
+				"wall_temperature" : 83.25,
+				"humidity_ratio" : 0.01015
+				},
+				{
+				"subsegment_id" : "102 -102 -  1",
+				"temperature" : 85.10,
+				"wall_temperature" : 83.25,
+				"humidity_ratio" : 0.01015
+				},
+				{
+				"subsegment_id" : "105 -105 -  1",
+				"temperature" : 85.10,
+				"wall_temperature" : 83.25,
+				"humidity_ratio" : 0.01015
+				},
+				{
+				"subsegment_id" : "108 -108 -  1",
+				"temperature" : 85.10,
+				"wall_temperature" : 83.25,
+				"humidity_ratio" : 0.01015
+				}
+		]
+	},
+	{"pit" : 900.00,
+	 "train_data" : [
+				{
+				"trainid" : 5,
+				"tnumv" : 1,
+				"uv" : 30.0
+				},
+				{
+				"trainid" : 7,
+				"tnumv" : 2,
+				"uv" : 29.0
+				},
+				{
+				"trainid" : 8,
+				"tnumv" : 1,
+				"uv" : 28.0
+				}
+		],
+	 "section_data" : [
+				{
+				"section_id" : "101",
+				"flow_rate" : 159.49
+				},
+				{
+				"section_id" : "102",
+				"flow_rate" : 159.49
+				},
+				{
+				"section_id" : "105",
+				"flow_rate" : 159.49
+				},
+				{
+				"section_id" : "121",
+				"flow_rate" : 159.49
+				},
+				{
+				"section_id" : "108",
+				"flow_rate" : 159.49
+				}
+		],
+	 "segment_data" : [
+				{
+				"segment_id" : "101 -101",
+				"velocity" : 450.01,
+				"reynolds" : 6.25E6,
+				"ntrains" : 0
+				},
+				{
+				"segment_id" : "102 -102",
+				"velocity" : 350.01,
+				"reynolds" : 5.25E6,
+				"ntrains" : 1
+				},
+				{
+				"segment_id" : "105 -105",
+				"velocity" : 250.01,
+				"reynolds" : 4.25E6,
+				"ntrains" : 2
+				},
+				{
+				"segment_id" : "108 -108",
+				"velocity" : 150.01,
+				"reynolds" : 3.25E6,
+				"ntrains" : 0
+				}
+		],
+	 "subsegment_data" : [
+				{
+				"subsegment_id" : "101 -101 -101",
+				"temperature" : 85.10,
+				"wall_temperature" : 83.25,
+				"humidity_ratio" : 0.01015
+				},
+				{
+				"subsegment_id" : "102 -102 -  1",
+				"temperature" : 85.10,
+				"wall_temperature" : 83.25,
+				"humidity_ratio" : 0.01015
+				},
+				{
+				"subsegment_id" : "105 -105 -  1",
+				"temperature" : 85.10,
+				"wall_temperature" : 83.25,
+				"humidity_ratio" : 0.01015
+				},
+				{
+				"subsegment_id" : "108 -108 -  1",
+				"temperature" : 85.10,
+				"wall_temperature" : 83.25,
+				"humidity_ratio" : 0.01015
+				}
+		]
+	}
+]
+}	

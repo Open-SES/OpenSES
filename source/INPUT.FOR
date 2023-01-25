@@ -13,7 +13,8 @@ C     OTHER SUBROUTINES WHICH ARE USED ARE -
 C              CHECKI - CHECKS INTEGER VARIABLE BETWEEN TWO LIMITS      
 C              CHECKR - CHECKS REAL VARIABLE BETWEEN TWO LIMITS         
 C              ERROR  - WRITES ERROR MESSAGES                           
-C              Getversion - reads and checks a fourth number in form 1B.
+C              GetVersion - reads and checks a fourth number in form 1B.
+C              JSONPIT  - writes the initial conditions to a JSON file.
 C                                                                       
 C                                                                       
 C
@@ -64,9 +65,9 @@ C     MAXTIT: MAXIMUM NUMBER OF TITLE LINES
      2'╝░╚══════╝╚═════╝░░ ',
      2'                        ',/,
      259('░'),'                                              ',/,
-     1'OpenSES, ',A8,', 13 November 2022',//,
-     2'Copyright (c) 2021-2022, Engineers of the OpenSES Agreement.  ',
-     2'All rights reserved. ',//,
+     1'OpenSES, ',A8,', XXXXXXXXXXXX',//,
+     2'Copyright (c) 2021, Engineers of the OpenSES Agreement. All ',
+     2'rights reserved. ',//,
      2'BSD 3-Clause License. Redistribution and use in source and bina',
      2'ry forms, with or without modification, are permitted',/,
      2'provided that the following conditions are met:',//,
@@ -462,13 +463,14 @@ C**** IS EXCEEDED.
         IF (LEN_TRIM(TITLE) .EQ. 0)GOTO 1664
 !****   READ (TITLE,FMT=30,ERR=1664)DUMY1, DUMY2, DUMY3, DUMY4,
 !****1                              DUMY5, DUMY6, DUMY7, DUMY8
-        ! We look for three numbers in form 1B (down from of eight in
+        ! We look for three numbers in form 1B (down from eight in
         ! SES v4.1).
         ! We look for the fourth number in getver.f95, where we can
         ! issue a good error message if the version number is malformed.
-        ! If we tried to read it here and it was malformed, we'd get
-        ! a slew of unhelpful error messages caused by SES processing
-        ! the values in form 1C as form 1B.
+        ! If we tried to read it here and it was malformed, we'd read
+        ! form 1B as a line of comment then get a slew of unhelpful
+        ! error messages caused by SES processing the values in form 1C
+        ! as form 1B.
         READ (TITLE,FMT=31,ERR=1664)DUMY1, DUMY2, DUMY3
 C**** FOUND VALID NUMERIC INPUT.  STORE NUMBER OF TITLE LINES IN NUMY2
         NUMY2=I-1
@@ -542,15 +544,17 @@ C**** LESS THAN ONE OR GREATER THAN 12.
 1730  DO 1732 I=NUMY4,50
         WRITE (OUT,910)
 1732  CONTINUE
-      WRITE (OUT,100) SESVER
+C     WRITE (OUT,100) SESVER
 C                                                                       
 C                                                                       
-!**** Call a routine that checks for a line that sets the version of the
-!**** input file.  If it succeeds it puts the version number into the
-!**** COMMON block variables "intver" (which is an integer that is 1,000
-!**** times the value, e.g. 4300).  We can use that in integer comparisons
-!**** to check how to behave.
-      call getVersion(titlines(maxtit+1))
+!**** Call a routine that checks for a version number for the input file
+!**** (e.g. "4.3") in characters 31-40 of form 1B.  If it finds it, the
+!**** version number is stored in the COMMON block variables "inpver"
+!**** as an integer that is 1,000 times the value given, e.g. 4300).
+!**** We can use that in "if" blocks in SES routines to change the
+!**** behaviour of the calculations.
+!**** If no version number is present, it sets "inpver" to 4200.
+      call GetVersion(titlines(maxtit+1))
 
 C---- FORM 1C                                                           
 C                                                                       
@@ -1781,7 +1785,8 @@ C---- AT BEGINING OF SIMULATION
       IROUTE=IROTEV(NUMV)                                               
       ITYPV(NUMV)=DUMY2                                                 
       ITYP=ITYPV(NUMV)                                                  
-      NUMBTR=NUMBTR+1                                                   
+      NUMBTR=NUMBTR+1
+      TRAINID(NUMV) = NUMBTR
       CALL ALCHAR (NUMBTR,TNUMV(NUMV))                                  
       GO TO (4420,4320,4320), TPOPT                                     
 C---- LOCATE TRAIN ON SPEED-TIME PROFILE         TPOPT =2,3             
@@ -2437,6 +2442,35 @@ C
 5610  IF (THOPT) 5650,5620,5630                                         
 5620  WRITE (OUT,10) CHAR(12)
 5630  CALL PRINT
+C
+C     SES DATASET HAS MADE IT THROUGH INPUT VERIFICATION AND
+C     HAS NOT CRASHED HARD (NEW=1)
+C     BEGIN JSON OUTPUT DATASET AS A LIST OF OBJECTSDATASET METADATA
+C     THIS SECTION WILL PROBABLY BE MODIFIED IF INPUT IS RE-WRITTEN TO
+C     THE JSON AT SOME POINT.
+C
+C     BEGIN JSON OUTPUT LIST
+6000  FORMAT ( T5, '[')
+6005  FORMAT ( T5, ']')
+6010  FORMAT ( T5, '],')
+6015  FORMAT ( T10, '{')
+6020  FORMAT ( T10, '}')
+6025  FORMAT ( T10, '},')
+6050  FORMAT ( T10, '"info" : ')
+6055  FORMAT ( T10, '"info" : {}')
+
+C     BEGIN LIST OF OBJECTS
+      WRITE (JSON, 6000)
+C     BEGIN METADATA OBJECT
+      WRITE (JSON, 6015)
+C     META DATA WRITTEN OUT HERE
+      WRITE (JSON, 6055)
+C
+C     CLOSE OUT METADATA OBJECT
+      WRITE (JSON, 6025)
+C
+C     PRINT INITAL CONDITIONS TO FIRST JSONPIT
+      CALL JSONPIT
 C
 C********************************************************************
 C     INPUT VERIFICATION COMPLETED SUCCESSFULLY.  SET EXITCODE TO 99.

@@ -1,38 +1,7 @@
 !
-!     INCLUDE DSHARE                           ( DATE: 25 Oct 2022 )
+!     INCLUDE DSHARE                           ( DATE: 23 January 2023 )
 !
-!
-!     This version of 'DSHARE' has a number of changes from the version
-!     of DSHARE uploaded to Github on 13 July 2021.
-!
-!      1) All variables in the common block have been explicitly declared.
-!         This allows new routines (.f90 and later) to be written with
-!         Fortran's 'implicit none' option turned on.  That is a lot
-!         safer, as spelling a variable name wrong raises a compile error
-!         rather than creating a new variable with random contents.
-!
-!      2) The CHARACTER*2 array variable TNUMV and the CHARACTER variables
-!         have been moved to the end of the common block.  The double
-!         precision real array XV has been moved to the start.
-!         This rearrangement stops the compiler complaining about the
-!         common block being misaligned and asking for the gfortran
-!         compile switch '-fno-align-commons' to be used.
-!
-!      3) Added a reminder to increase LMTBL2 if the count of routes
-!         is increased.
-!
-!      4) All the tab characters have been changed to spaces.
-!
-!      5) All comment characters in the first column have been changed
-!         from C to ! so that DSHARE can be included in Fortran 95 files.
-!
-!      6) The character array declarations have been changed to the new
-!         Fortran style so that gfortran with the -pedantic switch on
-!         doesn't complain about them when it compiles .f95 source files.
-!
-!      6) A new integer variables has been declared, 'inpver', holding
-!         a version number for the input file.
-!
+!     A list of changes is given at the end of this file.
 !
 !
 !****  ARRAY SIZE LIMITS       ****************************************
@@ -106,7 +75,7 @@
       INTEGER   AETIME, BLPREQ, DEATH, DESPER, EXITCODE, FIROPT, FIROP2
       INTEGER   FSCFT, HCOPT, HSOPT, HUMOPT, OUT, PRTIME
       INTEGER   RST, RSTROPT, RSTWOPT, SUPOPT, THOPT, THTIME, TNLSS
-      INTEGER   TNSS, TPOPT, TRTIME, SCREEN
+      INTEGER   TNSS, TPOPT, TRTIME, SCREEN, JSON
 !  SECTION VARIABLES  (LMSECT)
       INTEGER   NTQPS(LMSECT), TABL9(LMSECT), TABL10(LMSECT)
       INTEGER   TABL11(LMSECT), TABL12(LMSECT), TABL13(LMSECT)
@@ -161,7 +130,7 @@
 !  OPERATIONAL TRAIN VARIABLES  (LMTRAN)
       INTEGER   DPV(LMTRAN), IINDEX(LMTRAN), IROTEV(LMTRAN)
       INTEGER   ITYPV(LMTRAN), MODEV(LMTRAN), NTSV(LMTRAN)
-      INTEGER   NTSV2(LMTRAN), TLPSV(LMTRAN)
+      INTEGER   NTSV2(LMTRAN), TLPSV(LMTRAN), TRAINID(LMTRAN)
       INTEGER   TSTRTV(LMTRAN)
 !  IMPULSE FAN VARIABLES
       INTEGER   TOFIFS(6), TONIFS(6)
@@ -203,7 +172,7 @@
       CHARACTER (len=36), dimension(lmvseg) :: NAMVS
 !  FILE INPUT/OUTPUT VARIABLES
       CHARACTER (len=20) DATETIME
-      CHARACTER (len=20) SESVER
+      CHARACTER (len=8) SESVER
       CHARACTER (len=80) TITLE
       CHARACTER(len=9), dimension(12) :: MONTHS
       CHARACTER (len=116) :: HEADER
@@ -385,7 +354,7 @@
       COMMON   DELP, DELT, DELTH, DELTR, DEL2TH, DESPER, EXITCODE
       COMMON   EECPG, EFAMUX, EFASUX, ESPTSR, FIROPT, FIROP2, FSCFT
       COMMON   HCOPT, HMAMBE, HMAMBM, HOUR, HSOPT
-      COMMON   HUMAMB, HUMOPT, IDOT, IEQUAT, ILINE, IMOTOR
+      COMMON   HUMAMB, HUMOPT, IDOT, IEQUAT, ILINE, IMOTOR, JSON
       COMMON   IN, INODE, IPRGRP, ISITU, IZAP, JRATAE, JRATTH, JRATTR
       COMMON   KAERO, KASTEP, KBND1, KBND2, KBND3, KPRNTH, KTSTEP
       COMMON   KTWALL, LIFE
@@ -536,7 +505,7 @@
       COMMON   QPRPV, RGSUMV, RMHTV
       COMMON   RPS, RSISTV, TAAVGV
       COMMON   TEV, TGACCV, TGDECV, TLPSV
-      COMMON   TSTRTV, TWAVGV, UV
+      COMMON   TSTRTV, TWAVGV, UV, TRAINID
       COMMON   WPATV, XLASTV
 !  POWER SECTOR VARIABLES (LMSTR)
       COMMON   EAUXSR, EPRFSR, EPR3SR
@@ -573,4 +542,50 @@
 !
 !
 !*****DSHARE  END******************************************************
+!
+
+
+!     This is a list of changes between the version of DSHARE uploaded
+!     on 6 Feb 2022 and the version of DSHARE uploaded on 13 July 2021.
+!     It may be incomplete.
+!
+!      1) Added a new array of integer train numbers, TRAINID(LMTRAN)
+!
+!      2) Added a new integer to be the channel number of the terminal,
+!         called SCREEN.  It is set to 0 in DSES.FOR.
+!
+!      3) Added a new integer to be the channel number of the JSON file,
+!         called JSON.  It is set to 8 in DSES.FOR.
+
+
+!     This is a list of changes between the version of DSHARE uploaded
+!     on 24 January 2023 and the version of DSHARE uploaded on 6 Feb 2022.
+!
+!      1) All variables in the common block have been explicitly declared.
+!         This allows new routines (.f90 and later) to be written with
+!         Fortran's 'implicit none' option turned on.  That is a lot
+!         safer, as spelling a variable name wrong raises a compile error
+!         rather than creating a new variable with random contents.
+!
+!      2) The CHARACTER*2 array variable TNUMV and the CHARACTER variables
+!         have been moved to the end of the common block.  The double
+!         precision real array XV has been moved to the start.
+!         This rearrangement stops the compiler complaining about the
+!         common block being misaligned and asking for the gfortran
+!         compile switch '-fno-align-commons' to be used.
+!
+!      3) Added a reminder to increase LMTBL2 if the count of routes
+!         is increased.
+!
+!      4) All the tab characters have been changed to spaces.
+!
+!      5) All comment characters in the first column have been changed
+!         from C to ! so that DSHARE can be included in Fortran 95 files.
+!
+!      6) The character array declarations have been changed to the new
+!         Fortran style so that gfortran with the -pedantic switch on
+!         doesn't complain about them when it compiles .f95 source files.
+!
+!      6) A new integer variables has been declared, 'inpver', holding
+!         a version number for the input file.
 !

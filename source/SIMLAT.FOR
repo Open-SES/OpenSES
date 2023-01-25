@@ -161,14 +161,15 @@ C
   500 IF( PRTIME - NTIME ) 510,510,600                                  
 C---- TIME FOR ANOTHER PRINT                                            
   510 IF( NPRGR(IPRGRP) ) 520,520,515                                   
-  515 CALL PRINT                                                        
+  515 CALL PRINT
+      CALL JSONPIT                                                        
 C---- INCREMENT NUMBER OF PRINTS FOR THIS GROUP - IS GROUP EXHAUSTED    
   520 NMPRGP = NMPRGP + 1                                               
       NUMY1=NPRGR(IPRGRP)                                               
       IF(NMPRGP-IABS(NUMY1)) 530,540,540                                
   530 PRTIME = PRTIME + GINTPR(IPRGRP)                                  
       GO TO 600                                                         
-C---- PRINT GROUP IS EXHAUSTED - PERFORM SUMMARY AND A/C EST. IF REQ'D  
+C---- PRINT GROUP IS EXHAUSTED - PERFORM SUMMARY AND A/C EST. IF REQ.  
   540 IF( NOSUMY ) 549,549,543                                          
   543 IF( GRSUM(IPRGRP) - 2 ) 547,545,545                               
 C---- PRINT SUMMARY OF OPTION IS 2, 3 OR 4                              
@@ -188,7 +189,8 @@ C---- INITIALIZE SUMMARY IF REQUIRED
       GO TO ( 549, 548, 549, 548, 551 ), ISUMOP                         
 C---- SHOW DETAIL PRINT OF RE-START CONDITIONS                          
   551 KPRNTH = 1000000                                                  
-      CALL PRINT                                                        
+      CALL PRINT
+      CALL JSONPIT                                                        
 C---- INITIALIZE SUMMARY TOTALS ( OPTION 1, 3, 4 )                      
   548 CALL SUMARY( 1 )                                                  
 C---- INCREMENT GROUP COUNTER - HAVE ALL GROUPS BEEN EXHAUSTED          

@@ -95,7 +95,7 @@ C
    44 FORMAT (131('-'))                                             
    57 FORMAT ( / ,T25,'SECTION PRESSURE CHANGES  ( SECTION NUMBER AND TO
      1TAL PRESSURE CHANGE - IN. WG )'/T25,79('-'),/)                    
-   58 FORMAT(  8 ( I6, F9.5 ) )                                         
+   58 FORMAT( T25, 'SECTION:  ',I3, T45, F9.5 )                                         
  1020 FORMAT(///, T12, 'SYSTEM', T29, 'WALL SURFACE',T51, 'HEAT TRANSFER           
      1 TO WALL' ,/, T9,'PARTITIONING', T29, 'TEMPERATURE', T49, 'CONVECT
      2ION',T65,'RADIATION',/,T31,'(DEG F)',T50,'(BTU/HR)',T65,'(BTU/HR)'
@@ -213,11 +213,17 @@ C
    50 GO TO (59,59,59,52,59,52,59,59), SUPOPT                           
    52 IF (NSEC) 59,59,54                                                
    54 ALTER=RHOMAS/WGCONS                                               
-      DO 56 ISCT=1,NSEC                                                 
-   56 OMEGS(ISCT)=ALTER*(OMEGS(ISCT)-BS(ISCT)*DQDTS(ISCT))              
+C     THE ORIGINAL LINES THAT WERE HERE IN VERSION 4.1 OVERWRITE 
+c     THE OMEGS() ARRAY WITH TEMPERORY DATA THAT IS PRINTED TO 
+c     THE OUTPUT FILE (PRESSURE IN INWG).  SINCE THE JSON ROUTINE 
+C     DOES THE SAME CALCULATION, THIS SECTION WAS RE-WRITTEN.  THE NEW 
+C     CODE DOES NOT ALTER OMEGS(). IT REALLY SHOULD NOT BE DOING THAT
+C     OUTSIDE OF AN AERO ROUTINE [PRINT IS CALLED OUTSIDE OF AERO].  
       WRITE (OUT,57)                                                    
-      WRITE (OUT,58) (TABL11(ISCT),OMEGS(ISCT),ISCT=1,NSEC)             
-      WRITE (OUT,15)
+      DO 56 ISCT=1,NSEC                                                 
+      DUMY1=ALTER*(OMEGS(ISCT)-BS(ISCT)*DQDTS(ISCT))              
+      WRITE (OUT,58) TABL11(ISCT), DUMY1  
+   56 CONTINUE
    59 GO TO (60,400), IABB                                              
 C                                                                       
 C********************************************************************   

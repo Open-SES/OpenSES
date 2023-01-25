@@ -1,0 +1,463 @@
+C     
+      SUBROUTINE JSONPIT
+C
+C     THIS SUBROUTINE PRINTS THE SYSTEM STATE TO A JSON FORMATTED FILE
+C     SIMILAR TO THE SUB PRINT.  IN SIMULATIONS WHERE A TYPE 4 HEAT SINK
+C     SUMMARY IS PERFORMED AT THE VERY END OF THE SIMULATION, 
+C     AN ADDITIONAL JSON PRINT IS MADE.  THIS IS DONE SO THAT THE NEW
+C     AIR AND WALL TEMPS, THAT RESULT FROM SUB DTHTS2 IN UNCONTROLLED
+C     ZONES, ARE CAPTURED IN THE JSON FILE. IN THESE SITUATIONS, THE
+c     PENTULTIMATE JSON PRINT WILL BE EQUIVALENT TO LAST DETAILED/ABBV
+C     PRINT IN THE STANDARD OUTPUT FILE.  THE LAST PIT, IN THIS CASE,
+C     REPRESENTS WHAT WOULD BE PRINTED TO A TYPE 5 RESTART (RST) FILE,
+C     IF ONE WAS REQUESTED.
+C
+      INCLUDE 'DSHARE'
+C
+C     CONSTANTS
+      INTEGER*4 NPASSENGERS
+      INTEGER*4 ZERO
+      INTEGER*4 NSEGMENTS
+      REAL REALZERO
+C
+C     BEGIN JSON OUTPUT LIST
+1200  FORMAT ( T5, '[')
+1220  FORMAT ( T5, ']')
+1240  FORMAT ( T5, '],')
+C     BEGIN AND END OF PIT OBJECT
+1300  FORMAT ( T10, '{')
+1320  FORMAT ( T10, '}')
+1340  FORMAT ( T10, '},')
+1400  FORMAT ( T10, '[')
+1420  FORMAT ( T10, ']')
+1440  FORMAT ( T10, '],')
+1500  FORMAT ( T10, '"pit" : ', T60, F10.2, ',')
+1600  FORMAT ( T25, '{')      
+1700  FORMAT ( T25, '}')      
+1720  FORMAT ( T25, '},')
+1800  FORMAT ( T25, '[')
+1900  FORMAT ( T25, ']')
+1920  FORMAT ( T25, '],')
+2000  FORMAT ( T10, '"train_data" : ')
+2020  FORMAT ( T10, '"train_data" : [],')
+2100  FORMAT ( T10, '"section_data" : ')
+2110  FORMAT ( T10, '"section_data" : [],')
+2200  FORMAT ( T10, '"segment_data" : ')
+2210  FORMAT ( T10, '"segment_data" : [],')
+2300  FORMAT ( T10, '"subsegment_data" : ')
+2310  FORMAT ( T10, '"subsegment_data" : []')
+C     TRAIN ITEMS
+2400  FORMAT ( T25, '"train_id" : ', T60, I10, ',')
+2402  FORMAT ( T25, '"train_short_id" : ', T66,'"', A2,'"', ',')
+2405  FORMAT ( T25, '"type" : ', T60, I10, ',')
+2410  FORMAT ( T25, '"route" : ', T60, I10, ',')
+2415  FORMAT ( T25, '"position" : ', T60, F10.2, ',')
+2420  FORMAT ( T25, '"velocity" : ', T60, F10.2, ',')
+2425  FORMAT ( T25, '"acceleration" : ', T60, F10.2, ',')
+2430  FORMAT ( T25, '"mode" : ', T60, I10, ',')
+2435  FORMAT ( T25, '"total_drag" : ', T60, F10.2, ',')
+2440  FORMAT ( T25, '"air_drag" : ', T60, F10.2, ',')
+2445  FORMAT ( T25, '"tractive_effort" : ', T60, F10.2, ',')
+2450  FORMAT ( T25, '"drag_coefficient" : ', T60, F10.2, ',')
+2455  FORMAT ( T25, '"motor_current" : ', T60, F10.2, ',')
+2460  FORMAT ( T25, '"line_current" : ', T60, F10.2, ',')
+2465  FORMAT ( T25, '"flywheel_speed" : ', T60, F10.3, ',')
+2466  FORMAT ( T25, '"heat_generated" : ', T60, F10.3, ',')
+2467  FORMAT ( T25, '"heat_rejected" : ', T60, F10.3, ',')
+2470  FORMAT ( T25, '"accel_grid_temperature" : ', T60, F10.2, ',')
+2472  FORMAT ( T25, '"decel_grid_temperature" : ', T60, F10.2, ',')
+2474  FORMAT ( T25, '"aux_power" : ', T60, F10.2, ',')
+2476  FORMAT ( T25, '"propulsion_power" : ', T60, F10.2, ',')
+2478  FORMAT ( T25, '"regeneration_power" : ', T60, F10.2, ',')
+2480  FORMAT ( T25, '"flywheel_power" : ', T60, F10.2, ',')
+2482  FORMAT ( T25, '"accel_grid_heat_in" : ', T60, F10.3, ',')
+2484  FORMAT ( T25, '"decel_grid_heat_in" : ', T60, F10.3, ',')
+2486  FORMAT ( T25, '"rolling_resistance_heat" : ', T60, F10.3, ',')
+2488  FORMAT ( T25, '"propulsion_heat_released" : ', T60, F10.3, ',')
+2490  FORMAT ( T25, '"aux_heat_released_sensible" : ', T60, F10.3, ',')
+2492  FORMAT ( T25, '"aux_heat_released_latent" : ', T60, F10.4, ',')
+2494  FORMAT ( T25, '"passengers" : ', T60, I10)
+c     SECTION DATA
+2500  FORMAT ( T25, '"section_id" : ',T67 , I3, ',')
+2505  FORMAT ( T25, '"airflow_rate" : ', T60, F10.1, ',')
+2510  FORMAT ( T25, '"buoyancy" : ', T60, F10.5, ',')
+2515  FORMAT ( T25, '"pressure_change" : ', T60, F10.5)
+c     SEGMENT DATA
+2600  FORMAT ( T25, '"segment_id" :                       "', I1, ' -',
+     1 I3, '",')
+2601  FORMAT ( T25, '"segment_id" :                      "', I2, ' -',
+     1 I3, '",')
+2602  FORMAT ( T25, '"segment_id" :                     "', I3, ' -',
+     1 I3, '",')
+2605  FORMAT ( T25, '"air_velocity" : ', T60, F10.1, ',')
+2610  FORMAT ( T25, '"reynolds_number" : ', T56, E14.5, ',')
+2612  FORMAT ( T25, '"reynolds_number" : ', T56, E14.5)
+2615  FORMAT ( T25, '"number_of_trains" : ', T60, I10)
+2620  FORMAT ( T25, '"line" :', T66,'true,')
+2625  FORMAT ( T25, '"line" :', T65,'false,')
+C     SUBSEGMENT DATA
+2700  FORMAT ( T25, '"subsegment_id" :               "', I1, ' -',
+     1 I3, ' -', I3, '",')
+2701  FORMAT ( T25, '"subsegment_id" :              "', I2, ' -', I3,
+     1 ' -', I3, '",')
+2702  FORMAT ( T25, '"subsegment_id" :             "', I3, ' -', I3,
+     1 ' -', I3, '",')
+2705  FORMAT ( T25, '"air_temperature" : ', T60, F10.2, ',')
+2710  FORMAT ( T25, '"wall_temperature" : ', T60, F10.2, ',')
+2715  FORMAT ( T25, '"humidity_ratio" : ', T58, F12.5, ',')
+2720  FORMAT ( T25, '"heat_transfer_coeff" : ', T57, F13.7, ',')
+2725  FORMAT ( T25, '"sensible_heat_load" : ', T58, F12.3, ',')
+2730  FORMAT ( T25, '"latent_heat_load" : ', T58, F12.3, ',')
+2735  FORMAT ( T25, '"qwalss" : ', T60, F10.2, ',')
+2740  FORMAT ( T25, '"qradss" : ', T60, F10.2, ',')
+2745  FORMAT ( T25, '"sensible_ac" : ', T60, F10.2, ',')
+2750  FORMAT ( T25, '"latent_ac" : ', T60, F10.2)
+C
+C
+      ZERO=0
+      REALZERO=0.0
+C     WRITE OUT THE PIT HEADER DATA
+C     THE SIMULATION TIME
+      WRITE (JSON, 1300)
+      WRITE (JSON, 1500) FLOAT(NTIME)/100.0
+C
+C     TRAIN DATA
+C     BEGIN TRAINS DATA BLOCK
+      IF (NTRAN .EQ. 0) THEN
+          WRITE (JSON, 2020)
+          GOTO 245
+      ELSE
+          WRITE(JSON, 2000)
+          WRITE(JSON, 1800)
+      ENDIF 
+C     LOOP OVER OPERATING TRAINS AND WRITE DATA RECORDS
+      DO 240 I=1,NTRAN
+      NUMV = IINDEX(I)                                               
+      ITYP=ITYPV(NUMV) 
+      U=UV(NUMV)*FPSMPH
+      IF( (ABS(U)-0.1) .LE. 0.0) THEN                                          
+          CDV = 0.0                                                         
+      ELSE
+          CDV = 2.0*DRAGV(NUMV)/(RHOMAS*AV(ITYP)*UV(NUMV)*UV(NUMV))               
+      ENDIF          
+      NPASSENGERS = INT(WPATV(NUMV)/PATWHT)
+      HETGEN=QAXSV(NUMV)+(QACCV(NUMV)+QDECV(NUMV)+RMHTV(NUMV))/LV(ITYP)
+      QTRPF=QPRPV(NUMV) + QAXSV(NUMV)
+C     WRITE OUT TRAIN DATA OBJECTS
+      WRITE (JSON, 1600)
+      WRITE (JSON, 2400) TRAINID(NUMV)
+      WRITE (JSON, 2402) TNUMV(NUMV)
+      WRITE (JSON, 2405) ITYPV(NUMV)
+      WRITE (JSON, 2410) IROTEV(NUMV)
+      WRITE (JSON, 2415) XV(NUMV)
+      WRITE (JSON, 2420) U
+      WRITE (JSON, 2425) DUDTV(NUMV) * FPSMPH
+      WRITE (JSON, 2430) MODEV(NUMV)
+      WRITE (JSON, 2435) RSISTV(NUMV)
+      WRITE (JSON, 2440) DRAGV(NUMV)
+      WRITE (JSON, 2445) TEV(NUMV)
+      WRITE (JSON, 2450) CDV
+      WRITE (JSON, 2455) AMPV(NUMV)
+      WRITE (JSON, 2460) AMPLV(NUMV)
+      WRITE (JSON, 2465) RPS(NUMV) * 60
+      WRITE (JSON, 2470) TGACCV(NUMV)
+      WRITE (JSON, 2472) TGDECV(NUMV)
+      WRITE (JSON, 2466) HETGEN
+      WRITE (JSON, 2467) QTRPF
+      WRITE (JSON, 2474) PAUXV(NUMV)
+      WRITE (JSON, 2476) PPROPV(NUMV)
+      WRITE (JSON, 2478) PREGNV(NUMV)
+      WRITE (JSON, 2480) PFLYV(NUMV)
+      WRITE (JSON, 2482) QACCV(NUMV)
+      WRITE (JSON, 2484) QDECV(NUMV)
+      WRITE (JSON, 2486) RMHTV(NUMV)
+      WRITE (JSON, 2488) QPRPV(NUMV)
+      WRITE (JSON, 2490) QAXSV(NUMV)
+      WRITE (JSON, 2492) QAXLV(NUMV)
+      WRITE (JSON, 2494) NPASSENGERS
+C     CLOSE OUT EACH TRAIN DATA BLOCK WITH A COMMA OR NOT
+C     IF NOT LAST TRAIN, PRINT A COMMA.  ON LAST TRAIN, NO COMMA
+C     CHECK IF LAST ITEM IN LOOP AND CLOSE CURLY BRACE
+      IF (I .LT. NTRAN) THEN
+          WRITE (JSON, 1720) 
+      ELSE 
+          WRITE (JSON, 1700)
+      ENDIF
+  240 CONTINUE
+C     CLOSE OUT THE LAST ITEM IN LIST OF TRAIN.  LEAD INTO SECTION DATA  
+      WRITE (JSON, 1920)
+C
+C
+C     SECTION DATA BEGIN
+C     IF NO SYSTEM IS BEING SIMULATED WRITE EMPTY LISTS FOR SECT,SEG,SS
+  245 IF (NOSYS .EQ. 0) THEN
+          WRITE (JSON, 2110) 
+          WRITE (JSON, 2210) 
+          WRITE (JSON, 2310) 
+          GOTO 999
+      ENDIF
+C
+C     SECTION DATA BEGIN
+C     LOOP OVER SECTIONS
+C  
+C     BEGIN SECTION DATA JSON KEY
+C
+      WRITE (JSON, 2100)
+      WRITE (JSON, 1800)
+C
+C     CREATE A COUNTER (NUMY1) OF SECTIONS PROCESSED (NUMY1)
+      NUMY1=0
+      ALTER=RHOMAS/WGCONS
+      DO  250  ISCTX = 1,LMSCTX
+C---- CHECK IF SECTION I.D. NUMBER HAS BEEN USED
+      IF( TABL14(ISCTX) ) 250,250,247
+247   ISCT = TABL14(ISCTX)
+C     SECTION PROCESSED, ADD ONE TO COUNTER
+      NUMY1 = NUMY1 + 1
+C     DUMY1 IS THE TOTAL PRESSURE CHANGE IN THE SECTION
+      DUMY1=ALTER*(OMEGS(ISCT)-BS(ISCT)*DQDTS(ISCT))
+      Q = QSAVES(ISCT) * 60
+C     WRITE SECTION DATA
+C     BEGIN CURLY BRACE
+      WRITE (JSON, 1600)
+      WRITE (JSON, 2500) ISCTX
+      WRITE (JSON, 2505) Q
+      WRITE (JSON, 2510) BUOYS(ISCT) * ALTER
+      WRITE (JSON, 2515) DUMY1
+C     IF THE COUNTER REACHES THE NUMBER OF SECTIONS (NSEC),
+C     THIS INDICATES LAST ITEM, CLOSE CURLY BRACE PROPERLY
+      IF (NUMY1 .LT. NSEC) THEN
+          WRITE (JSON, 1720) 
+      ELSE 
+          WRITE (JSON, 1700)
+      ENDIF
+C     
+  250 CONTINUE            
+C      
+C     CLOSE OUT THE LAST ITEM IN LIST OF SECTIONS. LEAD INTO SEG DATA
+      WRITE (JSON, 1920)
+C     END SECTION DATA 
+C
+C     BEGIN SEGMENT DATA
+
+C     CREATE A COUNTER OF SEGMENTS PROCESSED (NUMY1)
+C     CALCULATE NUMBER OF SEGMENTS (LINE AND VENT)
+C     SES ONLY ALLOWS 1 SEGMENT PER VENT SECTION
+      NSEGMENTS = NLS + NVSEC
+      NUMY1 = 0
+C     SEGMENT DATA
+      WRITE (JSON, 2200)
+      WRITE (JSON, 1800)
+C     LINE SEGMENTS
+C     WRITE OUT SEGMENT DATA HEADER INFO
+C
+      DO 300 ISCTX = 1, LMSCTX
+      IF( TABL14(ISCTX) ) 300,300,260
+260   ISCT = TABL14(ISCTX)
+      ISEGL = TABL9(ISCT)                                               
+      ISEGH = TABL10(ISCT)                                              
+      Q = QSAVES(ISCT) * 60
+C     BRANCH ON VENT OR LINE SEGMENT
+      IF( ISEGL ) 280,300,270
+C     LINE SECTION
+270   DO  275  ILS = ISEGL,ISEGH
+C     COUNT OF SEGMENTS ++
+      NUMY1 = NUMY1 + 1
+      V = Q / ALS(ILS)
+      K = NTRNLS(ILS)
+C     OPEN CURLY BRACE
+      WRITE (JSON, 1600)
+C      
+C     CREATE SEGEMENT ID.  TO AVOID LEADING SPACES IN JSON KEY, THREE 
+C     DIFFRENT FORMAT STATEMENTS ARE NEEDED (SINGLE DIGITS, DOUBLE
+C     DIGITS, AND TRIPLE DIGIT SECTION NUMBERS.)      
+      IF ( ISCTX .LE. 9 ) THEN
+        WRITE (JSON, 2600) ISCTX, NUMLS(ILS)
+      ELSE IF ( ISCTX .LE. 99 ) THEN
+        WRITE (JSON, 2601) ISCTX, NUMLS(ILS)
+      ELSE
+        WRITE (JSON, 2602) ISCTX, NUMLS(ILS)
+      END IF 
+C     
+      WRITE (JSON, 2620)
+      WRITE (JSON, 2605) V
+      WRITE (JSON, 2610) RELS(ILS)
+      WRITE (JSON, 2615) K
+C     CHECK IF LAST ITEM IN LOOP AND CLOSE CURLY BRACE
+C     ADD COMMA IS THERE ARE VENTS
+C     GET COMPLICATED BECAUSE IF NO VENTS THEN NO COMMA
+C      
+      IF (NUMY1 .LT. NSEGMENTS) THEN
+        WRITE (JSON, 1720) 
+      ELSE 
+        WRITE (JSON, 1700)
+      ENDIF
+C      
+275   CONTINUE
+      GOTO 300 
+C
+C     VENTILATION SECTION/SEGMENT
+280   IVS = IABS( ISEGL )
+      V = Q / AVS(IVS)
+C     COUNT OF SEGMENTS ++
+      NUMY1 = NUMY1 + 1
+C     OPEN CURLY BRACE
+      WRITE (JSON, 1600)
+C
+C     CREATE SEGEMENT ID.  TO AVOID LEADING SPACES IN JSON KEY, THREE 
+C     DIFFRENT FORMAT STATEMENTS ARE NEEDED (SINGLE DIGITS, DOUBLE
+C     DIGITS, AND TRIPLE DIGIT SECTION NUMBERS.)      
+      IF ( ISCTX .LE. 9 ) THEN
+        WRITE (JSON, 2600) ISCTX, NUMVS(IVS)
+      ELSE IF ( ISCTX .LE. 99 ) THEN
+        WRITE (JSON, 2601) ISCTX, NUMVS(IVS)
+      ELSE
+        WRITE (JSON, 2602) ISCTX, NUMVS(IVS)
+      END IF 
+C
+      WRITE (JSON, 2625) 
+      WRITE (JSON, 2605) V
+      WRITE (JSON, 2612) REVS(IVS)
+C     CHECK IF LAST ITEM IN LOOP AND CLOSE CURLY BRACE
+      IF (NUMY1 .LT. NSEGMENTS) THEN
+        WRITE (JSON, 1720) 
+      ELSE 
+        WRITE (JSON, 1700)
+      ENDIF
+C      
+300   CONTINUE
+C
+C     CLOSE OUT SEGMENT DATA
+      WRITE (JSON, 1920)
+C     END OF SEGMENT DATA
+C
+C
+C
+C
+C*****SUBSEGMENT DATA
+      IF ((THOPT*JRATTH).EQ.0) THEN
+          WRITE(JSON, 2310)
+          GOTO 999
+      ENDIF
+C     BEGIN SUBSEGMENT DATA BLOCK
+      WRITE (JSON, 2300)
+      WRITE (JSON, 1800)
+C     CREATE A COUNTER OF SUBSEGMENTS PROCESSED (NUMY2)
+      NUMY1 = 0
+C     LOOP OVER SECTIONS
+      DO 350 ISCTX = 1, LMSCTX
+C---- CHECK IF SECTION I.D. NUMBER HAS BEEN USED                        
+      IF( TABL14(ISCTX) ) 350,350,310
+310   ISCT = TABL14(ISCTX)                                              
+      ISEGL = TABL9(ISCT)                                               
+      ISEGH = TABL10(ISCT)                                              
+      IF( ISEGL ) 330,350,320
+C     LINE SEGMENT 
+320   DO  325  ILS = ISEGL,ISEGH
+      ILSSL = TABL3(ILS)                                                
+      ILSSH = TABL4(ILS)                                                
+C     NUMY2 IS EXTERNAL SUBSEGMENT NUMBER 
+      NUMY2 = 0
+      DO 323 ISS = ILSSL, ILSSH
+      NUMY1 = NUMY1 + 1
+      NUMY2 = NUMY2 + 1
+C     OPEN CURLY BRACE
+      WRITE (JSON, 1600)
+C
+C     CREATE SEGEMENT ID.  TO AVOID LEADING SPACES IN JSON KEY, THREE 
+C     DIFFRENT FORMAT STATEMENTS ARE NEEDED (SINGLE DIGITS, DOUBLE
+C     DIGITS, AND TRIPLE DIGIT SECTION NUMBERS.)      
+      IF ( ISCTX .LE. 9 ) THEN
+        WRITE (JSON, 2700) ISCTX, NUMLS(ILS), NUMY2
+      ELSE IF ( ISCTX .LE. 99 ) THEN
+        WRITE (JSON, 2701) ISCTX, NUMLS(ILS), NUMY2
+      ELSE
+        WRITE (JSON, 2702) ISCTX, NUMLS(ILS), NUMY2
+      END IF 
+C
+      WRITE (JSON, 2705) TDBSS(ISS)
+      WRITE (JSON, 2710) TSFSS(ISS)
+      WRITE (JSON, 2715) HUMSS(ISS)
+      WRITE (JSON, 2720) HTRNSS(ISS)
+      WRITE (JSON, 2725) SHLTSS(ISS)
+      WRITE (JSON, 2730) LHLTSS(ISS)
+      IF (FIROP2.LE.0) THEN
+          WRITE (JSON, 2735) REALZERO
+          WRITE (JSON, 2740) REALZERO
+C     ADD FLAG TO INDICATE FIRE SEGMENT TO OUTPUT OR JUST LEAVE REALZERO
+      ELSE
+          WRITE (JSON, 2735) QWALSS(ISS)
+          WRITE (JSON, 2740) QRADSS(ISS)
+      END IF
+      WRITE (JSON, 2745) SACLSS(ISS)
+      WRITE (JSON, 2750) LACLSS(ISS)
+C     CHECK IF LAST LINE SUBSEGMENTS AND CLOSE CURLY BRACE
+      IF (NUMY1 .LT. TNSS) THEN
+          WRITE (JSON, 1720) 
+      ELSE 
+          WRITE (JSON, 1700)
+      ENDIF
+323   CONTINUE                  
+325   CONTINUE
+      GOTO 350
+C     ====================
+C     VENT SEGMENT 
+330   IVS = IABS( ISEGL )
+      IVSSL = TABL5(IVS)                                                
+      IVSSH = TABL6(IVS)                                                
+C     NUMY2 IS EXTERNAL SUBSEGMENT NUMBER 
+      NUMY2 = 0
+      DO 335 ISS = IVSSL, IVSSH
+      NUMY1 = NUMY1 + 1
+      NUMY2 = NUMY2 + 1
+C     OPEN CURLY BRACE
+      WRITE (JSON, 1600)
+C
+C     CREATE SEGEMENT ID.  TO AVOID LEADING SPACES IN JSON KEY, THREE 
+C     DIFFRENT FORMAT STATEMENTS ARE NEEDED (SINGLE DIGITS, DOUBLE
+C     DIGITS, AND TRIPLE DIGIT SECTION NUMBERS.)      
+      IF ( ISCTX .LE. 9 ) THEN
+        WRITE (JSON, 2700) ISCTX, NUMVS(IVS), NUMY2
+      ELSE IF ( ISCTX .LE. 99 ) THEN
+        WRITE (JSON, 2701) ISCTX, NUMVS(IVS), NUMY2
+      ELSE
+        WRITE (JSON, 2702) ISCTX, NUMVS(IVS), NUMY2
+      END IF 
+C
+      WRITE (JSON, 2705) TDBSS(ISS)
+      WRITE (JSON, 2710) TSFSS(ISS)
+      WRITE (JSON, 2715) HUMSS(ISS)
+      WRITE (JSON, 2720) HTRNSS(ISS)
+      WRITE (JSON, 2725) REALZERO
+      WRITE (JSON, 2730) REALZERO
+      WRITE (JSON, 2735) REALZERO
+      WRITE (JSON, 2740) REALZERO
+      WRITE (JSON, 2745) REALZERO
+      WRITE (JSON, 2750) REALZERO
+C     CHECK IF LAST LINE SUBSEGMENTS AND CLOSE CURLY BRACE
+      IF (NUMY1 .LT. TNSS) THEN
+          WRITE (JSON, 1720) 
+      ELSE 
+          WRITE (JSON, 1700)
+      ENDIF
+335   CONTINUE                  
+C
+350   CONTINUE
+C
+C     CLOSE OUT SUBSEGMENT DATA
+      WRITE (JSON, 1900)
+C
+C     PRINT OUT FIRE SEGMENT DATA TO JSON OBJECT EVEN THOUGH THIS DATA
+C     IS ALREADY INCLUDED IN SUBSEGMENT DATA (CONVECTIVE AND RADIATIVE 
+C     OUTPUT FOR FIRE SEGMENTS)  [TO BE DONE IF NECESSARY TPO]
+C
+C     CLOSE OUT PIT IN JSON FILE AND CLOSE CURLY BRACKETS/PARENTHESES
+C     CHECK IF LAST PIT
+999   IF (NEW .EQ. 2) THEN
+        WRITE (JSON, 1320)
+        WRITE (JSON, 1220)
+      ELSE
+        WRITE (JSON, 1340)
+      ENDIF
+      RETURN
+      END

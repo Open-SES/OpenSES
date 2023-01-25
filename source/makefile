@@ -12,7 +12,7 @@ EXE = OpenSES
 # we can use slightly different compile flags for them.  We set things up so
 # that the .f95 files are compiled first (as they are more likely to have
 # been edited and thus raise compile errors).
-SRCS1 = 	getver.f95  ancill.f95
+SRCS1 =     getver.f95  ancill.f95
 
 SRCS2 =     ACEST2.FOR  DTHTS2.FOR  FLYWHL.FOR   INPUT.FOR  LSINS.FOR  OMEGA5.FOR PINPNT.FOR   RELHUM.FOR   SIMQ2.FOR    TRINS.FOR   \
             AIR.FOR     EERROR.FOR  FORCE1.FOR   INTEXT.FOR MAXMIN.FOR OMGJ1.FOR  PRINT.FOR    RESIST.FOR   SUMARY.FOR   TRSLOP.FOR  \
@@ -21,7 +21,7 @@ SRCS2 =     ACEST2.FOR  DTHTS2.FOR  FLYWHL.FOR   INPUT.FOR  LSINS.FOR  OMEGA5.FO
             BEI.FOR     CHECKR.FOR  FCTORL.FOR   GRID.FOR   KEI.FOR    OMEGA1.FOR OMGJ4.FOR    QDERIV.FOR   RSTWRITE.FOR TORQUE.FOR  \
             BER.FOR     CREAT2.FOR  HEAT.FOR     KER.FOR    OMEGA2.FOR OMGJ5.FOR  QSQLP.FOR    SIMERR.FOR   TRAIN.FOR    WLLTM2.FOR  \
             BESSEL.FOR  CREAT3.FOR  FINS.FOR     HEATUP.FOR LATENT.FOR OMEGA3.FOR OMGJ6.FOR    QUARRK.FOR   SIMLAT.FOR   TRANST.FOR  \
-            DSES.FOR    FLOWAY.FOR  HOOKUP.FOR   LOCATE.FOR OMEGA4.FOR RATES.FOR  SIMQ1.FOR    TRIDG3.FOR   FILESUBS.FOR
+            DSES.FOR    FLOWAY.FOR  HOOKUP.FOR   LOCATE.FOR OMEGA4.FOR RATES.FOR  SIMQ1.FOR    TRIDG3.FOR   FILESUBS.FOR  JSONPIT.FOR
 
 
 
@@ -58,7 +58,7 @@ no_target:
 
 
 # Define some prerequisites for compiling the files, so that the makefile
-# knows which routines must be recompiled when their COMMON block files change
+# knows which routines must be recompiled when their COMMON block files change.
 #
 # Two files involved in doing the heat sink calculation import JULIEC.
 JULIE.FOR WLLTM2.FOR : JULIEC
@@ -66,7 +66,7 @@ JULIE.FOR WLLTM2.FOR : JULIEC
 ACEST2.FOR CREAT2.FOR CREAT3.FOR  \
 DTHTS2.FOR FORCE1.FOR FORCEL.FOR WLLTM2.FOR : DSHRHS
 #
-# Most of the input files in OpenSES import DSHARE, we'll put it for all of them.
+# Most of the source files in OpenSES import DSHARE, we'll put it for all of them.
 $(SRCS) : DSHARE
 
 
@@ -84,6 +84,7 @@ prep:
 debug: $(DBGEXE)
 
 $(DBGEXE): $(DBGOBJS)
+                                          # May need to use -static-libgfortran on macOS
 	$(FCOMP) -o $(DBGEXE) $(DBGOBJS) -static
 
 $(DBGDIR)/%.o: %.f95
@@ -95,6 +96,7 @@ $(DBGDIR)/%.o: %.FOR
 release: $(RELEXE)
 
 $(RELEXE): $(RELOBJS)
+                                          # May need to use -static-libgfortran on macOS
 	$(FCOMP) -o $(RELEXE) $(RELOBJS) -static
 
 $(RELDIR)/%.o: %.f95
