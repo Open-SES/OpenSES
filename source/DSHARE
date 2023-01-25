@@ -559,7 +559,7 @@
 
 
 !     This is a list of changes between the version of DSHARE uploaded
-!     on 24 January 2023 and the version of DSHARE uploaded on 6 Feb 2022.
+!     on 25 January 2023 and the version of DSHARE uploaded on 6 Feb 2022.
 !
 !      1) All variables in the common block have been explicitly declared.
 !         This allows new routines (.f90 and later) to be written with
