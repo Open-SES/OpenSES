@@ -1,7 +1,31 @@
 !
-!     INCLUDE DSHARE                           ( DATE: 23 January 2023 )
+!     INCLUDE DSHARE                           ( DATE: 26 Oct 2022 )
 !
-!     A list of changes is given at the end of this file.
+!
+!     This version of 'DSHARE' has a number of changes from the version
+!     of DSHARE uploaded to Github on 13 July 2021.
+!
+!      1) All variables in the common block have been explicitly declared.
+!         This allows new routines (.f90 and later) to be written with
+!         Fortran's 'implicit none' option turned on.  That is a lot
+!         safer, as spelling a variable name wrong raises a compile error
+!         rather than creating a new variable with random contents.
+!
+!      2) The CHARACTER*2 array variable TNUMV and the CHARACTER variables
+!         have been moved to the end of the common block.  The double
+!         precision real array XV has been moved to the start.
+!         This rearrangement stops the compiler complaining about the
+!         common block being misaligned and asking for the gfortran
+!         compile switch '-fno-align-commons' to be used.
+!
+!      3) Added a reminder to increase LMTBL2 if the count of routes
+!         is increased.
+!
+!      4) All the tab characters have been changed to spaces.
+!
+!      5) All comment characters in the first column have been changed
+!         from C to ! so that DSHARE can be included in Fortran 95 files.
+!
 !
 !
 !****  ARRAY SIZE LIMITS       ****************************************
@@ -66,8 +90,6 @@
 !
 ! ******************** New variables for OpenSES *********************
 !
-      integer :: inpver                    ! Version number of the input file.
-!
 !
 ! ************************ INTEGER VARIABLES *************************
 !
@@ -131,7 +153,6 @@
       INTEGER   DPV(LMTRAN), IINDEX(LMTRAN), IROTEV(LMTRAN)
       INTEGER   ITYPV(LMTRAN), MODEV(LMTRAN), NTSV(LMTRAN)
       INTEGER   NTSV2(LMTRAN), TLPSV(LMTRAN), TRAINID(LMTRAN)
-      INTEGER   NTSV2(LMTRAN), TLPSV(LMTRAN), TRAINID(LMTRAN)
       INTEGER   TSTRTV(LMTRAN)
 !  IMPULSE FAN VARIABLES
       INTEGER   TOFIFS(6), TONIFS(6)
@@ -164,21 +185,18 @@
 !
 ! ************************ CHARACTER VARIABLES ***********************
 !  OPERATIONAL TRAIN VARIABLES  (LMTRAN)
-      CHARACTER (len=2), dimension(lmtran) :: TNUMV
+      CHARACTER*2 TNUMV(LMTRAN)
 !  LINE SUBSEGMENT BY TRAIN ROUTE ( LMLSS X LMTRRT )
-      CHARACTER (len=2), dimension(lmlss,lmtrrt) :: ITNLSS
+      CHARACTER*2   ITNLSS(LMLSS,LMTRRT)
 !  LINE SEGMENT VARIABLES  ( LMLSEG )
-      CHARACTER (len=36), dimension(lmlseg) :: NAMLS
+      CHARACTER*36  NAMLS(LMLSEG)
 !  VENTILATION SHAFT SEGMENT VARIABLES  ( LMVSEG )
-      CHARACTER (len=36), dimension(lmvseg) :: NAMVS
+      CHARACTER*36 NAMVS(LMVSEG)
 !  FILE INPUT/OUTPUT VARIABLES
-      CHARACTER (len=20) DATETIME
-      CHARACTER (len=8) SESVER
-      CHARACTER (len=80) TITLE
-      CHARACTER(len=9), dimension(12) :: MONTHS
-      CHARACTER (len=116) :: HEADER
-      CHARACTER (len=122) :: FOOTER
-      CHARACTER (len=254) :: FILENAME, INPFILE, RESTART, PRNTCTRL
+      CHARACTER  DATETIME*20, SESVER*8, TITLE*80
+      CHARACTER*9   MONTHS (12)
+      CHARACTER HEADER*116, FOOTER*122
+      CHARACTER*254 FILENAME,INPFILE, RESTART, PRNTCTRL
 !
 ! ******************** Formerly undeclared variables *******************
 !
@@ -506,8 +524,8 @@
       COMMON   QPRPV, RGSUMV, RMHTV
       COMMON   RPS, RSISTV, TAAVGV
       COMMON   TEV, TGACCV, TGDECV, TLPSV
-      COMMON   TSTRTV, TWAVGV, UV, TRAINID
-      COMMON   WPATV, XLASTV
+      COMMON   TSTRTV, TWAVGV, UV
+      COMMON   WPATV, XLASTV, TRAINID
 !  POWER SECTOR VARIABLES (LMSTR)
       COMMON   EAUXSR, EPRFSR, EPR3SR
       COMMON   ERGNSR
@@ -528,8 +546,6 @@
 !  PRINT GROUP VARIABLES  ( LMPRGP )
       COMMON   GINTPR, GRABBP, GRATAE, GRATTH, GRSUM, NPRGR
 
-      common   inpver
-
 
 ! When adding new variables to the common block, place them above this
 ! comment.  We want to keep the variables below (some of which have
@@ -539,54 +555,9 @@
       COMMON   FILENAME, INPFILE, RESTART, PRNTCTRL, HEADER, FOOTER
       COMMON   DATETIME, TITLE, MONTHS, SESVER
       COMMON   TNUMV
+
       EQUIVALENCE  (ND(1), NDS(2), NDSS(3))
 !
 !
 !*****DSHARE  END******************************************************
-!
-
-
-!     This is a list of changes between the version of DSHARE uploaded
-!     on 6 Feb 2022 and the version of DSHARE uploaded on 13 July 2021.
-!     It may be incomplete.
-!
-!      1) Added a new array of integer train numbers, TRAINID(LMTRAN)
-!
-!      2) Added a new integer to be the channel number of the terminal,
-!         called SCREEN.  It is set to 0 in DSES.FOR.
-!
-!      3) Added a new integer to be the channel number of the JSON file,
-!         called JSON.  It is set to 8 in DSES.FOR.
-
-
-!     This is a list of changes between the version of DSHARE uploaded
-!     on 25 January 2023 and the version of DSHARE uploaded on 6 Feb 2022.
-!
-!      1) All variables in the common block have been explicitly declared.
-!         This allows new routines (.f90 and later) to be written with
-!         Fortran's 'implicit none' option turned on.  That is a lot
-!         safer, as spelling a variable name wrong raises a compile error
-!         rather than creating a new variable with random contents.
-!
-!      2) The CHARACTER*2 array variable TNUMV and the CHARACTER variables
-!         have been moved to the end of the common block.  The double
-!         precision real array XV has been moved to the start.
-!         This rearrangement stops the compiler complaining about the
-!         common block being misaligned and asking for the gfortran
-!         compile switch '-fno-align-commons' to be used.
-!
-!      3) Added a reminder to increase LMTBL2 if the count of routes
-!         is increased.
-!
-!      4) All the tab characters have been changed to spaces.
-!
-!      5) All comment characters in the first column have been changed
-!         from C to ! so that DSHARE can be included in Fortran 95 files.
-!
-!      6) The character array declarations have been changed to the new
-!         Fortran style so that gfortran with the -pedantic switch on
-!         doesn't complain about them when it compiles .f95 source files.
-!
-!      6) A new integer variables has been declared, 'inpver', holding
-!         a version number for the input file.
 !

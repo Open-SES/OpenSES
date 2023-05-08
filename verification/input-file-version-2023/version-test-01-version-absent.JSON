@@ -1,0 +1,54 @@
+    [
+         {
+         "info" : {}
+         },
+         {
+         "pit" :                                                 0.00,
+         "train_data" : [],
+         "section_data" : 
+                        [
+                        {
+                        "section_id" :                            101,
+                        "airflow_rate" :                          0.0,
+                        "buoyancy" :                          0.00000,
+                        "pressure_change" :                   0.00000
+                        },
+                        {
+                        "section_id" :                            102,
+                        "airflow_rate" :                          0.0,
+                        "buoyancy" :                          0.00000,
+                        "pressure_change" :                   0.00000
+                        },
+                        {
+                        "section_id" :                            103,
+                        "airflow_rate" :                          0.0,
+                        "buoyancy" :                          0.00000,
+                        "pressure_change" :                   0.00000
+                        }
+                        ],
+         "segment_data" : 
+                        [
+                        {
+                        "segment_id" :                     "101 -101",
+                        "line" :                                 true,
+                        "air_velocity" :                          0.0,
+                        "reynolds_number" :               0.00000E+00,
+                        "number_of_trains" :                        0
+                        },
+                        {
+                        "segment_id" :                     "102 -102",
+                        "line" :                                 true,
+                        "air_velocity" :                          0.0,
+                        "reynolds_number" :               0.00000E+00,
+                        "number_of_trains" :                        0
+                        },
+                        {
+                        "segment_id" :                     "103 -103",
+                        "line" :                                 true,
+                        "air_velocity" :                          0.0,
+                        "reynolds_number" :               0.00000E+00,
+                        "number_of_trains" :                        0
+                        }
+                        ],
+         "subsegment_data" : []
+         },

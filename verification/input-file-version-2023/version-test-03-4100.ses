@@ -1,0 +1,43 @@
+OpenSES file for testing code to handle input file versions.
+This file has an OpenSES version number in form 1B that is 4.1.  The
+transcript in the .OUT file records this.
+17.       7         2022      4.1
+0         0         1         0         0         1         0         -1         tpopt  humid W/RH/WB ECZs therm supopt simerr inperr
+3         3         0         4         1         0         0         0          lsegs  sects  vsegs nodes use1  use0   fires  fans
+0         0         0         1         0         1         0         0          routes trtyp  zones fcark trns  JFs    write  read
+85.       74.       29.91     75.       65.       85.       74.       12.        DB1    WB1    P_atm AMDB  AMWB  PMDB   PMWB   annamp
+150.      0.        0.        0.        0.        0.        0         0.2        mass   cpBst  cpBmv cpAst cpAmv speed  firopt emiss
+101       101       104       1         0.                                       Form 2A
+102       102       104       1         0.
+103       103       104       1         0.
+101       1         Tee piece 1                                                  Form 3A
+328.1     215.3     0.        0
+64.2
+0.016
+0.5       1.        0.        0.        0.        5         0
+1         5         85.       85.       74.
+102       1         Tee piece 2
+328.1     215.3     0.        0
+64.2
+0.016
+0.5       1.        0.        0.        0.        5         0
+1         5         85.       85.       74.
+103       9         Stem with jet fan
+328.1     215.3     0.        0
+64.2
+0.016
+0.5       1.        0.        0.        0.        5         0
+1         5         85.       85.       74.
+101       0         3                                                            Form 6A
+0.        0.
+102       0         3
+0.        0.
+103       0         3
+0.        0.
+104       4         1
+101       102       103       1.        20.                                      Form 6F
+63566.4   0.7       5500.     0.        1000.                                    Form 7C
+5.        1                                                                      Form 12A
+6         50.       2         0         1         5                              count seconds abbrev ECZs aero & thermo cycles
+20        300.      10        10                                                 timestep, runtime, train cycles, wall cycles
+

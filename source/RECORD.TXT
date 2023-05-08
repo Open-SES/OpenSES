@@ -1,8 +1,8 @@
                       SUBWAY ENVIRONMENT SIMULATION
-                                   SES
+                                OpenSES
                      PROGRAM DICTIONARY OF VARIABLES
 
-                  VERSION 4 MODIFICATION LEVEL 00
+                  VERSION 4.3 MODIFICATION LEVEL ALPHA
 
            THE PRINCIPAL VARIABLES OF THE SES PROGRAM ARE LISTED
         BELOW IN ALPHABETICAL ORDER.  EACH VARIABLE NAME IS FOLLOWED
@@ -915,6 +915,14 @@
  INPFILE   IS A CHARACTER*254 VARIABLE USED TO STORE THE COMPLETE
           NAME OF THE INPUT FILE AS PROVIDED BY THE USER.  (I,CH)
 
+ inpver   is the version number of the OpenSES input file (not the
+        version number of the program).  It is read from the input
+        file as a fourth number in form 1B (in a call to GetVersion),
+        multiplied by 1000 and stored as an integer.  If a fourth
+        number is not present in form 1B, inpver is set to 4200.
+        It is used to control the behaviour of the calculation and
+        the reading of new input. ( c,i )
+
  INODE  NUMBER OF NODE FOR WHICH AERODYNAMIC JUNCTION CALCULATIONS
         ARE CURRENTLY BEING PERFORMED.  ( C,I ).
 
@@ -958,7 +966,7 @@
         CORRESPONDING TO THE TIME INTERVAL 'DELT' AND FINDING
         THEIR LOCATION WITH RESPECT TO SEGMENT BOUNDARIES.  ( C,I ).
 
- JSON   IS THE LOGICAL UNIT NUMBER FOR THE JSON OUTPUT FILE.  IT IS 
+ JSON   IS THE LOGICAL UNIT NUMBER FOR THE JSON OUTPUT FILE.  IT IS
         NUMERICALY EQUAL TO THE INTEGER 8.
 
  KAERO  IS ZERO FOR AERODYNAMIC RUNGE-KUTTA STEPS ONE AND THREE AND ONE
@@ -1783,7 +1791,12 @@
         FROM TRAIN AUXILIARY SYSTEM AND PASSENGERS OVER THE SUMMARY
         INTERVAL. (BTU/SEC) * PINPT. SUMMED IN PINPNT.  ( C,R ).
 
- SESVER    IS A CHARACTER*5 CONSTANT USED TO STORE THE SES VERSION
+ screen  is the fortran logical unit number of the terminal/screen.
+        It is initialized at the beginning of the program and passed
+        through common to all other portions of the program.  ( c,i ).
+
+
+ SESVER    IS A CHARACTER*8 CONSTANT USED TO STORE THE SES VERSION
           NUMBER.  CHANGES TO THE LENGTH OF THIS CONSTANT WOULD
           NECESSITATE MODIFICATIONS TO THE DEFINITIONS OF VARIABLE
           HEADER AS WELL AS FORMAT STATEMENTS IN SUBROUTINES INPUT AND
@@ -2210,9 +2223,9 @@
 
  TRAINID(NUMV) IS THE SERIAL NUMBER OF THE TRAIN NUMV.  IT IS GENERATED
         WHEN THE TRAIN IS CREATED.  TNUMV(NUMV) IS A 2 CHARACTER ARRAY,
-        WHILE TRAINID(NUMV) IS AN INTEGER THAT IS EQUIVALEN TO 
+        WHILE TRAINID(NUMV) IS AN INTEGER THAT IS EQUIVALEN TO
         NUMBTR AT THE POINT WHEN THE TRAIN IS CREATED.
-  
+
  TRNDLS(ILS,ILOC)  CONTAINS THE DISTANCES FROM THE BACKWARD END OF
         THE SEGMENT TO THE BACKWARD AND FORWARD ENDS OF THE TRAINS THAT
         ARE IN THAT SEGMENT.  THE DISTANCE TO THE BACKWARD END ( WITH
