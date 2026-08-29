@@ -28,3 +28,8 @@
 
 # Executables
 *.app
+
+# LaTeX Auxiliary Files
+*.aux
+*.log
+*.synctex.gz
